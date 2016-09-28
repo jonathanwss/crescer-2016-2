@@ -51,5 +51,7 @@ public class Elfo {
         
         anao.setPontosDeVida(anao.getPontosDeVida()-(nflechas*10));
     }
+    
+    
 }
 

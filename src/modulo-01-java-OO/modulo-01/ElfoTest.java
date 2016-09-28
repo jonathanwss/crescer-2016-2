@@ -43,7 +43,7 @@ public class ElfoTest
 
         assert(alf.getNumFlechas()>0);
     }
-    
+    //verificar se vai ficar um número positivo de flechas
     @Test
     public void verificarQuantidadeDeFlechasAposTiro(){
         Elfo elf = new Elfo("reinaldo");
@@ -51,5 +51,16 @@ public class ElfoTest
         elf.atirarFlecha(44);
 
         assert(elf.getFlecha().getQuantidade()>=0);
+    }
+    
+    @Test
+    public void testeMatouDwarve(){
+        Elfo e = new Elfo("Fergus");
+        
+        Dwarve d = new Dwarve();
+        
+        e.cacarAnao(11, d);
+        
+        assert(d.getPontosDeVida()<=0);
     }
 }

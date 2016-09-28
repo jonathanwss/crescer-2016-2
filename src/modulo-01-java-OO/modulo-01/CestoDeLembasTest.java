@@ -15,7 +15,7 @@ public class CestoDeLembasTest
 {
     @Test
     public void verificarSePodeSerDivididoEmPares(){
-        CestoDeLembas lemba = new CestoDeLembas(4);
+        CestoDeLembas lemba = new CestoDeLembas(100);
         
         assertEquals(true, lemba.podeDividirEmPar());
     }
