@@ -54,26 +54,5 @@ public class ElfoTest
         assert(elf.getFlecha().getQuantidade()>=0);
     }
     
-    @Test
-    public void testeMatouDwarve(){
-        Elfo e = new Elfo("Fergus");
-        
-        Dwarve d = new Dwarve();
-        
-        e.cacarAnao(11, d);
-        
-        assert(d.getPontosDeVida()<=0);
-    }
     
-    
-    @Test
-    public void atirarUmaFlecha(){
-        Elfo g = new Elfo("night");
-        
-        int numFlechas = 1;
-        g.atirarFlecha(numFlechas);
-        
-        assertEquals(1, g.getNumFlechas());
-        
-    }
 }

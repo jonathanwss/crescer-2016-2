@@ -39,17 +39,12 @@ public class Elfo {
         }
         experiencia++;
     }
-
-    /*public void atirarFlechaRefactory() {
-    experiencia++;
-    flecha.setQuantidade(flecha.getQuantidade()-1);
-    }*/
     
-    public void cacarAnao(int nfle, Dwarve anao){
+    public void cacarAnao(int nfle, Dwarf anao){
         
         atirarFlecha(nfle);
         
-        anao.setPontosDeVida(anao.getPontosDeVida()-(nflechas*10));
+        
     }
     
     
