@@ -246,6 +246,20 @@ public class ElfoTest
         assertEquals(fraseEsperada, frase);
         assertEquals(fraseEsperada2, frase2);
     }
+    
+    @Test
+    public void escolherNumeroDeFlechasUmElfo(){
+        Elfo feldon = new Elfo("Feldon", 16);
+        
+        assertEquals(16, feldon.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void escolherNumeroDeFlechasDoisElfos(){
+        Elfo shimira = new Elfo("shimira", 29);
+        
+        assertEquals(29, shimira.getFlecha().getQuantidade());
+    }
 }
 
 

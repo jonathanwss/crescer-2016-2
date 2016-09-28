@@ -10,6 +10,11 @@ public class Elfo {
         flecha = new Item("Flechas", 42);
     }
 
+    public Elfo(String n,int nFlechas){
+        nome = n;
+        flecha = new Item("Flechas", nFlechas);
+    }
+    
     public void setNome(String n) {
         nome = n;
     }
