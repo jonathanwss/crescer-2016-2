@@ -229,6 +229,23 @@ public class ElfoTest
      
         assertEquals(fraseEsperada, frase);
     }
+    
+    
+    @Test
+    public void toStringDoisElfosTeste(){
+        Elfo f = new Elfo("a");
+        Elfo f1 = new Elfo("b");
+        
+        String frase = f.toString();
+        String frase2 = f.toString();
+        
+       String fraseEsperada = "a possui 42 flechas e 0 niveis de experiencia";
+       String fraseEsperada2 = "a possui 42 flechas e 0 niveis de experiencia";
+        
+     
+        assertEquals(fraseEsperada, frase);
+        assertEquals(fraseEsperada2, frase2);
+    }
 }
 
 
