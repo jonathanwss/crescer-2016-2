@@ -3,6 +3,7 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
+    private int nflechas;
 
     public Elfo(String n) {
         nome = n;
@@ -17,20 +18,31 @@ public class Elfo {
     public String getNome() {
         return nome;
     }
-    
+
     public Item getArco() {
         return arco;
     }
 
-    public void atirarFlecha() {
-        flecha.setQuantidade(flecha.getQuantidade() - 1);
+    public Item getFlecha(){
+        return flecha;
+    }
+
+    public int getNumFlechas(){
+        return nflechas;
+    }
+
+    public void atirarFlecha(int numflechas) {
+        nflechas = numflechas;
+        flecha.setQuantidade(flecha.getQuantidade() - nflechas);
+        if(getFlecha().getQuantidade()<0){
+            flecha.setQuantidade(0);
+        }
         experiencia++;
     }
 
     /*public void atirarFlechaRefactory() {
-        experiencia++;
-        flecha.setQuantidade(flecha.getQuantidade()-1);
+    experiencia++;
+    flecha.setQuantidade(flecha.getQuantidade()-1);
     }*/
 }
-
 
