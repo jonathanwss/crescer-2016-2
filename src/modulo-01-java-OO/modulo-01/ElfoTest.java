@@ -36,14 +36,6 @@ public class ElfoTest
         assertEquals(flecha.getQuantidade(), newElfo.getFlecha().getQuantidade());
     }
 
-    @Test
-    public void elfoAtiraUmaFlecha(){
-        Elfo alf = new Elfo("Elrond");
-
-        alf.atirarFlecha();
-
-        assertEquals(41, alf.getFlecha().getQuantidade());
-    }
     
     @Test
     public void elfoAtirarFlecha(){
@@ -224,6 +216,18 @@ public class ElfoTest
         elfo.atirarFlecha(gloin);
         assertEquals(100, balin.getVida());
         assertEquals(100, gloin.getVida());
+    }
+    
+    @Test
+    public void toStringUmElfoTeste(){
+        Elfo f = new Elfo("a");
+        
+        String frase = f.toString();
+        
+       String fraseEsperada = "a possui 42 flechas e 0 niveis de experiencia";
+        
+     
+        assertEquals(fraseEsperada, frase);
     }
 }
 

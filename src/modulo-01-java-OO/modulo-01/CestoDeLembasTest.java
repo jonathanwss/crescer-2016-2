@@ -1,30 +1,16 @@
-<<<<<<< HEAD
 
 
-=======
->>>>>>> master
+
+
+
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-<<<<<<< HEAD
-/**
- * A classe de teste CestoDeLembasTest.
- *
- * @author  (seu nome)
- * @version (um número de versão ou data)
- */
-public class CestoDeLembasTest
-{
-    @Test
-    public void verificarSePodeSerDivididoEmPares(){
-        CestoDeLembas lemba = new CestoDeLembas(100);
-        
-        assertEquals(true, lemba.podeDividirEmPar());
-    }
-}
-=======
+
+
+
 public class CestoDeLembasTest
 {
     @Test
@@ -79,4 +65,4 @@ public class CestoDeLembasTest
 
 
 
->>>>>>> master
+

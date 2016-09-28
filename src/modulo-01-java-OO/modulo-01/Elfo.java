@@ -22,31 +22,26 @@ public class Elfo {
         return arco;
     }
 
-<<<<<<< HEAD
     public Item getFlecha(){
         return flecha;
     }
 
     public void atirarFlecha() {
-       
+
         flecha.setQuantidade(flecha.getQuantidade() - 1);
         if(getFlecha().getQuantidade()<0){
             flecha.setQuantidade(0);
         }
         experiencia++;
     }
+
     
-    
-    
-    
-=======
+ 
     public int getExperiencia() {
         return experiencia;
     }
 
-    public Item getFlecha() {
-        return flecha;
-    }
+    
 
     public void atirarFlecha(Dwarf dwarf) {
         boolean temFlecha = flecha.getQuantidade() > 0;
@@ -57,10 +52,10 @@ public class Elfo {
         }
     }
 
-    /*public void atirarFlechaRefactory() {
-    experiencia++;
-    flecha.setQuantidade(flecha.getQuantidade()-1);
-    }*/
->>>>>>> master
+    @Override
+    public String toString(){
+        return getNome() + " possui " + getFlecha().getQuantidade() + " flechas e " + getExperiencia() + " niveis de experiencia";
+    }
+
 }
 
