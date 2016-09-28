@@ -232,15 +232,15 @@ public class ElfoTest
     
     
     @Test
-    public void toStringDoisElfosTeste(){
+    public void toStringDoisElfosTesteComUmAtirando(){
         Elfo f = new Elfo("a");
         Elfo f1 = new Elfo("b");
-        
+        f1.atirarFlecha(new Dwarf());
         String frase = f.toString();
-        String frase2 = f.toString();
+        String frase2 = f1.toString();
         
        String fraseEsperada = "a possui 42 flechas e 0 niveis de experiencia";
-       String fraseEsperada2 = "a possui 42 flechas e 0 niveis de experiencia";
+       String fraseEsperada2 = "b possui 41 flechas e 1 nivel de experiencia";
         
      
         assertEquals(fraseEsperada, frase);
@@ -262,6 +262,13 @@ public class ElfoTest
         assertEquals(29, shimira.getFlecha().getQuantidade());
         assertEquals(79, galadriel.getFlecha().getQuantidade());
         
+    }
+    
+    @Test
+    public void escolherNumeroDeFlechasUmElfoNegativas(){
+        Elfo feldon = new Elfo("Feldon", -16);
+        
+        assertEquals(42, feldon.getFlecha().getQuantidade());
     }
 }
 

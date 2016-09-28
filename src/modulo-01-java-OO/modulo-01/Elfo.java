@@ -5,14 +5,13 @@ public class Elfo {
     private int experiencia;
 
     public Elfo(String n) {
-        nome = n;
-        arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", 42);
+        this(n, 42);
     }
 
     public Elfo(String n,int nFlechas){
         nome = n;
-        flecha = new Item("Flechas", nFlechas);
+        arco = new Item("Arco", 1);
+        flecha = new Item("Flechas", nFlechas >= 0 ? nFlechas : 42);
     }
     
     public void setNome(String n) {
@@ -31,16 +30,6 @@ public class Elfo {
         return flecha;
     }
 
-    public void atirarFlecha() {
-
-        flecha.setQuantidade(flecha.getQuantidade() - 1);
-        if(getFlecha().getQuantidade()<0){
-            flecha.setQuantidade(0);
-        }
-        experiencia++;
-    }
-
-    
  
     public int getExperiencia() {
         return experiencia;
@@ -59,7 +48,17 @@ public class Elfo {
 
     @Override
     public String toString(){
-        return getNome() + " possui " + getFlecha().getQuantidade() + " flechas e " + getExperiencia() + " niveis de experiencia";
+        boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
+        boolean nivelNoSingular = this.experiencia == 1;
+        return String.format("%s possui %d %s e %d %s de experiencia",
+                               this.nome,
+                               this.flecha.getQuantidade(),
+                               flechaNoSingular ? "flecha" : "flechas",
+                               this.experiencia,
+                               nivelNoSingular ? "nivel" : "niveis"
+                               
+                               );
+       // return getNome() + " possui " + getFlecha().getQuantidade() + " flechas e " + getExperiencia() + " niveis de experiencia";
     }
 
 }
