@@ -37,22 +37,18 @@ public class ElfoTest
     }
 
     @Test
-    public void saberSeAtirouOuNaoFlecha(){
+    public void elfoAtiraUmaFlecha(){
         Elfo alf = new Elfo("Elrond");
 
-        alf.atirarFlecha(1);
+        alf.atirarFlecha();
 
-        assert(alf.getNumFlechas()>0);
+        assertEquals(41, alf.getFlecha().getQuantidade());
     }
-    //verificar se vai ficar um número positivo de flechas
+    
     @Test
-    public void verificarQuantidadeDeFlechasAposTiro(){
-        Elfo elf = new Elfo("reinaldo");
+    public void elfoAtirarFlecha(){
+        Elfo legolas = new Elfo("a");
         
-        elf.atirarFlecha(44);
-
-        assert(elf.getFlecha().getQuantidade()>=0);
+        
     }
-    
-    
 }
