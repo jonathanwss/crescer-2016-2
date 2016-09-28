@@ -257,8 +257,11 @@ public class ElfoTest
     @Test
     public void escolherNumeroDeFlechasDoisElfos(){
         Elfo shimira = new Elfo("shimira", 29);
+        Elfo galadriel = new Elfo("Galadriel", 79);
         
         assertEquals(29, shimira.getFlecha().getQuantidade());
+        assertEquals(79, galadriel.getFlecha().getQuantidade());
+        
     }
 }
 
