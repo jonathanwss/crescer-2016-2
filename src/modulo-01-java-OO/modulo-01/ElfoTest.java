@@ -65,19 +65,6 @@ public class ElfoTest
         assert(d.getPontosDeVida()<=0);
     }
     
-    //caso o nº de flechas seja igual a um numero gerado aleatoriamente o dano será crítico
-    @Test
-    public void danoCritico(){
-        Random r = new Random();
-        
-        Elfo f = new Elfo("churumidas");
-        
-        f.atirarFlecha(2);
-        
-        int random = r.nextInt(10);
-        
-        assertEquals(random, f.getNumFlechas());
-    }
     
     @Test
     public void atirarUmaFlecha(){
