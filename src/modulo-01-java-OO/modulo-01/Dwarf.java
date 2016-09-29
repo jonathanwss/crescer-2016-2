@@ -34,9 +34,13 @@ public class Dwarf {
     public Dwarf(){}
     
     public double getNumeroSorte(){
-        
-        
-        return 101;
+        if(dataNascimento.ehBissexto()==true && getVida()>=80 && getVida()<=90){
+            return 101 * -33;
+        }else if(dataNascimento.ehBissexto()==false && getNome().equals("Seixas") || getNome().equals("Meirelles")){
+            return (101 * 33) % 100;
+        }else{
+            return 101;
+        }
     }
 }
 

@@ -95,6 +95,41 @@ public class DwarfTest
         
     }
     
+    @Test
+    public void resultadoNumeroSorteEhNegativo(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2016);
+        Dwarf cartman = new Dwarf("cartman", nascimento);
+        Elfo kyle = new Elfo("Kyle");
+        
+        kyle.atirarFlecha(cartman);
+        kyle.atirarFlecha(cartman);
+        double negativo = cartman.getNumeroSorte();
+        
+        assert(negativo<0);
+    }
+    
+    @Test
+    public void resultadoNumeroSorteEhPositivo(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
+        Dwarf cartman = new Dwarf("Meirelles", nascimento);
+        
+        double negativo = cartman.getNumeroSorte();
+        
+        assert(negativo>0);
+    }
+    
+    @Test
+    public void resultadoNumeroSortePadrao(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
+        Dwarf cartman = new Dwarf("Cartman", nascimento);
+        
+        double negativo = cartman.getNumeroSorte();
+        
+        assert(negativo==101);
+    }
+    
+    
+    
 }
 
 
