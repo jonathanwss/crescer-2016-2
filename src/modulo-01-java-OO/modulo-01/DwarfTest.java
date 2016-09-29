@@ -105,7 +105,7 @@ public class DwarfTest
         kyle.atirarFlecha(cartman);
         double numSorte = cartman.getNumeroSorte();
         
-        assert(numSorte<0);
+        assert(-3333==numSorte);
     }
     
     @Test
