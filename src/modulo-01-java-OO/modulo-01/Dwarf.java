@@ -6,6 +6,7 @@ public class Dwarf {
     private int vida;
     private DataTerceiraEra dataNascimento;
     private String nome;
+    private int experiencia;
     // java type initializer
     // vai ser replicado para cada construtor
     {
@@ -15,7 +16,15 @@ public class Dwarf {
     public void perderVida() {
         vida -= 10;
     }
+    
+    public void ganhar2xp(){
+        this.experiencia += 2; 
+    }
 
+    public int getXp(){
+        return experiencia;
+    }
+    
     public int getVida() {
         return vida;
     }

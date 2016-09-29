@@ -103,9 +103,9 @@ public class DwarfTest
         
         kyle.atirarFlecha(cartman);
         kyle.atirarFlecha(cartman);
-        double negativo = cartman.getNumeroSorte();
+        double numSorte = cartman.getNumeroSorte();
         
-        assert(negativo<0);
+        assert(numSorte<0);
     }
     
     @Test
@@ -113,9 +113,9 @@ public class DwarfTest
         DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
         Dwarf cartman = new Dwarf("Meirelles", nascimento);
         
-        double negativo = cartman.getNumeroSorte();
+        double numSorte = cartman.getNumeroSorte();
         
-        assert(negativo>0);
+        assert(numSorte>0);
     }
     
     @Test
@@ -123,12 +123,47 @@ public class DwarfTest
         DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
         Dwarf cartman = new Dwarf("Cartman", nascimento);
         
-        double negativo = cartman.getNumeroSorte();
+        double numSorte = cartman.getNumeroSorte();
         
-        assert(negativo==101);
+        assert(numSorte==101);
     }
     
+    @Test
+    public void resultadoNumeroSorteEhnumSorteDwarfGanha2XP(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2016);
+        Dwarf cartman = new Dwarf("cartman", nascimento);
+        Elfo kyle = new Elfo("Kyle");
+        
+        cartman.ganhar2xp();
+        kyle.atirarFlecha(cartman);
+        kyle.atirarFlecha(cartman);
+        double numSorte = cartman.getNumeroSorte();
+        
+        assert(numSorte<0);
+        assertEquals(2, cartman.getXp());
+    }
     
+    @Test
+    public void resultadoNumeroSorteEhPositivoDwarfNaoRecebeFlecha(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
+        Dwarf cartman = new Dwarf("Meirelles", nascimento);
+        
+        double numSorte = cartman.getNumeroSorte();
+        
+        assert(numSorte>=0 && numSorte<=100);
+    }
+    
+    @Test
+    public void resultadoNumeroSorteMaiorQueSemDwarfTomaUmaFlecha(){
+        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2015);
+        Dwarf cartman = new Dwarf("Cartman", nascimento);
+        Elfo kyle = new Elfo("Kyle");
+        kyle.atirarFlecha(cartman);
+        double numSorte = cartman.getNumeroSorte();
+        
+        assert(numSorte>100);
+        assertEquals(100, cartman.getVida());
+    }
     
 }
 
