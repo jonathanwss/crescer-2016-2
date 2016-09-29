@@ -3,15 +3,18 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-
+    private Status status;
+    
     public Elfo(String n) {
+        // Chamando construtor debaixo
         this(n, 42);
     }
-
-    public Elfo(String n,int nFlechas){
-        nome = n;
+    
+    public Elfo(String nome, int quantidadeFlechas) {
+        this.nome = nome;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", nFlechas >= 0 ? nFlechas : 42);
+        flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
+        status = Status.VIVO;
     }
 
     public void setNome(String n) {
@@ -34,6 +37,13 @@ public class Elfo {
         return experiencia;
     }
 
+    public Item getFlecha() {
+        return flecha;
+    }
+    
+    public Status getStatus() {
+        return status;
+    }
 
     public void atirarFlecha(Dwarf dwarf) {
         boolean temFlecha = flecha.getQuantidade() > 0;
@@ -45,20 +55,25 @@ public class Elfo {
 
     }
 
-    @Override
-    public String toString(){
+    public String toString() {
+        //return "<nome> possui <flechas> flechas e <exp> níveis de experiência.";
+
         boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
-        boolean nivelNoSingular = this.experiencia == 1;
-        return String.format("%s possui %d %s e %d %s de experiencia",
+        boolean experienciaNoSingular = this.experiencia == 0 || this.experiencia == 1;
+
+        return String.format("%s possui %d %s e %d %s de experiência.",
             this.nome,
             this.flecha.getQuantidade(),
+            // ?:
             flechaNoSingular ? "flecha" : "flechas",
             this.experiencia,
-            nivelNoSingular ? "nivel" : "niveis"
-
+            experienciaNoSingular ? "nível" : "níveis"
         );
-        // return getNome() + " possui " + getFlecha().getQuantidade() + " flechas e " + getExperiencia() + " niveis de experiencia";
     }
 
+    /*public void atirarFlechaRefactory() {
+    experiencia++;
+    flecha.setQuantidade(flecha.getQuantidade()-1);
+    }*/
 }
 

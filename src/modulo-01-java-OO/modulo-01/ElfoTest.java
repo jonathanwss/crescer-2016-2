@@ -217,62 +217,105 @@ public class ElfoTest
         assertEquals(100, balin.getVida());
         assertEquals(100, gloin.getVida());
     }
-    
-    @Test
-    public void toStringUmElfoTeste(){
-        Elfo f = new Elfo("a");
-        
-        String frase = f.toString();
-        
-       String fraseEsperada = "a possui 42 flechas e 0 niveis de experiencia";
-        
-     
-        assertEquals(fraseEsperada, frase);
-    }
-    
-    
-    @Test
-    public void toStringDoisElfosTesteComUmAtirando(){
-        Elfo f = new Elfo("a");
-        Elfo f1 = new Elfo("b");
-        f1.atirarFlecha(new Dwarf());
-        String frase = f.toString();
-        String frase2 = f1.toString();
-        
-       String fraseEsperada = "a possui 42 flechas e 0 niveis de experiencia";
-       String fraseEsperada2 = "b possui 41 flechas e 1 nivel de experiencia";
-        
-     
-        assertEquals(fraseEsperada, frase);
-        assertEquals(fraseEsperada2, frase2);
-    }
-    
-    @Test
-    public void escolherNumeroDeFlechasUmElfo(){
-        Elfo feldon = new Elfo("Feldon", 16);
-        
-        assertEquals(16, feldon.getFlecha().getQuantidade());
-    }
-    
-    @Test
-    public void escolherNumeroDeFlechasDoisElfos(){
-        Elfo shimira = new Elfo("shimira", 29);
-        Elfo galadriel = new Elfo("Galadriel", 79);
-        
-        assertEquals(29, shimira.getFlecha().getQuantidade());
-        assertEquals(79, galadriel.getFlecha().getQuantidade());
-        
-    }
-    
-    @Test
-    public void escolherNumeroDeFlechasUmElfoNegativas(){
-        Elfo feldon = new Elfo("Feldon", -16);
-        
-        assertEquals(42, feldon.getFlecha().getQuantidade());
-    }
-    
-}
 
+    @Test
+    public void elfoToStringComInformacoesIniciais() {
+        Elfo legolas = new Elfo("Legolas");
+        assertEquals("Legolas possui 42 flechas e 0 nível de experiência.",
+            legolas.toString());
+
+    }
+
+    @Test
+    public void elfoAtiraFlechaEToString() {
+        Elfo legolas = new Elfo("Legolas");
+        legolas.atirarFlecha(new Dwarf());
+        assertEquals("Legolas possui 41 flechas e 1 nível de experiência.",
+            legolas.toString());
+
+    }
+
+    @Test
+    public void elfoAtiraDuasFlechasEToString() {
+        Elfo legolas = new Elfo("Legolas");
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        assertEquals("Legolas possui 40 flechas e 2 níveis de experiência.",
+            legolas.toString());
+
+    }
+    
+    @Test
+    public void elfoAtira41FlechasEToString() {
+        Elfo legolas = new Elfo("Legolas");
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        legolas.atirarFlecha(new Dwarf());
+        assertEquals("Legolas possui 1 flecha e 41 níveis de experiência.",
+            legolas.toString());
+    }
+    
+    @Test
+    public void criarElfoInformandoFlechas() {
+        Elfo elrond = new Elfo("Elrond", 56);
+        assertEquals(56, elrond.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void criarElfoInformandoZeroFlechas() {
+        Elfo elrond = new Elfo("Elrond", 0);
+        assertEquals(0, elrond.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void criarElfoInformandoFlechasNegativas() {
+        Elfo elrond = new Elfo("Elrond", -56);
+        assertEquals(42, elrond.getFlecha().getQuantidade());
+    }
+    
+    @Test public void elfoNasceVivo() {
+        Elfo elfo = new Elfo("Cobaia");
+        assertEquals(Status.VIVO, elfo.getStatus());
+    }
+}
 
 
 
