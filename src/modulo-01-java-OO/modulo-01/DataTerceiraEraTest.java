@@ -21,4 +21,13 @@ public class DataTerceiraEraTest
         
         assertFalse(ehBissexto);
     }
+    
+    @Test
+    public void criarData(){
+        DataTerceiraEra dte = new DataTerceiraEra(20,89,3333);
+        
+        assertEquals(20, dte.getDia());
+        assertEquals(89, dte.getMes());
+        assertEquals(3333, dte.getAno());
+    }
 }

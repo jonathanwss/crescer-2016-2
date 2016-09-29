@@ -7,6 +7,7 @@ public class Dwarf {
     private DataTerceiraEra dataNascimento;
     private String nome;
     private int experiencia;
+    private int sorte = 101 * 33;
     // java type initializer
     // vai ser replicado para cada construtor
     {
@@ -43,10 +44,10 @@ public class Dwarf {
     public Dwarf(){}
     
     public double getNumeroSorte(){
-        if(dataNascimento.ehBissexto()==true && getVida()>=80 && getVida()<=90){
-            return 101 * -33;
+        if(dataNascimento.ehBissexto() && getVida()>=80 && getVida()<=90){
+            return -this.sorte;
         }else if(dataNascimento.ehBissexto()==false && getNome().equals("Seixas") || getNome().equals("Meirelles")){
-            return (101 * 33) % 100;
+            return this.sorte % 100;
         }else{
             return 101;
         }
