@@ -194,5 +194,11 @@ public class DwarfTest
         
         assertTrue(dwarfVidaZerada);
     }
+    
+    @Test
+    public void verificarAdicionarItemDwarf(){
+        Dwarf d = new Dwarf();
+       
+    }
 }
 
