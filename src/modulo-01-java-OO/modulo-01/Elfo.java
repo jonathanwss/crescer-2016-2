@@ -37,9 +37,7 @@ public class Elfo {
         return experiencia;
     }
 
-    public Item getFlecha() {
-        return flecha;
-    }
+
     
     public Status getStatus() {
         return status;

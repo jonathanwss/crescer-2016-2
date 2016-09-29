@@ -31,8 +31,7 @@ public class DwarfTest
 
     @Test
     public void dwarfPerdeVidaVinteVezes() {
-        DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2016);
-        Dwarf gimli = new Dwarf("Gimli", nascimento);
+        Dwarf gimli = new Dwarf();
         gimli.perderVida();
         gimli.perderVida();
         gimli.perderVida();
@@ -53,7 +52,7 @@ public class DwarfTest
         gimli.perderVida();
         gimli.perderVida();
         gimli.perderVida();
-        assertEquals(-90, gimli.getVida());
+        assertEquals(0, gimli.getVida());
     }
 
     @Test
@@ -144,6 +143,56 @@ public class DwarfTest
         dwarf.perderVida();
         assertEquals(100, dwarf.getVida(), .0);
         assertEquals(0, dwarf.getExperiencia());
+    }
+    
+    @Test
+    public void morteDwarf(){
+        Dwarf d = new Dwarf();
+        
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        
+        boolean dwarfMorreu = d.getStatus() == Status.MORTO;
+        
+        assertTrue(dwarfMorreu);
+    }
+    
+    @Test 
+    public void dwarfNasceVivo(){
+        Dwarf d = new Dwarf();
+        
+        boolean dwarfVivo = d.getStatus() == Status.VIVO;
+    }
+    
+    @Test
+    public void dwarfVidaZerada(){
+        Dwarf d = new Dwarf();
+        
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        d.perderVida();
+        
+        boolean dwarfVidaZerada = d.getVida() == 0;
+        
+        assertTrue(dwarfVidaZerada);
     }
 }
 
