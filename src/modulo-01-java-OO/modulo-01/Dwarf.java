@@ -18,7 +18,7 @@ public class Dwarf {
         vida -= 10;
     }
     
-    public void ganhar2xp(){
+    private void ganhar2xp(){
         this.experiencia += 2; 
     }
 
@@ -45,6 +45,7 @@ public class Dwarf {
     
     public double getNumeroSorte(){
         if(dataNascimento.ehBissexto() && getVida()>=80 && getVida()<=90){
+            this.ganhar2xp();
             return -this.sorte;
         }else if(dataNascimento.ehBissexto()==false && getNome().equals("Seixas") || getNome().equals("Meirelles")){
             return this.sorte % 100;

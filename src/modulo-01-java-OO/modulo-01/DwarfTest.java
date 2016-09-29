@@ -134,7 +134,6 @@ public class DwarfTest
         Dwarf cartman = new Dwarf("cartman", nascimento);
         Elfo kyle = new Elfo("Kyle");
         
-        cartman.ganhar2xp();
         kyle.atirarFlecha(cartman);
         kyle.atirarFlecha(cartman);
         double numSorte = cartman.getNumeroSorte();
@@ -142,6 +141,7 @@ public class DwarfTest
         assert(numSorte<0);
         assertEquals(2, cartman.getXp());
     }
+    
     
     @Test
     public void resultadoNumeroSorteEhPositivoDwarfNaoRecebeFlecha(){
