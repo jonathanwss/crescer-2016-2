@@ -315,6 +315,52 @@ public class ElfoTest
         Elfo elfo = new Elfo("Cobaia");
         assertEquals(Status.VIVO, elfo.getStatus());
     }
+    
+    @Test
+    public void adicionandoArcoFlechaMochilaElfo(){
+        Elfo f = new Elfo("Lefo");
+        f.adicionarArcoFlechaInventario();
+        
+        boolean arco = "Arco".equals(f.getMochila().getListadeItens().get(0).getDescricao());
+        boolean flecha = "Flechas".equals(f.getMochila().getListadeItens().get(1).getDescricao());
+        
+        assertTrue(arco);
+        assertTrue(flecha);
+    }
+    
+    @Test
+    public void adicionandoArcoMochilaElfo(){
+        Elfo f = new Elfo("Lefo");
+        f.adicionarArcoFlechaInventario();
+        
+        boolean arco = "Arco".equals(f.getMochila().getListadeItens().get(0).getDescricao());
+        
+        assertTrue(arco);
+    }
+    
+    @Test
+    public void adicionandoFlechaMochilaElfo(){
+        Elfo f = new Elfo("Lefo");
+        f.adicionarArcoFlechaInventario();
+        
+        boolean flecha = "Flechas".equals(f.getMochila().getListadeItens().get(1).getDescricao());
+        
+        assertTrue(flecha);
+    }
+    
+    @Test
+    public void verificarMaiorQtdItensAdicionandoArcoFlechaAtirandoEmUmAnao(){
+        Elfo f = new Elfo("Lefo");
+        f.adicionarArcoFlechaInventario();
+        Dwarf dwarf = new Dwarf();
+        
+        f.atirarFlecha(dwarf);
+        
+        Item obj = f.getMochila().itemMaiorQtd();
+        
+        assertEquals("Flechas", obj.getDescricao());
+        assertEquals(41, obj.getQuantidade());
+    }
 }
 
 

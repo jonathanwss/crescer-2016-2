@@ -1,20 +1,33 @@
 public class Elfo {
     private String nome;
+    //Sei que para otimizar melhor devo remover esses dois itens criados e mandar tudo para o inventario. e o farei UM dia, ou não, zoas. amanhã eu faço.
     private Item arco;
     private Item flecha;
+    //
     private int experiencia;
     private Status status;
-    
+    private Inventario mochila; 
+
     public Elfo(String n) {
         // Chamando construtor debaixo
         this(n, 42);
     }
-    
+
     public Elfo(String nome, int quantidadeFlechas) {
         this.nome = nome;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
         status = Status.VIVO;
+        mochila = new Inventario();
+    }
+
+    public void adicionarArcoFlechaInventario(){
+        mochila.adicionarItem(arco);
+        mochila.adicionarItem(flecha);
+    }
+    
+    public Inventario getMochila(){
+        return mochila;
     }
 
     public void setNome(String n) {
@@ -36,7 +49,6 @@ public class Elfo {
     public int getExperiencia() {
         return experiencia;
     }
-
 
     
     public Status getStatus() {

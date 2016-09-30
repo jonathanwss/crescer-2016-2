@@ -11,6 +11,10 @@ public class Dwarf {
         vida = 110;
     }
 
+    public Inventario getMochila(){
+        return mochila;
+    }
+    
     public Dwarf() {
         this(null, new DataTerceiraEra(1,1,1));
     }
@@ -19,7 +23,16 @@ public class Dwarf {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         status = Status.VIVO;
-        item = new Item("Machado",1);
+        mochila = new Inventario();
+    }
+    
+    
+    public void ganharItem(Item item){
+        mochila.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item){
+        mochila.removerItem(item);
     }
 
      public void perderVida() {
@@ -77,6 +90,20 @@ public class Dwarf {
         }
 
         return resultado;
+    }
+    
+    public void tentarSorte(){
+        
+        double sorteReves = getNumeroSorte();
+        
+        if(sorteReves == - 3333){
+            int tamanhoMochila = mochila.getListadeItens().size();
+            
+            for(int x = 0; x < tamanhoMochila; x++){
+                int qtd = mochila.getListadeItens().get(x).getQuantidade();
+                mochila.getListadeItens().get(x).setQuantidade(qtd+1000);
+            }
+        }
     }
     
 }

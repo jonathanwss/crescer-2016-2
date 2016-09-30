@@ -15,4 +15,27 @@ public class Inventario
     public ArrayList<Item> getListadeItens(){
         return listaDeItens;
     }
+    
+    public String imprimir(){
+        int tamanho = listaDeItens.size();
+        String itens = "";
+        for(int x = 0; x < tamanho; x++){
+             itens += listaDeItens.get(x).getDescricao() + ",";
+        }
+        return itens;
+    }
+    
+    public Item itemMaiorQtd(){
+        int tamanho = listaDeItens.size();
+        int qtd = 0;
+        Item itemObj = new Item("",0);
+        for(int x = 0; x < tamanho; x++){
+            int qtdEstoque = listaDeItens.get(x).getQuantidade();
+            if(qtdEstoque>qtd){
+                qtd = qtdEstoque;
+                itemObj = listaDeItens.get(x);
+            }
+        }
+        return itemObj;
+    }
 }

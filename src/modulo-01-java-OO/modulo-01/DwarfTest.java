@@ -196,9 +196,102 @@ public class DwarfTest
     }
     
     @Test
-    public void verificarAdicionarItemDwarf(){
+    public void verificarAdicionar1ItemDwarf(){
         Dwarf d = new Dwarf();
+        d.ganharItem(new Item("Machado",1));
+        
+        int numItensMochila = d.getMochila().getListadeItens().size();
+        boolean descItem = "Machado".equals(d.getMochila().getListadeItens().get(0).getDescricao());
+        
+        assertEquals(1, numItensMochila);
+        assertTrue(descItem);
+    }
+    
+    @Test
+    public void verificarAdicionar5ItemDwarf(){
+        Dwarf d = new Dwarf();
+        d.ganharItem(new Item("Machado",1));
+        d.ganharItem(new Item("Machado",1));
+        d.ganharItem(new Item("Machado",1));
+        d.ganharItem(new Item("Machado",1));
+        d.ganharItem(new Item("Machado",1));
+        
+        int numItensMochila = d.getMochila().getListadeItens().size();
        
+        
+        assertEquals(5, numItensMochila);
+    }
+    
+    @Test
+    public void verificarPerder1Item(){
+        Dwarf d = new Dwarf();
+        Item item = new Item("Machado",1);
+        d.ganharItem(item);
+        
+        
+        d.perderItem(item);
+        int numItensMochila = d.getMochila().getListadeItens().size();
+        
+        assertEquals(0, numItensMochila);
+        
+    }
+    
+    @Test
+    public void leprechaunTestarAsorteAcertouTendo1Item(){
+        DataTerceiraEra dte = new DataTerceiraEra(16,18,2016);
+        Dwarf f = new Dwarf("Arnaldo",dte);
+        f.perderVida();
+        f.perderVida();
+        
+        f.ganharItem(new Item("pote de ouro",3));
+        
+        
+        f.tentarSorte();
+        int numItens = f.getMochila().getListadeItens().get(0).getQuantidade();
+        
+        
+        assertEquals(1003, numItens);
+        
+    }
+    
+    @Test
+    public void leprechaunTestarAsorteAcertouTendo3Itens(){
+        DataTerceiraEra dte = new DataTerceiraEra(16,18,2016);
+        Dwarf f = new Dwarf("Arnaldo",dte);
+        f.perderVida();
+        f.perderVida();
+        
+        f.ganharItem(new Item("pote de ouro",3));
+        f.ganharItem(new Item("arco iris",5));
+        f.ganharItem(new Item("south park",9));
+        
+        f.tentarSorte();
+        int numItens = f.getMochila().getListadeItens().get(0).getQuantidade();
+        int numItens2 = f.getMochila().getListadeItens().get(1).getQuantidade();
+        int numItens3 = f.getMochila().getListadeItens().get(2).getQuantidade();
+        
+        assertEquals(1003, numItens);
+        assertEquals(1005, numItens2);
+        assertEquals(1009, numItens3);
+    }
+    
+    @Test
+    public void verificarMaiorItemQuandoLeprechaunTemSorte(){
+        DataTerceiraEra dte = new DataTerceiraEra(16,18,2016);
+        Dwarf f = new Dwarf("Arnaldo",dte);
+        f.perderVida();
+        f.perderVida();
+        
+        f.ganharItem(new Item("pote de ouro",3));
+        f.ganharItem(new Item("arco iris",5));
+        f.ganharItem(new Item("south park",9));
+        
+        f.tentarSorte();
+        
+        Item obj = f.getMochila().itemMaiorQtd();
+        
+        assertEquals("south park", obj.getDescricao());
+        assertEquals(1009, obj.getQuantidade());
     }
 }
 
