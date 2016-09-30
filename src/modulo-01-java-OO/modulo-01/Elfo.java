@@ -66,7 +66,7 @@ public class Elfo {
     }
 
     public String toString() {
-        //return "<nome> possui <flechas> flechas e <exp> níveis de experiência.";
+        
 
         boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
         boolean experienciaNoSingular = this.experiencia == 0 || this.experiencia == 1;

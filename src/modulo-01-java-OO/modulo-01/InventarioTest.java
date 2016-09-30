@@ -33,6 +33,54 @@ public class InventarioTest
     }
     
     @Test
+    public void verificarRemover1ItemEspecifico(){
+        Inventario i = new Inventario();
+        Item item = new Item("m",1);
+        Item item2 = new Item("n",1);
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        
+        i.removerItem(item);
+        
+        int tamanhoInventario = i.getListadeItens().size();
+        
+        assertEquals(1, tamanhoInventario);
+        assertEquals("n", i.getListadeItens().get(0).getDescricao());
+    }
+    
+    @Test
+    public void verificarRemover1ItemEspecificoEntre10ItensDiferentes(){
+        Inventario i = new Inventario();
+        Item item = new Item("m",1);
+        Item item2 = new Item("n",1);
+        Item item3 = new Item("m",1);
+        Item item4 = new Item("ma",12);
+        Item item5 = new Item("m",1);
+        Item item6 = new Item("ma",12);
+        Item item7 = new Item("m",1);
+        Item item8 = new Item("ma",12);
+        Item item9 = new Item("m",1);
+        Item item10 = new Item("ma",12);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        i.adicionarItem(item4);
+        i.adicionarItem(item5);
+        i.adicionarItem(item6);
+        i.adicionarItem(item7);
+        i.adicionarItem(item8);
+        i.adicionarItem(item9);
+        i.adicionarItem(item10);
+        i.removerItem(item5);
+        
+        int tamanhoInventario = i.getListadeItens().size();
+        
+        assertEquals(9, tamanhoInventario);
+        assertEquals("ma", i.getListadeItens().get(8).getDescricao());
+    }
+    
+    @Test
     public void verificarAdicionar2Itens(){
         Inventario i = new Inventario();
         Item item = new Item("m",1);
