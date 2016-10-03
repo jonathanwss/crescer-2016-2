@@ -61,7 +61,7 @@ public class ElfoTest
         legolas.atirarFlecha(new Dwarf());
         // Assert
         assertEquals(41, legolas.getFlecha().getQuantidade());
-        assertEquals(1, legolas.getExperiencia());
+        assertEquals(1, legolas. getExperiencia());
     }
 
     @Test

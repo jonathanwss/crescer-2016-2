@@ -5,8 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class irishDwarfTest
-{
+public class irishDwarfTest{
   
     @Test
     public void testeMuitaSortePrimeiraPosicao(){
@@ -28,6 +27,18 @@ public class irishDwarfTest
        id.muitaSorte();
        
        assertEquals(21006, id.getMochila().getListadeItens().get(1).getQuantidade());
+    }
+    
+    @Test
+    public void testeMuitaSorteTerceiraPosicao(){
+        irishDwarf id = new irishDwarf();
+       id.ganharItem(new Item("a",3));
+       id.ganharItem(new Item("b",6));
+       id.ganharItem(new Item("b",10));
+       
+       id.muitaSorte();
+       
+       assertEquals(55010, id.getMochila().getListadeItens().get(2).getQuantidade());
     }
     
     @Test

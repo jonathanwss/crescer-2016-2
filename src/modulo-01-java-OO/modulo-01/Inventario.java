@@ -51,6 +51,7 @@ public class Inventario
         for (int i = 0; i < listaDeItens.size(); i++) {
 
             for (int j = listaDeItens.size() - 1; j > i; j--) {
+                
                 if (listaDeItens.get(i).getQuantidade() > listaDeItens.get(j).getQuantidade()) {
 
                     listaDeItensOrdenados.add(listaDeItens.get(i));

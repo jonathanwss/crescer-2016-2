@@ -37,11 +37,10 @@ public class HobbitContador
             while(mmc){
                 double restoA = cont%a;
                 double restoB = cont%b;
-                if(restoA ==  restoB ){
-                    if(a<=cont && b<=cont){
+                if(restoA ==  restoB && a<=cont && b<=cont){
+                    
                         result *= cont;
                         mmc = false;
-                    }      
                 }
                 
                 cont++;
@@ -54,9 +53,6 @@ public class HobbitContador
             cont = 1;
 
         }
-
-        
-        
        
         return matriz.isEmpty() ? 0 : mmcFinal;
     }
