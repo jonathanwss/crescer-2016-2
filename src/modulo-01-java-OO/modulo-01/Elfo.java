@@ -1,8 +1,7 @@
 public class Elfo {
     private String nome;
     //Sei que para otimizar melhor devo remover esses dois itens criados e mandar tudo para o inventario. e o farei UM dia, ou não, zoas. amanhã eu faço.
-    private Item arco;
-    private Item flecha;
+
     //
     private int experiencia;
     private Status status;
@@ -15,16 +14,13 @@ public class Elfo {
 
     public Elfo(String nome, int quantidadeFlechas) {
         this.nome = nome;
-        arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
-        status = Status.VIVO;
         mochila = new Inventario();
+        this.mochila.adicionarItem(new Item("Arco", 1));
+        this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+        status = Status.VIVO;
+        
     }
 
-    public void adicionarArcoFlechaInventario(){
-        mochila.adicionarItem(arco);
-        mochila.adicionarItem(flecha);
-    }
     
     public Inventario getMochila(){
         return mochila;
@@ -39,11 +35,11 @@ public class Elfo {
     }
 
     public Item getArco() {
-        return arco;
+        return this.mochila.getListadeItens().get(0);
     }
 
     public Item getFlecha(){
-        return flecha;
+       return this.mochila.getListadeItens().get(1);
     }
 
     public int getExperiencia() {
@@ -56,9 +52,9 @@ public class Elfo {
     }
 
     public void atirarFlecha(Dwarf dwarf) {
-        boolean temFlecha = flecha.getQuantidade() > 0;
+        boolean temFlecha = getFlecha().getQuantidade() > 0;
         if (temFlecha) {
-            flecha.setQuantidade(flecha.getQuantidade() - 1);
+            getFlecha().setQuantidade(getFlecha().getQuantidade() - 1);
             experiencia++;
             dwarf.perderVida();
         }
@@ -68,12 +64,12 @@ public class Elfo {
     public String toString() {
         
 
-        boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
+        boolean flechaNoSingular = this.getFlecha().getQuantidade() == 1;
         boolean experienciaNoSingular = this.experiencia == 0 || this.experiencia == 1;
 
         return String.format("%s possui %d %s e %d %s de experiência.",
             this.nome,
-            this.flecha.getQuantidade(),
+            this.getFlecha().getQuantidade(),
             // ?:
             flechaNoSingular ? "flecha" : "flechas",
             this.experiencia,

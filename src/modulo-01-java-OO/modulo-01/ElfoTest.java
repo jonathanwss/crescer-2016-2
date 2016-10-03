@@ -319,7 +319,6 @@ public class ElfoTest
     @Test
     public void adicionandoArcoFlechaMochilaElfo(){
         Elfo f = new Elfo("Lefo");
-        f.adicionarArcoFlechaInventario();
         
         boolean arco = "Arco".equals(f.getMochila().getListadeItens().get(0).getDescricao());
         boolean flecha = "Flechas".equals(f.getMochila().getListadeItens().get(1).getDescricao());
@@ -331,7 +330,7 @@ public class ElfoTest
     @Test
     public void adicionandoArcoMochilaElfo(){
         Elfo f = new Elfo("Lefo");
-        f.adicionarArcoFlechaInventario();
+      
         
         boolean arco = "Arco".equals(f.getMochila().getListadeItens().get(0).getDescricao());
         
@@ -341,7 +340,7 @@ public class ElfoTest
     @Test
     public void adicionandoFlechaMochilaElfo(){
         Elfo f = new Elfo("Lefo");
-        f.adicionarArcoFlechaInventario();
+       
         
         boolean flecha = "Flechas".equals(f.getMochila().getListadeItens().get(1).getDescricao());
         
@@ -351,7 +350,7 @@ public class ElfoTest
     @Test
     public void verificarMaiorQtdItensAdicionandoArcoFlechaAtirandoEmUmAnao(){
         Elfo f = new Elfo("Lefo");
-        f.adicionarArcoFlechaInventario();
+ 
         Dwarf dwarf = new Dwarf();
         
         f.atirarFlecha(dwarf);
