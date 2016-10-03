@@ -325,4 +325,39 @@ public class InventarioTest
         int qtdItem = i.getListadeItens().get(0).getQuantidade();
         assertEquals(-2, qtdItem);
     }
+    
+    @Test
+    public void ordenarItensFomaDescendente(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",5);
+        Item item2 = new Item("b",2);
+        TipoOrdenacao ordem = TipoOrdenacao.DESCENDENTE;
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        
+        
+        i.ordenarItens(ordem);
+        
+        int qtdItem = i.getListadeItensOrdenadosDecrescentes().get(0).getQuantidade();
+        assertEquals(5, qtdItem);
+    }
+    
+    @Test
+    public void ordenarItensFomaAcescendente(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",5);
+        Item item2 = new Item("b",2);
+        Item item3 = new Item("b",1);
+        TipoOrdenacao ordem = TipoOrdenacao.ASCENDENTE;
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        i.ordenarItens(ordem);
+        
+        int qtdItem = i.getListadeItens().get(0).getQuantidade();
+        assertEquals(1, qtdItem);
+    }
 }

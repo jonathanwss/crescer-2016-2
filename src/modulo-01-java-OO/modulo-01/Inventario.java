@@ -2,8 +2,10 @@ import java.util.ArrayList;
 public class Inventario
 {
     // instance variables - replace the example below with your own
-    ArrayList<Item> listaDeItens = new ArrayList<>();
-    ArrayList<Item> listaDeItensOrdenados = new ArrayList<>();
+    private ArrayList<Item> listaDeItens = new ArrayList<>();
+    private ArrayList<Item> listaDeItensOrdenados = new ArrayList<>();
+    private ArrayList<Item> listaDeItensOrdenadosDecrescente = new ArrayList<>();
+    private TipoOrdenacao ordem;
 
     public void adicionarItem(Item item){
         listaDeItens.add(item);
@@ -15,6 +17,10 @@ public class Inventario
 
     public ArrayList<Item> getListadeItens(){
         return listaDeItens;
+    }
+    
+    public ArrayList<Item> getListadeItensOrdenadosDecrescentes(){
+        return listaDeItensOrdenadosDecrescente;
     }
 
     public String imprimir(){
@@ -66,6 +72,19 @@ public class Inventario
         for(int x = 0; x < tamanhoMochila; x++){
             int qtd = getListadeItens().get(x).getQuantidade();
             getListadeItens().get(x).setQuantidade(qtd+1000);
+        }
+    }
+    
+    public void ordenarItens(TipoOrdenacao ordem){
+        
+        if(ordem.equals("ASCENDENTE")){
+            ordenarItens();
+        }else{
+            ordenarItens();
+            int cont = listaDeItens.size();
+            for(int x = cont -1; x>=0; x--){
+                listaDeItensOrdenadosDecrescente.add(listaDeItens.get(x));
+            }
         }
     }
 }
