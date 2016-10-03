@@ -360,4 +360,30 @@ public class InventarioTest
         int qtdItem = i.getListadeItens().get(0).getQuantidade();
         assertEquals(1, qtdItem);
     }
+    
+    @Test
+    public void ordenarItensFomaAcescendenteArrayVazio(){
+        Inventario i = new Inventario();
+        
+        TipoOrdenacao ordem = TipoOrdenacao.ASCENDENTE;
+     
+        
+        i.ordenarItens(ordem);
+        
+        boolean ehVazio = i.getListadeItens().isEmpty() ? true : false;
+        assertTrue(ehVazio);
+    }
+    
+    @Test
+    public void ordenarItensFomaDescendenteArrayVazio(){
+        Inventario i = new Inventario();
+        
+        TipoOrdenacao ordem = TipoOrdenacao.ASCENDENTE;
+     
+        
+        i.ordenarItens(ordem);
+        
+        boolean ehVazio = i.getListadeItensOrdenadosDecrescentes().isEmpty() ? true : false;
+        assertTrue(ehVazio);
+    }
 }
