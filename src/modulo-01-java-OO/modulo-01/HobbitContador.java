@@ -2,6 +2,8 @@ import java.util.*;
 
 public class HobbitContador
 {
+    
+    //Os dois metodos abaixo só estão pubicos pois foram feitos testes para ver se a logica estava funcionando
     public double produtoDePares(ArrayList<ArrayList<Integer>> matriz){
         double produto = 1;
         double resultadoSomaProdutos = 0;
@@ -20,7 +22,8 @@ public class HobbitContador
         }
         return matriz.isEmpty() ? 0 : resultadoSomaProdutos;
     }
-
+    //DÚVIDA:  Na aula foi muito falado sobre o que é gambiarra. Especialmente esse metodo de calcular MMC eu ví que estava totalmente diferente do que vc fez.
+    //Pra min esse metodo era só uma logica diferente mas do seu ponto de vista este metodo é uma gembiarra ou simplesmente uma logica diferente que eu usei?
     public double mmcDePares(ArrayList<ArrayList<Integer>> matriz){
 
         int tamanho = matriz.size();
