@@ -195,7 +195,7 @@ public class ElfoTest
         Elfo elfo = new Elfo("Batman");
         Dwarf balin = new Dwarf();
         elfo.atirarFlecha(balin);
-        assertEquals(100, balin.getVida());
+        assertEquals(100, balin.getVida(),0);
     }
 
     @Test
@@ -204,7 +204,7 @@ public class ElfoTest
         Dwarf balin = new Dwarf();
         elfo.atirarFlecha(balin);
         elfo.atirarFlecha(balin);
-        assertEquals(90, balin.getVida());
+        assertEquals(90, balin.getVida(),0);
     }
 
     @Test
@@ -214,8 +214,8 @@ public class ElfoTest
         Dwarf gloin = new Dwarf();
         elfo.atirarFlecha(balin);
         elfo.atirarFlecha(gloin);
-        assertEquals(100, balin.getVida());
-        assertEquals(100, gloin.getVida());
+        assertEquals(100, balin.getVida(),0);
+        assertEquals(100, gloin.getVida(),0);
     }
 
     @Test
@@ -359,6 +359,15 @@ public class ElfoTest
         
         assertEquals("Flechas", obj.getDescricao());
         assertEquals(41, obj.getQuantidade());
+    }
+    
+    @Test
+    public void verificarVidaInicialElfo(){
+        Elfo e = new Elfo("leg");
+        
+        double vida = e.getVida();
+        
+        assertEquals(100, vida,0);
     }
 }
 

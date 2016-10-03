@@ -9,7 +9,7 @@ public class DwarfTest
     public void dwarfNasceCom110Vida() {
         DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2016);
         Dwarf gimli = new Dwarf("Gimli", nascimento);
-        assertEquals(110, gimli.getVida());
+        assertEquals(110, gimli.getVida(),0);
     }
 
     @Test
@@ -17,7 +17,7 @@ public class DwarfTest
         DataTerceiraEra nascimento = new DataTerceiraEra(16,9,2016);
         Dwarf gimli = new Dwarf("Gimli", nascimento);
         gimli.perderVida();
-        assertEquals(100, gimli.getVida());
+        assertEquals(100, gimli.getVida(),0);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class DwarfTest
         Dwarf gimli = new Dwarf("Gimli", nascimento);
         gimli.perderVida();
         gimli.perderVida();
-        assertEquals(90, gimli.getVida());
+        assertEquals(90, gimli.getVida(),0);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class DwarfTest
         gimli.perderVida();
         gimli.perderVida();
         gimli.perderVida();
-        assertEquals(0, gimli.getVida());
+        assertEquals(0, gimli.getVida(),0);
     }
 
     @Test

@@ -13,10 +13,10 @@ public class irishDwarf  extends Dwarf
     }
 
     public irishDwarf(String nome, DataTerceiraEra dataNascimento) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        status = Status.VIVO;
-        mochila = new Inventario();
+        nome = super.nome;
+        dataNascimento = super.dataNascimento;
+        status = super.status;
+        mochila = super.mochila;
     }
 
     public void muitaSorte(){

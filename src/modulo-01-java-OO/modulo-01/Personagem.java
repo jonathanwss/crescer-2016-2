@@ -4,6 +4,7 @@ public class Personagem
     protected Status status;
     protected Inventario mochila = new Inventario();
     protected int experiencia;
+    protected double vida;
     
     public Personagem(String nome){
         this.nome = nome;
@@ -28,5 +29,10 @@ public class Personagem
     
     public Status getStatus(){
         return status;
+    }
+    
+        
+    public double getVida() {
+        return vida;
     }
 }

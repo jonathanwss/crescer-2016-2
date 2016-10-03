@@ -1,5 +1,9 @@
 public class Elfo extends Personagem {   
 
+    {
+        this.vida = 100;
+    }
+    
     public Elfo(String n) {
         // Chamando construtor debaixo
         this(n, 42);
@@ -12,7 +16,7 @@ public class Elfo extends Personagem {
         status = Status.VIVO;
         
     }
-
+    
     public Item getArco() {
         return this.mochila.getListadeItens().get(0);
     }
@@ -32,7 +36,7 @@ public class Elfo extends Personagem {
         }
 
     }
-
+    
     public String toString() {
         
 
