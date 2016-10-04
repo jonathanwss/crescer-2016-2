@@ -19,6 +19,16 @@ public class ElfosVerdesTest
         assert(a.equals("Flechas de vidro"));
     }
     
+    @Test 
+    public void verificarItensIniciais(){
+        ElfosVerdes elf = new ElfosVerdes("elf");
+        
+        boolean taCerto = elf.getMochila().getListadeItens().get(0).getDescricao().equals("Arco de vidro") && 
+                          elf.getMochila().getListadeItens().get(1).getDescricao().equals("Flechas de vidro");
+        
+        assertTrue(taCerto);
+    }
+    
     @Test
     public void ganharDobroXpDeElfosNormais(){
         ElfosVerdes jim = new ElfosVerdes("Jim");
