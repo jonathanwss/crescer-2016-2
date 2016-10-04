@@ -295,19 +295,19 @@ public class ElfoTest
     
     @Test
     public void criarElfoInformandoFlechas() {
-        Elfo elrond = new Elfo("Elrond", 56,"","");
+        Elfo elrond = new Elfo("Elrond", 56);
         assertEquals(56, elrond.getFlecha().getQuantidade());
     }
     
     @Test
     public void criarElfoInformandoZeroFlechas() {
-        Elfo elrond = new Elfo("Elrond", 0,"","");
+        Elfo elrond = new Elfo("Elrond", 0);
         assertEquals(0, elrond.getFlecha().getQuantidade());
     }
     
     @Test
     public void criarElfoInformandoFlechasNegativas() {
-        Elfo elrond = new Elfo("Elrond", -56,"","");
+        Elfo elrond = new Elfo("Elrond", -56);
         assertEquals(42, elrond.getFlecha().getQuantidade());
     }
     

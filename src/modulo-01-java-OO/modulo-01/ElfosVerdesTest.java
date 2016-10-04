@@ -11,10 +11,12 @@ public class ElfosVerdesTest
     @Test 
     public void adicionarItemPermitido(){
         ElfosVerdes elf = new ElfosVerdes("elf");
+        elf.adicionarItem(new Item("Flechas de vidro",40));
         
-        String a = elf.getMochila().getListadeItens().get(0).getDescricao();
         
-        assert(a.equals("Arco"));
+        String a = elf.getMochila().getListadeItens().get(2).getDescricao();
+        
+        assert(a.equals("Flechas de vidro"));
     }
     
     @Test

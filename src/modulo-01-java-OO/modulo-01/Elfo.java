@@ -6,13 +6,13 @@ public class Elfo extends Personagem {
     
     public Elfo(String n) {
         // Chamando construtor debaixo
-        this(n, 42, "Arco","Flechas");
+        this(n, 42);
     }
 
-    public Elfo(String nome, int quantidadeFlechas, String item, String item2) {
+    public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
-        this.mochila.adicionarItem(new Item(item, 1));
-        this.mochila.adicionarItem(new Item(item2, quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+        this.mochila.adicionarItem(new Item("Arco", 1));
+        this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
         status = Status.VIVO;
         
     }

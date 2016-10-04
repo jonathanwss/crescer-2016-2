@@ -1,18 +1,14 @@
 
 public class ElfosVerdes extends Elfo{
-    
+
     public ElfosVerdes(String n) {
         // Chamando construtor debaixo
-        this(n, 42, "Arco de vidro", "Flecha de vidro");
+        this(n, 42);
     }
-
-    public ElfosVerdes(String nome, int quantidadeFlechas, String item, String item2) {
-        super(nome);
-        this.mochila = super.mochila;
-        
-        status = Status.VIVO;
-        
-
+    
+    public ElfosVerdes(String nome, int quantidadeFlechas) {
+       super(nome);
+       status = Status.VIVO;
     }
 
     public void atirarFlechaDobroXp(){
@@ -25,8 +21,6 @@ public class ElfosVerdes extends Elfo{
             ganharItem(item);
         }
     }
-
-    
 
 }
 
