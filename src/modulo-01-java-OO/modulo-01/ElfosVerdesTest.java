@@ -8,6 +8,15 @@ import org.junit.Test;
 
 public class ElfosVerdesTest
 {
+    @Test 
+    public void adicionarItemPermitido(){
+        ElfosVerdes elf = new ElfosVerdes("elf");
+        
+        String a = elf.getMochila().getListadeItens().get(0).getDescricao();
+        
+        assert(a.equals("Arco"));
+    }
+    
     @Test
     public void ganharDobroXpDeElfosNormais(){
         ElfosVerdes jim = new ElfosVerdes("Jim");

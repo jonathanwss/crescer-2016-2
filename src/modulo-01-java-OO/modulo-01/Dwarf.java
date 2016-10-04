@@ -18,15 +18,6 @@ public class Dwarf extends Personagem {
         status = Status.VIVO;
         mochila = new Inventario();
     }
-    
-    
-    public void ganharItem(Item item){
-        mochila.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item){
-        mochila.removerItem(item);
-    }
 
      public void perderVida() {
         double numero = this.getNumeroSorte();

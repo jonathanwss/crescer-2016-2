@@ -35,4 +35,12 @@ public class Personagem
     public double getVida() {
         return vida;
     }
+    
+    public void ganharItem(Item item){
+        mochila.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item){
+        mochila.removerItem(item);
+    }
 }
