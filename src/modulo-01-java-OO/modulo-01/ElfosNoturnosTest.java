@@ -17,7 +17,7 @@ public class ElfosNoturnosTest
         assertEquals(3, xp);
 
     }
-    
+
     @Test
     public void elfoNoturnoGanhaOTripoDeXPAoAtirarTresFlechas(){
         ElfosNoturnos dark = new ElfosNoturnos("Dark");
@@ -25,13 +25,13 @@ public class ElfosNoturnosTest
         dark.atirarFlecha();
         dark.atirarFlecha();
         dark.atirarFlecha();
-        
+
         int xp = dark.getExperiencia();
 
         assertEquals(9, xp);
 
     }
-    
+
     @Test
     public void elfoNoturnoPerde5PorCentoDaVidaCheia(){
         ElfosNoturnos dark = new ElfosNoturnos("Dark");
@@ -179,11 +179,27 @@ public class ElfosNoturnosTest
         dark.atirarFlecha();
         dark.atirarFlecha();
         dark.atirarFlecha();
-        
-       boolean morreu = dark.getStatus() == Status.MORTO;
-       assertTrue(morreu);
+
+        boolean morreu = dark.getStatus() == Status.MORTO;
+        assertTrue(morreu);
 
     }
 
-    
+    @Test
+    public void elfoNoturnoNaoAtiraMorto(){
+        ElfosNoturnos eld = new ElfosNoturnos("a",1000);
+        for(int x = 1; x < 100; x++){
+            eld.atirarFlecha();
+            if(eld.getStatus() == Status.MORTO){
+                break;
+            }
+        }
+
+        assertEquals(126, eld.getExperiencia());
+
+    }
+
+        
 }
+
+

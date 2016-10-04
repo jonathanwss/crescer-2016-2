@@ -66,16 +66,7 @@ public class Inventario
         
         
     }
-    
-    public void aumentarMilUnidadesItens(){
-        int tamanhoMochila = getListadeItens().size();
-
-        for(int x = 0; x < tamanhoMochila; x++){
-            int qtd = getListadeItens().get(x).getQuantidade();
-            getListadeItens().get(x).setQuantidade(qtd+1000);
-        }
-    }
-    
+       
     public void ordenarItens(TipoOrdenacao ordem){
         
         if(ordem.equals("ASCENDENTE")){
@@ -86,6 +77,15 @@ public class Inventario
             for(int x = cont -1; x>=0; x--){
                 listaDeItensOrdenadosDecrescente.add(listaDeItens.get(x));
             }
+        }
+    }
+    
+    public void aumentarMilUnidadesItens(){
+        int tamanhoMochila = getListadeItens().size();
+
+        for(int x = 0; x < tamanhoMochila; x++){
+            int qtd = getListadeItens().get(x).getQuantidade();
+            getListadeItens().get(x).setQuantidade(qtd+1000);
         }
     }
 }

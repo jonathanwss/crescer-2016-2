@@ -11,11 +11,17 @@ public class Elfo extends Personagem {
 
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
-        this.mochila.adicionarItem(new Item("Arco", 1));
-        this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+        this.inicializarInventario(quantidadeFlechas);
         status = Status.VIVO;
         
     }
+    
+    protected void inicializarInventario(int quantidadeFlechas){
+        this.mochila.adicionarItem(new Item("Arco", 1));
+        this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+    }
+    
+
     
     public Item getArco() {
         return this.mochila.getListadeItens().get(0);
