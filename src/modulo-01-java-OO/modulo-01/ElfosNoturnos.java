@@ -16,8 +16,10 @@ public class ElfosNoturnos extends Elfo{
         double vidaElfoNoturno = super.vida;
         if(vidaElfoNoturno>1){
             super.atirarFlecha(new Dwarf());
-            super.experiencia *=3;
+            super.experiencia +=2;
             super.vida = vidaElfoNoturno * 0.95;
+        }else{
+            this.status = Status.MORTO;
         }
     }
 
