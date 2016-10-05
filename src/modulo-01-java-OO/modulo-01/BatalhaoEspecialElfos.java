@@ -4,8 +4,8 @@ public class BatalhaoEspecialElfos
 {
     private HashMap<String, Elfo> esquadrao = new HashMap<>();
 
-    public HashMap<String, Elfo> getEsquadrao(){
-        return esquadrao;
+    public Elfo[] getEsquadrao(){
+        return esquadrao.values().toArray(new Elfo[esquadrao.size()]);
     }
 
     public void alistar(String desc,Elfo elfo){
@@ -15,4 +15,5 @@ public class BatalhaoEspecialElfos
         }
     }
 
+    
 }

@@ -20,7 +20,7 @@ public class BatalhaoEspecialElfosTest
         
         bop.alistar(elfo.getNome(), elfo);
         
-        assertEquals(1, bop.getEsquadrao().size()); 
+        assertEquals(1, bop.getEsquadrao().length); 
     }
     
     @Test
@@ -32,7 +32,7 @@ public class BatalhaoEspecialElfosTest
         bop.alistar(green.getNome(), green);
         bop.alistar(noturno.getNome(), noturno);
         
-        assertEquals(2, bop.getEsquadrao().size()); 
+        assertEquals(2, bop.getEsquadrao().length); 
     }
     
     @Test
@@ -46,7 +46,7 @@ public class BatalhaoEspecialElfosTest
         bop.alistar(noturno.getNome(), noturno);
         bop.alistar(elfo.getNome(), elfo);
         
-        assertEquals(2, bop.getEsquadrao().size()); 
+        assertEquals(2, bop.getEsquadrao().length); 
     }
     
     @Test
@@ -57,14 +57,14 @@ public class BatalhaoEspecialElfosTest
   
         bop.alistar(elfo.getNome(), elfo);
         
-        assertEquals(0, bop.getEsquadrao().size()); 
+        assertEquals(0, bop.getEsquadrao().length); 
     }
     
     @Test
     public void naoAdicionarNehumElfoAoBatalhao(){
         BatalhaoEspecialElfos bop = new BatalhaoEspecialElfos();
         
-        assertEquals(0, bop.getEsquadrao().size()); 
+        assertEquals(0, bop.getEsquadrao().length); 
     }
     
     @Test
@@ -78,6 +78,6 @@ public class BatalhaoEspecialElfosTest
         bop.alistar(noturno.getNome(), noturno);
         
         
-        assertEquals(1, bop.getEsquadrao().size()); 
+        assertEquals(1, bop.getEsquadrao().length); 
     }
 }
