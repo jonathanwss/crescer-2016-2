@@ -15,5 +15,12 @@ public class BatalhaoEspecialElfos
         }
     }
 
+    public Elfo buscar(String nome){
+        Elfo elfo = null;
+        
+        elfo  = esquadrao.get(nome);
+        
+        return elfo;
+    }
     
 }
