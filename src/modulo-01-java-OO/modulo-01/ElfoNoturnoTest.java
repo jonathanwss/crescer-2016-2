@@ -4,11 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ElfosNoturnosTest
+public class ElfoNoturnoTest
 {
     @Test
     public void elfoNoturnoGanhaOTripoDeXPAoAtirarUmaFlecha(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
 
@@ -20,7 +20,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoGanhaOTripoDeXPAoAtirarTresFlechas(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
         dark.atirarFlecha();
@@ -34,7 +34,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoPerde5PorCentoDaVidaCheia(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
 
@@ -46,7 +46,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoPerde5PorCentoDaVida2Vezes(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
         dark.atirarFlecha();
@@ -59,7 +59,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoPerde5PorCentoDaVida10Vezes(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
         dark.atirarFlecha();
@@ -80,7 +80,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoMorreAposAtirarMuitasVezes(){
-        ElfosNoturnos dark = new ElfosNoturnos("Dark");
+        ElfoNoturno dark = new ElfoNoturno("Dark");
 
         dark.atirarFlecha();
         dark.atirarFlecha();
@@ -187,7 +187,7 @@ public class ElfosNoturnosTest
 
     @Test
     public void elfoNoturnoNaoAtiraMorto(){
-        ElfosNoturnos eld = new ElfosNoturnos("a",1000);
+        ElfoNoturno eld = new ElfoNoturno("a",1000);
         for(int x = 1; x < 100; x++){
             eld.atirarFlecha();
             if(eld.getStatus() == Status.MORTO){
