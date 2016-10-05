@@ -110,6 +110,32 @@ public class ExercitoTest
         assertTrue(buscou);
     }
     
+    @Test
+    public void buscarElfosComStatusMorto(){
+        Exercito bimtz = new Exercito();
+        ElfoNoturno dark = new ElfoNoturno("Dark");
+        ElfoVerde green = new ElfoVerde("Gray");
+        for(int x = 0; x < 101; x++){
+            dark.atirarFlecha();
+        }
+        
+        bimtz.alistarUmEmfo(dark) ;
+        bimtz.alistarUmEmfo(green) ;
+        
+        boolean buscou = bimtz.buscar(Status.MORTO).size() == 1;
+        
+        assertTrue(buscou);
+    }
     
+    @Test
+    public void buscarTodosElfosComExercitoVazio(){
+        Exercito bimtz = new Exercito();
+        ElfoNoturno dark = new ElfoNoturno("Dark");
+        ElfoVerde green = new ElfoVerde("Gray");
+        
+        boolean buscouNada = bimtz.buscar(Status.MORTO).size() == 0;
+        
+        assertTrue(buscouNada);
+    }
     
 }

@@ -82,103 +82,9 @@ public class ElfoNoturnoTest
     public void elfoNoturnoMorreAposAtirarMuitasVezes(){
         ElfoNoturno dark = new ElfoNoturno("Dark");
 
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
-        dark.atirarFlecha();
+        for(int x = 0; x < 101; x++){
+            dark.atirarFlecha();
+        }
 
         boolean morreu = dark.getStatus() == Status.MORTO;
         assertTrue(morreu);
@@ -199,7 +105,5 @@ public class ElfoNoturnoTest
 
     }
 
-        
 }
-
 

@@ -1,8 +1,7 @@
 import java.util.*;
 public class Exercito
 {
-    ArrayList<Elfo> exercito = new ArrayList<>();
-    ArrayList<Elfo> statusElfo = new ArrayList<>();
+    private ArrayList<Elfo> exercito = new ArrayList<>();
     public void alistarUmEmfo(Elfo e){
         exercito.add(e);
     }
@@ -24,6 +23,7 @@ public class Exercito
     }
     
     public ArrayList<Elfo> buscar(Status status){
+        ArrayList<Elfo> statusElfo = new ArrayList<>();
         int cont = exercito.size();
         for(int x = 0 ; x < cont ; x++){
             if(status.equals(exercito.get(x).getStatus())){
