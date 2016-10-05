@@ -22,6 +22,10 @@ public class Elfo extends Personagem {
     }
     
 
+    public void alistarElfo(){
+        Elfo v = new Elfo("a");
+        alistar.alistarUmEmfo(v);
+    }
     
     public Item getArco() {
         return this.mochila.getListadeItens().get(0);
@@ -63,5 +67,12 @@ public class Elfo extends Personagem {
     experiencia++;
     flecha.setQuantidade(flecha.getQuantidade()-1);
     }*/
+    
+    @Override
+    public boolean equals(Object obj){
+        
+        Elfo outro = (Elfo)obj;
+        return this.nome.equals(outro.getNome());
+    } 
 }
 
