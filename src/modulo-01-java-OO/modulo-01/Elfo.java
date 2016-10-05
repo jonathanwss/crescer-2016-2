@@ -1,5 +1,6 @@
 public class Elfo extends Personagem {   
-
+    private Exercito alistar;
+    
     {
         this.vida = 100;
     }
@@ -21,7 +22,6 @@ public class Elfo extends Personagem {
         this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
     
-
     public void alistarElfo(){
         Elfo v = new Elfo("a");
         alistar.alistarUmEmfo(v);

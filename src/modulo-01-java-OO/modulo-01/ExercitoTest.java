@@ -95,4 +95,21 @@ public class ExercitoTest
         assertTrue(encontrou);
     }
     
+    @Test
+    public void buscarElfosComStatusVivo(){
+        Exercito bimtz = new Exercito();
+        ElfoNoturno e = new ElfoNoturno("Dark");
+        ElfoVerde green = new ElfoVerde("Gray");
+        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistarUmEmfo(green) ;
+        
+        
+        
+        boolean buscou = bimtz.buscar(Status.VIVO).contains(e) && bimtz.buscar(Status.VIVO).contains(green);
+        
+        assertTrue(buscou);
+    }
+    
+    
+    
 }
