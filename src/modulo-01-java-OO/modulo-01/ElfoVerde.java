@@ -10,8 +10,9 @@ public class ElfoVerde extends Elfo{
        super(nome);
        status = Status.VIVO;
        this.inicializarInventario(quantidadeFlechas);
+       
     }
-
+    
     @Override
     protected void inicializarInventario(int quantidadeFlechas){
         this.mochila.adicionarItem(new Item("Arco de vidro", 1));

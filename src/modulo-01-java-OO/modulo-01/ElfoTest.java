@@ -7,6 +7,11 @@ import java.util.Random;
 
 public class ElfoTest
 {
+    @After
+    public void tearDown(){
+        System.gc();
+    }
+    
     @Test
     public void elfoNasceComNome(){
         //Arrange
@@ -368,6 +373,31 @@ public class ElfoTest
         double vida = e.getVida();
         
         assertEquals(100, vida,0);
+    }
+    
+    @Test
+    public void contadorDeElfos(){
+        new ElfoVerde("Jacinto");
+        new ElfoNoturno("Cleide");
+        new Elfo("Jarbas");
+        assertEquals(3,Elfo.getContadorElfo());
+    }
+    
+    @Test
+    public void contadorDeElfosVariosElfos(){
+        new ElfoVerde("Jacinto");
+        new ElfoNoturno("Cleide");
+        new Elfo("Jarbas");
+        new ElfoVerde("Jacinto");
+        new ElfoNoturno("Cleide");
+        new Elfo("Jarbas");
+        new ElfoVerde("Jacinto");
+        new ElfoNoturno("Cleide");
+        new Elfo("Jarbas");
+        new ElfoVerde("Jacinto");
+        new ElfoNoturno("Cleide");
+        new Elfo("Jarbas");
+        assertEquals(12,Elfo.getContadorElfo());
     }
 }
 

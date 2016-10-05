@@ -1,8 +1,13 @@
 public class Elfo extends Personagem {   
     private Exercito alistar;
+    private static int contadorElfo;
     
     {
         this.vida = 100;
+    }
+    
+    public static int getContadorElfo(){
+        return Elfo.contadorElfo;
     }
     
     public Elfo(String n) {
@@ -13,8 +18,7 @@ public class Elfo extends Personagem {
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
         this.inicializarInventario(quantidadeFlechas);
-        status = Status.VIVO;
-        
+        contadorElfo++;
     }
     
     protected void inicializarInventario(int quantidadeFlechas){
@@ -61,6 +65,11 @@ public class Elfo extends Personagem {
             this.experiencia,
             experienciaNoSingular ? "nível" : "níveis"
         );
+    }
+    
+    public void finalize() throws Throwable{
+        super.finalize();
+        contadorElfo--;
     }
 
     /*public void atirarFlechaRefactory() {
