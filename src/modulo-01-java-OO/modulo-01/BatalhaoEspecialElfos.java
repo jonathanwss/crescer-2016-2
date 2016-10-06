@@ -23,4 +23,16 @@ public class BatalhaoEspecialElfos
         return elfo;
     }
     
+    
+    //Gambi???
+    public ArrayList<Elfo> buscar(Status status){
+        ArrayList<Elfo> elf = new ArrayList<>();
+        for(Elfo elfo : esquadrao.values()){
+            if(elfo.getStatus()== status){
+                elf.add(elfo);
+            }
+        }
+            
+        return elf;
+    }
 }
