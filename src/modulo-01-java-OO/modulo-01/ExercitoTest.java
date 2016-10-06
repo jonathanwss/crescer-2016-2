@@ -17,7 +17,7 @@ public class ExercitoTest
     public void adicionarElfoNormal(){
         Exercito bimtz = new Exercito();
         Elfo e = new Elfo("Elf");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
         boolean naoAlistou = bimtz.getExercito().size() == 0;
         
@@ -28,7 +28,7 @@ public class ExercitoTest
     public void adicionarElfoVerde(){
         Exercito bimtz = new Exercito();
         ElfoVerde e = new ElfoVerde("Elf");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
         boolean deuCerto = bimtz.getExercito().get(0).getNome() == e.getNome();
         
@@ -39,7 +39,7 @@ public class ExercitoTest
     public void adicionarElfoNoturno(){
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
         boolean deuCerto = bimtz.getExercito().get(0).getNome() == e.getNome();
         
@@ -50,7 +50,7 @@ public class ExercitoTest
     public void adicionarNovoElfoElfoNoturno(){
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
         boolean deuCerto = bimtz.getExercito().get(0).getNome() == new Elfo("Dark").getNome();
         
@@ -63,8 +63,8 @@ public class ExercitoTest
         Elfo dark = new ElfoNoturno("Dark");
         Elfo green = new ElfoVerde("Elf");
         Elfo normal = new Elfo("Elf");
-        bimtz.alistarUmEmfo(green) ;
-        bimtz.alistarUmEmfo(dark) ;
+        bimtz.alistar(green) ;
+        bimtz.alistar(dark) ;
         
         boolean deuCerto = bimtz.getExercito().contains(green) && bimtz.getExercito().contains(dark) && bimtz.getExercito().size() == 2;
         
@@ -74,41 +74,41 @@ public class ExercitoTest
     @Test
     public void buscarExercitoVazio(){
         Exercito bimtz = new Exercito();
-        assertNull(bimtz.buscarElfoPorNome("a"));
+        assertNull(bimtz.buscar("a"));
     }
     
     @Test
-    public void buscarElfoPorNomeAndEncontrar(){
+    public void buscarAndEncontrar(){
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
-        boolean encontrou = bimtz.buscarElfoPorNome("Dark") != null;
+        boolean encontrou = bimtz.buscar("Dark") != null;
         
         assertTrue(encontrou);
     }
     
     @Test
-    public void buscarElfoPorNomeAndNaoEncontrar(){
+    public void buscarAndNaoEncontrar(){
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Donnie Darko");
         ElfoNoturno e1 = new ElfoNoturno("Darko");
-        bimtz.alistarUmEmfo(e) ;
+        bimtz.alistar(e) ;
         
-        boolean naoEncontrou = bimtz.buscarElfoPorNome("Armando") == null;
+        boolean naoEncontrou = bimtz.buscar("Armando") == null;
         
         assertTrue(naoEncontrou);
     }
    
     @Test
-    public void buscarElfoPorNomeCom2ElfosComNomeIgual(){
+    public void buscarCom2ElfosComNomeIgual(){
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Dark");
-        bimtz.alistarUmEmfo(e) ;
-        bimtz.alistarUmEmfo(green) ;
+        bimtz.alistar(e) ;
+        bimtz.alistar(green) ;
         
-        boolean encontrou = bimtz.buscarElfoPorNome(new Elfo("Dark").getNome()) != null;
+        boolean encontrou = bimtz.buscar(new Elfo("Dark").getNome()) != null;
         
         assertTrue(encontrou);
     }
@@ -118,8 +118,8 @@ public class ExercitoTest
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
-        bimtz.alistarUmEmfo(e) ;
-        bimtz.alistarUmEmfo(green) ;
+        bimtz.alistar(e) ;
+        bimtz.alistar(green) ;
         
         
         
@@ -133,8 +133,8 @@ public class ExercitoTest
         Exercito bimtz = new Exercito();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
-        bimtz.alistarUmEmfo(e) ;
-        bimtz.alistarUmEmfo(green) ;
+        bimtz.alistar(e) ;
+        bimtz.alistar(green) ;
         
         
         
@@ -152,8 +152,8 @@ public class ExercitoTest
             dark.atirarFlecha();
         }
         
-        bimtz.alistarUmEmfo(dark) ;
-        bimtz.alistarUmEmfo(green) ;
+        bimtz.alistar(dark) ;
+        bimtz.alistar(green) ;
         
         boolean buscou = bimtz.buscar(Status.MORTO).size() == 1;
         

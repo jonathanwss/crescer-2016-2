@@ -17,7 +17,7 @@ public class BatalhaoEspecialElfosTest
         BatalhaoEspecialElfos bop = new BatalhaoEspecialElfos();
         Elfo elfo = new ElfoVerde("Regis");
 
-        bop.alistar(elfo.getNome(), elfo);
+        bop.alistar(elfo);
 
         assertEquals(1, bop.getEsquadrao().length); 
     }
@@ -28,8 +28,8 @@ public class BatalhaoEspecialElfosTest
         Elfo green = new ElfoVerde("Regis");
         Elfo noturno = new ElfoNoturno("Hash");
 
-        bop.alistar(green.getNome(), green);
-        bop.alistar(noturno.getNome(), noturno);
+        bop.alistar(green);
+        bop.alistar(noturno);
 
         assertEquals(2, bop.getEsquadrao().length); 
     }
@@ -41,9 +41,9 @@ public class BatalhaoEspecialElfosTest
         Elfo noturno = new ElfoNoturno("Hash");
         Elfo elfo = new Elfo("Hash");
 
-        bop.alistar(green.getNome(), green);
-        bop.alistar(noturno.getNome(), noturno);
-        bop.alistar(elfo.getNome(), elfo);
+        bop.alistar(green);
+        bop.alistar(noturno);
+        bop.alistar(elfo);
 
         assertEquals(2, bop.getEsquadrao().length); 
     }
@@ -54,7 +54,7 @@ public class BatalhaoEspecialElfosTest
 
         Elfo elfo = new Elfo("Hash");
 
-        bop.alistar(elfo.getNome(), elfo);
+        bop.alistar(elfo);
 
         assertEquals(0, bop.getEsquadrao().length); 
     }
@@ -73,8 +73,8 @@ public class BatalhaoEspecialElfosTest
         Elfo green = new ElfoVerde("Regis");
         Elfo noturno = new ElfoNoturno("Regis");
 
-        bop.alistar(green.getNome(), green);
-        bop.alistar(noturno.getNome(), noturno);
+        bop.alistar(green);
+        bop.alistar(noturno);
 
         assertEquals(1, bop.getEsquadrao().length); 
     }
@@ -86,8 +86,8 @@ public class BatalhaoEspecialElfosTest
         Elfo noturno = new ElfoNoturno("Regis Danone");
         Elfo green = new ElfoVerde("Regis");
 
-        bop.alistar(noturno.getNome(), noturno);
-        bop.alistar(green.getNome(), green);
+        bop.alistar(noturno);
+        bop.alistar(green);
 
         boolean achou = bop.buscar("Regis Danone") != null;
 
@@ -101,8 +101,8 @@ public class BatalhaoEspecialElfosTest
         Elfo noturno = new ElfoNoturno("Regis Danone");
         Elfo green = new ElfoVerde("Regis");
 
-        bop.alistar(noturno.getNome(), noturno);
-        bop.alistar(green.getNome(), green);
+        bop.alistar(noturno);
+        bop.alistar(green);
 
         boolean achou = bop.buscar("Regis danone") != null;
 
@@ -130,10 +130,10 @@ public class BatalhaoEspecialElfosTest
         Elfo elfo3 = new ElfoNoturno("recruta3");
         Elfo elfo4 = new ElfoVerde("recruta4");
 
-        bop.alistar(elfo.getNome(), elfo);
-        bop.alistar(elfo2.getNome(), elfo2);
-        bop.alistar(elfo3.getNome(), elfo3);
-        bop.alistar(elfo4.getNome(), elfo4);
+        bop.alistar(elfo);
+        bop.alistar(elfo2);
+        bop.alistar(elfo3);
+        bop.alistar(elfo4);
 
         boolean achou = bop.buscar("recruta1") != null;
         boolean achouTambem = bop.buscar("recruta3") != null;
@@ -142,6 +142,8 @@ public class BatalhaoEspecialElfosTest
         assertTrue(achouTambem);
     }
 
+    /*
+    
     @Test
     public void buscarElfosMortosSemNenhumMorto(){
         BatalhaoEspecialElfos bop = new BatalhaoEspecialElfos();
@@ -217,5 +219,6 @@ public class BatalhaoEspecialElfosTest
         }
         return e;
     }
+    */
     
 }

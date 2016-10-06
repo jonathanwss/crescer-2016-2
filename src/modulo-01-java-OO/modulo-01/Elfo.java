@@ -28,7 +28,7 @@ public class Elfo extends Personagem {
     
     public void alistarElfo(){
         Elfo v = new Elfo("a");
-        alistar.alistarUmEmfo(v);
+        alistar.alistar(v);
     }
     
     public Item getArco() {

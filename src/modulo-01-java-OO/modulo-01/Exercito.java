@@ -2,7 +2,7 @@ import java.util.*;
 public class Exercito
 {
     private ArrayList<Elfo> exercito = new ArrayList<>();
-    public void alistarUmEmfo(Elfo e){
+    public void alistar(Elfo e){
         boolean podeAlistar = e instanceof ElfoVerde || e instanceof ElfoNoturno;
         if(podeAlistar){
             exercito.add(e);
@@ -13,7 +13,7 @@ public class Exercito
         return exercito;
     }
 
-    public Elfo buscarElfoPorNome(String nome){
+    public Elfo buscar(String nome){
         int cont = exercito.size();
         Elfo elfoEncontrado = null;
         for(int x = 0; x < cont; x++){
