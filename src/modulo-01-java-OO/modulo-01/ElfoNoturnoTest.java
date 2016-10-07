@@ -43,6 +43,16 @@ public class ElfoNoturnoTest
         assertEquals(95, vida,0);
 
     }
+    
+    @Test 
+    public void elfoNoturnoTeste(){
+        ElfoNoturno drak = new ElfoNoturno("a",100);
+        for(int x = 0; x < 100;x++){
+         drak.atirarFlecha();   
+        }
+        
+        assertEquals(Status.MORTO, drak.getStatus());
+    }
 
     @Test
     public void elfoNoturnoPerde5PorCentoDaVida2Vezes(){
@@ -111,5 +121,14 @@ public class ElfoNoturnoTest
         assertEquals(22, eld.getFlecha().getQuantidade());
     }
 
+    @Test
+    public void elfoNoturnoMorto(){
+         ElfoNoturno eld = new ElfoNoturno("a",92);
+         for(int x = 1; x < 93; x++){
+            eld.atirarFlecha();
+        }
+        
+        assertTrue(eld.getStatus().equals(Status.MORTO));
+    }
 }
 

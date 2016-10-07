@@ -26,10 +26,6 @@ public class Elfo extends Personagem {
         this.mochila.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
     
-    public void alistarElfo(){
-        Elfo v = new Elfo("a");
-        alistar.alistar(v);
-    }
     
     public Item getArco() {
         return this.mochila.getListadeItens().get(0);

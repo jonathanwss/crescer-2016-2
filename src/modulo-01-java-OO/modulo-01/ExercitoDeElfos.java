@@ -2,11 +2,13 @@ import java.util.*;
 public class ExercitoDeElfos
 {
     private ArrayList<Elfo> exercito = new ArrayList<>();
-    public void alistar(Elfo e){
+    public void alistar(Elfo e) throws NaoPodeAlistarException{
         boolean podeAlistar = e instanceof ElfoVerde || e instanceof ElfoNoturno;
-        if(podeAlistar){
-            exercito.add(e);
+        
+        if(!podeAlistar){
+            throw new NaoPodeAlistarException();
         }
+        exercito.add(e);
     }
 
     public ArrayList<Elfo> getExercito(){
