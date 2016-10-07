@@ -7,8 +7,7 @@ public class ElfoVerde extends Elfo{
     }
     
     public ElfoVerde(String nome, int quantidadeFlechas) {
-       super(nome);
-       status = Status.VIVO;
+       super(nome,quantidadeFlechas);
        this.inicializarInventario(quantidadeFlechas);
        
     }

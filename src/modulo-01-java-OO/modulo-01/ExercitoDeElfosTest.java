@@ -6,16 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class ExercitoTest.
+ * The test class ExercitoDeElfosTest.
  *
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class ExercitoTest
+public class ExercitoDeElfosTest
 {
     @Test
     public void adicionarElfoNormal(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         Elfo e = new Elfo("Elf");
         bimtz.alistar(e) ;
         
@@ -26,7 +26,7 @@ public class ExercitoTest
     
     @Test
     public void adicionarElfoVerde(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoVerde e = new ElfoVerde("Elf");
         bimtz.alistar(e) ;
         
@@ -37,7 +37,7 @@ public class ExercitoTest
     
     @Test
     public void adicionarElfoNoturno(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         bimtz.alistar(e) ;
         
@@ -48,7 +48,7 @@ public class ExercitoTest
     
     @Test
     public void adicionarNovoElfoElfoNoturno(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         bimtz.alistar(e) ;
         
@@ -58,8 +58,8 @@ public class ExercitoTest
     }
     
     @Test
-    public void adicionarElfoNoturnoEElfoVerdeAoExercitoEElfoNormal(){
-        Exercito bimtz = new Exercito();
+    public void adicionarElfoNoturnoEElfoVerdeAoExercitoDeElfosEElfoNormal(){
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         Elfo dark = new ElfoNoturno("Dark");
         Elfo green = new ElfoVerde("Elf");
         Elfo normal = new Elfo("Elf");
@@ -72,14 +72,14 @@ public class ExercitoTest
     }
     
     @Test
-    public void buscarExercitoVazio(){
-        Exercito bimtz = new Exercito();
+    public void buscarExercitoDeElfosVazio(){
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         assertNull(bimtz.buscar("a"));
     }
     
     @Test
     public void buscarAndEncontrar(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         bimtz.alistar(e) ;
         
@@ -90,7 +90,7 @@ public class ExercitoTest
     
     @Test
     public void buscarAndNaoEncontrar(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Donnie Darko");
         ElfoNoturno e1 = new ElfoNoturno("Darko");
         bimtz.alistar(e) ;
@@ -102,7 +102,7 @@ public class ExercitoTest
    
     @Test
     public void buscarCom2ElfosComNomeIgual(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Dark");
         bimtz.alistar(e) ;
@@ -115,7 +115,7 @@ public class ExercitoTest
     
     @Test
     public void buscarElfosComStatusVivo(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
         bimtz.alistar(e) ;
@@ -130,7 +130,7 @@ public class ExercitoTest
     
     @Test
     public void buscarElfosComStatusMortoNenhumMorto(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno e = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
         bimtz.alistar(e) ;
@@ -145,7 +145,7 @@ public class ExercitoTest
     
     @Test
     public void buscarElfosComStatusMorto(){
-        Exercito bimtz = new Exercito();
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno dark = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
         for(int x = 0; x < 90; x++){
@@ -161,8 +161,8 @@ public class ExercitoTest
     }
     
     @Test
-    public void buscarTodosElfosComExercitoVazio(){
-        Exercito bimtz = new Exercito();
+    public void buscarTodosElfosComExercitoDeElfosVazio(){
+        ExercitoDeElfos bimtz = new ExercitoDeElfos();
         ElfoNoturno dark = new ElfoNoturno("Dark");
         ElfoVerde green = new ElfoVerde("Gray");
         

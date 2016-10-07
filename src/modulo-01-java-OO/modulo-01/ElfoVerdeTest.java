@@ -55,4 +55,10 @@ public class ElfoVerdeTest
         
         assertEquals(100, vida,0);
     }
+    
+    @Test public void elfoNoturnoNasce22Flechas(){
+        Elfo eld = new ElfoVerde("a",22);
+        
+        assertEquals(22, eld.getFlecha().getQuantidade());
+    }
 }
