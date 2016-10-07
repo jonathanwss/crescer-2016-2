@@ -1,5 +1,5 @@
 public class Elfo extends Personagem {   
-    private Exercito alistar;
+    private ExercitoDeElfos alistar;
     private static int contadorElfo;
     
     {

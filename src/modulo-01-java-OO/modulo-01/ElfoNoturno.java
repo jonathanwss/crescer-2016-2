@@ -2,14 +2,12 @@ public class ElfoNoturno extends Elfo{
     
     public ElfoNoturno(String n) {
 
-        super(n, 42);
+        this(n, 42);
         
     }
 
     public ElfoNoturno(String nome, int quantidadeFlechas) {
-        super(nome);
-        mochila = super.mochila;
-        status = super.status;
+        super(nome,quantidadeFlechas);
         super.inicializarInventario(quantidadeFlechas);
     }
 

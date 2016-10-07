@@ -93,16 +93,22 @@ public class ElfoNoturnoTest
 
     @Test
     public void elfoNoturnoNaoAtiraMorto(){
-        ElfoNoturno eld = new ElfoNoturno("a",1000);
-        for(int x = 1; x < 100; x++){
+        ElfoNoturno eld = new ElfoNoturno("a",91);
+        for(int x = 1; x < 91; x++){
             eld.atirarFlecha();
             if(eld.getStatus() == Status.MORTO){
                 break;
             }
         }
 
-        assertEquals(126, eld.getExperiencia());
+        assertEquals(270, eld.getExperiencia());
 
+    }
+    
+    @Test public void elfoNoturnoNasce22Flechas(){
+        ElfoNoturno eld = new ElfoNoturno("a",22);
+        
+        assertEquals(22, eld.getFlecha().getQuantidade());
     }
 
 }
