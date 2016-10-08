@@ -2,9 +2,12 @@ import java.util.*;
 public class AtaqueIntercalado implements Estrategia
 {   
     public List<Elfo> getOrdemDeAtaque(List<Elfo> atacantes) throws ContingenteDesproporcionalException{
+        AtaqueElfos ae = new AtaqueElfos();
         LinkedList<Elfo> ordemAtaque = new LinkedList<>();
 
-        if(atacantes.size()%2==1){
+        int tamanho = ae.getOrdemDeAtaque(atacantes).size();
+        
+        if(tamanho%2==1){
             throw new ContingenteDesproporcionalException();
         }
         int cont =2;
