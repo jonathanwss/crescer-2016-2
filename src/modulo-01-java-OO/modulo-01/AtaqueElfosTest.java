@@ -6,11 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
 
-public class EstrategiasAtaqueElfosTest
+public class AtaqueElfosTest
 {
     @Test
     public void ordenarElfosVerdesPrimeiroEDepoisNoturnosOrdemAleatoria(){
-        EstrategiasAtaqueElfos gregoEstrategia = new EstrategiasAtaqueElfos();
+        AtaqueElfos gregoEstrategia = new AtaqueElfos();
         ArrayList<Elfo> combatentes = new ArrayList<>();
         
         ElfoVerde elfo1 = new ElfoVerde("");
@@ -41,7 +41,7 @@ public class EstrategiasAtaqueElfosTest
     
     @Test
     public void ordenarElfosVerdesPrimeiroEDepoisNoturnos(){
-        EstrategiasAtaqueElfos gregoEstrategia = new EstrategiasAtaqueElfos();
+        AtaqueElfos gregoEstrategia = new AtaqueElfos();
         ArrayList<Elfo> combatentes = new ArrayList<>();
         
         ElfoVerde elfo1 = new ElfoVerde("");
@@ -71,7 +71,7 @@ public class EstrategiasAtaqueElfosTest
     
     @Test
     public void adicionarSomenteElfosNoturnosMortos(){
-         EstrategiasAtaqueElfos gregoEstrategia = new EstrategiasAtaqueElfos();
+         AtaqueElfos gregoEstrategia = new AtaqueElfos();
         ArrayList<Elfo> combatentes = new ArrayList<>();
         
         ElfoNoturno elfo5 = matarElfo();
@@ -87,11 +87,12 @@ public class EstrategiasAtaqueElfosTest
         List<Elfo> resultado = gregoEstrategia.getOrdemDeAtaque(combatentes);
         
         assertEquals(0, resultado.size());
+
     }
     
     @Test
     public void adicionarSomenteElfosNoturnosComAlgunsMortos(){
-         EstrategiasAtaqueElfos gregoEstrategia = new EstrategiasAtaqueElfos();
+         AtaqueElfos gregoEstrategia = new AtaqueElfos();
         ArrayList<Elfo> combatentes = new ArrayList<>();
         
         ElfoNoturno elfo5 = matarElfo();
@@ -112,7 +113,7 @@ public class EstrategiasAtaqueElfosTest
     
     @Test
     public void adicionarSomenteElfosVerdes(){
-         EstrategiasAtaqueElfos gregoEstrategia = new EstrategiasAtaqueElfos();
+         AtaqueElfos gregoEstrategia = new AtaqueElfos();
         ArrayList<Elfo> combatentes = new ArrayList<>();
         
         ElfoVerde elfo1 = new ElfoVerde("");
