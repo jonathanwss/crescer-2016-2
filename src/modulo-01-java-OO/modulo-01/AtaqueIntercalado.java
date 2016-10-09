@@ -13,10 +13,10 @@ public class AtaqueIntercalado implements Estrategia
         int cont =2;
         for(int x = 0; x < atacantes.size(); x++){
 
-            if(atacantes.get(x) instanceof ElfoVerde && cont%2==0){
+            if(atacantes.get(x) instanceof ElfoVerde && cont%2==0 && atacantes.get(x).getStatus().equals(Status.VIVO)){
                 ordemAtaque.add(atacantes.get(x));
                 cont++;
-            }else if(atacantes.get(x) instanceof ElfoNoturno && cont%2!=0){
+            }else if(atacantes.get(x) instanceof ElfoNoturno && cont%2!=0 && atacantes.get(x).getStatus().equals(Status.VIVO)){
                 ordemAtaque.add(atacantes.get(x));
                 cont++;
             }
