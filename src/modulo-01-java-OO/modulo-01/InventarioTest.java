@@ -490,6 +490,51 @@ public class InventarioTest
     }
     
     @Test
+    public void testarUnir(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        Inventario mochila = new Inventario();
+        Item item4 = new Item("a",10);
+        Item item5 = new Item("b",10);
+        Item item6 = new Item("b",10);
+        
+        mochila.adicionarItem(item4);
+        mochila.adicionarItem(item5);
+        mochila.adicionarItem(item6);
+        
+        int tamanhoNovaMochila = i.unir(mochila).getListadeItens().size();
+        
+        assertEquals(6, tamanhoNovaMochila);
+    }
+    
+    @Test
+    public void testarUnirComUmInventarioVazio(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        Inventario mochila = new Inventario();
+        
+        
+        int tamanhoNovaMochila = i.unir(mochila).getListadeItens().size();
+        
+        assertEquals(3, tamanhoNovaMochila);
+    }
+    
+    
+    @Test
     public void obterSomatorioDeQtdItensComItemNegativo(){
         Inventario i = new Inventario();
         Item item = new Item("a",-10);
