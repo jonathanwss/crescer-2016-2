@@ -128,6 +128,53 @@ public class hobbitContadorTest
         assertEquals(0, a, 0);
     }
     
+    @Test
+    public void obterMaiorNumeroMultiploDe3(){
+        HobbitContador bilbo = new HobbitContador();
+        
+        int maior = bilbo.obterMaiorMultiploDeTresAte(10);
+        
+        assertEquals(9, maior);
+    }
     
+    @Test
+    public void obterMaiorNumeroMultiploDe3Ate100(){
+        HobbitContador bilbo = new HobbitContador();
+        
+        int maior = bilbo.obterMaiorMultiploDeTresAte(100);
+        
+        assertEquals(99, maior);
+    }
+    
+    @Test
+    public void NaoObterMaiorNumeroMultiploDe3(){
+        HobbitContador bilbo = new HobbitContador();
+        
+        int maior = bilbo.obterMaiorMultiploDeTresAte(2);
+        
+        assertEquals(0, maior);
+    }
+    
+    @Test
+    public void obterMultiplosDe3Ate100(){
+        HobbitContador bilbo = new HobbitContador();
+        
+        ArrayList<Integer> multiplos = bilbo.obterMultiplosDeTresAte(100);
+        
+        int posicao = multiplos.get(1);
+        
+        assertEquals(6,posicao);
+    }
+    
+    @Test
+    public void obterMultiplosDe3Ate10(){
+        HobbitContador bilbo = new HobbitContador();
+        
+        ArrayList<Integer> multiplos = bilbo.obterMultiplosDeTresAte(10);
+        
+        int tamanho = multiplos.size();
+        
+        assertEquals(3,tamanho);
+    }
 }
 

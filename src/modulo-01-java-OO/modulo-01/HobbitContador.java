@@ -66,6 +66,33 @@ public class HobbitContador
         return produtoDePares(matriz) - mmcDePares(matriz);
     }
     
+    public int obterMaiorMultiploDeTresAte(int num){
+        int maior = 0;
+        for(int x = 1; x <= num; x++){
+            if(x%3==0){
+                maior = x;
+            }
+        }
+        
+        
+        return maior;
+        
+    }
+    
+    public ArrayList<Integer> obterMultiplosDeTresAte(int num){
+        ArrayList<Integer> multiplos = new ArrayList<>();
+        
+        for(int x = 1; x <= num; x++){
+            if(x%3==0){
+                multiplos.add(x);
+            }
+        }
+        
+        return multiplos;
+    }
+    
+
+    
     
 
 }
