@@ -119,5 +119,21 @@ public class Inventario
         
         return somatorioQtdItens;
     }
+    
+    public Inventario unir(Inventario inventario){
+        int tamanho = inventario.getListadeItens().size();
+         int tamanho2 = getListadeItens().size();
+        Inventario mochila = new Inventario();
+        for(int x = 0; x < tamanho || x < tamanho2 ; x++){
+            if(tamanho>=x && tamanho!=0){
+                mochila.adicionarItem(inventario.getListadeItens().get(x));
+            }
+            if(tamanho2>=x){
+                mochila.adicionarItem(getListadeItens().get(x));
+            }
+        }
+        
+        return mochila;
+    }
 }
 
