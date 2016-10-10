@@ -386,4 +386,47 @@ public class InventarioTest
         boolean ehVazio = i.getListadeItensOrdenadosDecrescentes().isEmpty() ? true : false;
         assertTrue(ehVazio);
     }
+    
+    @Test
+    public void burcarItemPelaDescricao(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",5);
+        Item item2 = new Item("b",2);
+        Item item3 = new Item("b",1);
+        TipoOrdenacao ordem = TipoOrdenacao.ASCENDENTE;
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        Item resultado = i.buscar("b");
+        
+        assertTrue(resultado.getQuantidade() == 2);
+    }
+    
+    @Test
+    public void burcarItemPelaDescricaoInformandoNovoItem(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",5);
+        Item item2 = new Item("b",2);
+        Item item3 = new Item("b",1);
+        TipoOrdenacao ordem = TipoOrdenacao.ASCENDENTE;
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        Item resultado = i.buscar(new Item("a",3).getDescricao());
+        
+        assertTrue(resultado.getQuantidade() == 5);
+    }
 }
+
+
+
+
+
+
+
+
+

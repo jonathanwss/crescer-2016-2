@@ -18,7 +18,7 @@ public class Inventario
     public ArrayList<Item> getListadeItens(){
         return listaDeItens;
     }
-    
+
     public ArrayList<Item> getListadeItensOrdenadosDecrescentes(){
         return listaDeItensOrdenadosDecrescente;
     }
@@ -46,12 +46,11 @@ public class Inventario
         return itemObj;
     }
 
-
     public void ordenarItens(){
         for (int i = 0; i < listaDeItens.size(); i++) {
 
             for (int j = listaDeItens.size() - 1; j > i; j--) {
-                
+
                 if (listaDeItens.get(i).getQuantidade() > listaDeItens.get(j).getQuantidade()) {
 
                     listaDeItensOrdenados.add(listaDeItens.get(i));
@@ -63,12 +62,9 @@ public class Inventario
             }
 
         }
-        
-        
+
     }
-       
     public void ordenarItens(TipoOrdenacao ordem){
-        
         if(ordem.equals("ASCENDENTE")){
             ordenarItens();
         }else{
@@ -79,7 +75,7 @@ public class Inventario
             }
         }
     }
-    
+
     public void aumentarMilUnidadesItens(){
         int tamanhoMochila = getListadeItens().size();
 
@@ -88,6 +84,18 @@ public class Inventario
             getListadeItens().get(x).setQuantidade(qtd+1000);
         }
     }
-}
 
+    public Item buscar(String descricao){
+        int tamanho = listaDeItens.size();
+        int posicao = 0;
+        for(int x = 0 ; x < tamanho ; x++){
+            if(descricao.equals(listaDeItens.get(x).getDescricao())){
+                posicao = x;
+                break;
+            }
+        }
+        
+        return listaDeItens.get(posicao);
+    }
+}
 
