@@ -420,6 +420,57 @@ public class InventarioTest
         
         assertTrue(resultado.getQuantidade() == 5);
     }
+    
+    @Test
+    public void obterMediaQtdItens(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",3);
+        Item item2 = new Item("b",4);
+        Item item3 = new Item("b",2);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        double media = i.getMediaQuantidades();
+        
+        assertEquals(3, media,0);
+        
+    }
+    
+    @Test
+    public void obterMediaQtdItens10(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        double media = i.getMediaQuantidades();
+        
+        assertEquals(10, media,0);
+        
+    }
+    
+    @Test
+    public void obterMediaQtdItensCom1ItemQtdNegativa(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",-10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        double media = i.getMediaQuantidades();
+        
+        assertEquals(10, media,0);
+        
+    }
 }
 
 

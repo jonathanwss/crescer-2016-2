@@ -97,5 +97,19 @@ public class Inventario
         
         return listaDeItens.get(posicao);
     }
+    
+    public double getMediaQuantidades(){
+        int tamanho = getListadeItens().size();
+        int contadorQtdItens = 0;
+        
+        for(int x = 0; x< tamanho; x++){
+            if(listaDeItens.get(x).getQuantidade()<0){
+                listaDeItens.get(x).setQuantidade(listaDeItens.get(x).getQuantidade() * -1);
+            }
+            contadorQtdItens += listaDeItens.get(x).getQuantidade();
+        }
+        
+        return contadorQtdItens / tamanho;
+    }
 }
 
