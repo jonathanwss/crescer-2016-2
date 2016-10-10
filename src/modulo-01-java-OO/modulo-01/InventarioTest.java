@@ -468,7 +468,41 @@ public class InventarioTest
         
         double media = i.getMediaQuantidades();
         
-        assertEquals(10, media,0);
+        assertEquals(3, media,0);
+        
+    }
+    
+    @Test
+    public void obterSomatorioDeQtdItens(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        int somatorio = i.getSomatorioQuantidades();
+        
+        assertEquals(30, somatorio);
+        
+    }
+    
+    @Test
+    public void obterSomatorioDeQtdItensComItemNegativo(){
+        Inventario i = new Inventario();
+        Item item = new Item("a",-10);
+        Item item2 = new Item("b",10);
+        Item item3 = new Item("b",10);
+        
+        i.adicionarItem(item);
+        i.adicionarItem(item2);
+        i.adicionarItem(item3);
+        
+        int somatorio = i.getSomatorioQuantidades();
+        
+        assertEquals(10, somatorio);
         
     }
 }

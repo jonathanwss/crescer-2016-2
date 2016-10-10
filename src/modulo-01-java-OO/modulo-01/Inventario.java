@@ -103,13 +103,21 @@ public class Inventario
         int contadorQtdItens = 0;
         
         for(int x = 0; x< tamanho; x++){
-            if(listaDeItens.get(x).getQuantidade()<0){
-                listaDeItens.get(x).setQuantidade(listaDeItens.get(x).getQuantidade() * -1);
-            }
             contadorQtdItens += listaDeItens.get(x).getQuantidade();
         }
         
         return contadorQtdItens / tamanho;
+    }
+    
+    public int getSomatorioQuantidades(){
+        int tamanho = getListadeItens().size();
+        int somatorioQtdItens = 0;
+        
+        for(int x = 0; x< tamanho; x++){
+            somatorioQtdItens += listaDeItens.get(x).getQuantidade();
+        }
+        
+        return somatorioQtdItens;
     }
 }
 
