@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9D8A9AB3-C89B-1335-BEC4-DF3F0F88D946" name="Eleitor">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:50:28 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEleitor" id="DE533A48-DD39-6FA5-2B96-6CD2C45D4D5B">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:51:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="5238002D-4446-D16C-124A-25304D7A9985">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:51:19 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TituliEleitoral" id="658CF797-6FF9-5B81-005A-F8E2A8381BE0">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:51:40 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="4C4F5803-A00B-38FE-2782-1BF1DCC62A26">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:52:03 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="9176B86B-7C93-B0D4-A8BD-0DEEE9278D3D">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:54:29 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zona" id="0AE1C632-8ECF-AAC8-5FD1-81E462370859">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:54:51 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Secao" id="D6368B4D-FCB2-58C0-75AD-86A60BEFB83F">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:55:12 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2FCB4F63-83CB-4B45-E89F-487567D22FE0" name="Eleitor_PK">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:51:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE533A48-DD39-6FA5-2B96-6CD2C45D4D5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30F630F2-74C8-FBCB-A99D-2EF99AA389D9" name="UK_Eleitor">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 18:52:55 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="658CF797-6FF9-5B81-005A-F8E2A8381BE0"/>
+<colUsage columnID="4C4F5803-A00B-38FE-2782-1BF1DCC62A26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

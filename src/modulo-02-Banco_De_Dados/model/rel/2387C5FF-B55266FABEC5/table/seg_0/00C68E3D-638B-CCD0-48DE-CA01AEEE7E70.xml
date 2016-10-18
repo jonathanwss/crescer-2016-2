@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="00C68E3D-638B-CCD0-48DE-CA01AEEE7E70" name="Voto">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:09:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDVoto" id="B009F194-D199-B44F-6EB1-8B3FB50B7D11">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:09:35 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Candidato_IDCandidato" id="3812DFAD-2332-D450-BD12-6A27260D9AFB">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:11:39 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E0E27ED8-4B45-9BB4-116F-F5B08989ADC3" referredColumn="E74D5BBC-C996-06EB-F737-DF7D820D7E9B"/>
+</associations>
+</Column>
+<Column name="Numero" id="5E849D65-03A3-6791-4878-6C6AB569128D">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:15:52 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2AA75E45-DBE7-09F1-085E-B4085727B707" name="Voto_PK">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:09:35 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B009F194-D199-B44F-6EB1-8B3FB50B7D11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="629944E7-73A1-11F0-3C75-F475511ECB03" name="FK_Voto_Candidato">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:11:39 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3812DFAD-2332-D450-BD12-6A27260D9AFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

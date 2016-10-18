@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="67C080E7-CE81-8F05-2723-24ADAAB4701F" name="Registro_Votos">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:01:19 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDRegistro_Votos" id="9D1525B5-FF31-12E6-BF8F-19E00D2B6086">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:01:50 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Eleitor_IDEleitor" id="C6825760-CD6B-C0FD-F84F-4B44DAC64938">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:04:23 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2626D7E0-0F19-6B1C-3CEC-085806C7C666" referredColumn="DE533A48-DD39-6FA5-2B96-6CD2C45D4D5B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1D47BAE5-D7B9-44CE-6E94-0B11BC450CF5" name="Registro_Votos_PK">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:01:50 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D1525B5-FF31-12E6-BF8F-19E00D2B6086"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8A30511-510C-F1DF-C843-0B623C07104C" name="FK_IDEleitor">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:04:23 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6825760-CD6B-C0FD-F84F-4B44DAC64938"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
