@@ -1,0 +1,69 @@
+.cabecalho, .rodape{
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    border: solid;
+    background: url(http://www.locpam.com.br/img/caminhao/caminhao-munck.jpg);
+}
+
+.cabecalho{
+    top: 0;
+}
+
+.rodape{
+    bottom: 0;
+}
+
+.caixao{
+    position: relative;
+    top: 200px;
+    height: 100px;
+    width: 100px;
+    border: solid;
+    margin: auto;
+    transition: 0.5s;
+    background-color: red;
+}
+
+.caixao > div{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border: solid;
+}
+
+.caixao > #primeiro{
+   bottom: 130px;
+   left: -35px;
+    
+}
+
+.caixao > #segundo{
+    bottom: 130px;
+   left: 115px;
+    
+}
+.caixao > #terceiro{
+    bottom: -40px;
+   left: 115px;
+    
+}
+.caixao > #quarto{
+    bottom: -40px;
+    left: -35px;
+}
+
+.caixao > #meio{
+    left: 42px;
+    top: 42px;
+    background-color: black;
+}
+
+.caixao:hover{
+    top: 50px;
+    background-color: black;
+    transform: rotate(8235deg);
+}
+
+
