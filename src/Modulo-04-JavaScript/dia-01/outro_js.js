@@ -107,15 +107,23 @@ function subtrair2(num){
 
 
 function iguais(obj, obj2){
-    var igual = typeof obj === obj2;
-    var igual = false;
+    var igual;
     for(i in obj){
-      if(obj[i] === obj2[i]){
-        igual = true;
-      }else{
-        igual = false;
-        break;
+        if(obj[i] === obj2[i] || typeof obj[i] === 'object' && typeof obj2[i] === 'object'){
+          if(typeof obj[i] === 'object'){
+            resultado = iguais(obj[i], obj2[i]);
+            if(resultado===false){
+              igual = false;
+              break;
+            }
+            }
+          igual = true;
+        }else{
+          igual = false;
+          break;
+        }
       }
-    }
+
+
     return igual;
 }
