@@ -104,9 +104,17 @@ function subtrair2(num){
 
 
 
-
+//Exercicio 5;
 
 function iguais(obj, obj2){
+  if(obj === null || obj2 === null){
+    return false;
+  }
+
+if(obj.length !== obj2.length){
+  return false;
+}
+
     var igual;
     for(i in obj){
         if(obj[i] === obj2[i] || typeof obj[i] === 'object' && typeof obj2[i] === 'object'){
@@ -126,4 +134,17 @@ function iguais(obj, obj2){
 
 
     return igual;
+}
+
+
+function ctrlC(origem){
+  var resultado = {};
+    for(or in origem){
+      if(typeof origem[or] === 'object'){
+        ctrlC(origem[or]);
+      }else{
+          var resultado = origem[or];
+          }
+    }
+    return resultado;
 }
