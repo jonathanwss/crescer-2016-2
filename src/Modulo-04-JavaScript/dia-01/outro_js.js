@@ -51,10 +51,53 @@ function diglettDig(){
 
 console.log(diglettDig());
 
-var funcao = function(elemento){
-  return elemento >= 2;
+//Exercicio 3
+
+var funcao = function(elemento){ return elemento > 2;};
+var funcao2 = function(elemento){ return typeof elemento === 'string';};
+var funcao3 = function(elem) { return typeof elem.nome === 'c';};
+var funcao4 = 'Funcao 4';
+function find(array, funcao){
+    var resultado = [];
+   if(typeof funcao === typeof funcao3){
+    for(var num =0, len = array.length; num < len; num++){
+        var parametro = array[num];
+        if(funcao(parametro)===true){
+            resultado.push(array[num]);
+        }
+    }
+   }else{
+        return array;
+        }
+   
+
+    return resultado;
+    
 }
 
-function find(array, funcao){
 
+console.log(find([1,2,3],funcao));
+console.log(find([ 'a', 5, null, false, 'false' ],funcao2));
+console.log(find([ { nome: 'a' }, { nome: 'b' }  ], funcao3));
+console.log(find([1,2,3,4,5], funcao4));
+
+//Exercicio 4;
+
+var armazenarNumeros = [];
+function subtrair(numero) {
+    armazenarNumeros.push(numero);
+    if(armazenarNumeros.length===2){
+        var total = armazenarNumeros[0] - armazenarNumeros[1];
+        return total;
+        armazenarNumeros.splice(0,2);
+    }
+    return '';
+}
+
+console.log(subtrair(5),subtrair(3));
+
+
+function iguais(obj, obj2){
+    var igual = typeof obj === obj2;
+    return igual;
 }
