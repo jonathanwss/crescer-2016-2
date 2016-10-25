@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0D6BCF56-C15C-5167-01FB-265D2E03A0AE" name="ESTADO">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:37:04 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEstado" id="71F39D25-1CDE-4DA0-A117-8501BF14D210">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:37:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="0D7AA061-D4BE-8DBF-F938-EF333DD52429">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:38:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SIGLA" id="2C41DCC0-D5FE-E595-9C8A-E9663BEE93CE">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:38:18 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5081D78D-7CA8-4EC5-4C7A-B779DA8CA6D0" name="ESTADO_PK">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:37:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71F39D25-1CDE-4DA0-A117-8501BF14D210"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

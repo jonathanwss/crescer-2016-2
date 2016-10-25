@@ -69,10 +69,10 @@ function find(array, funcao){
    }else{
         return array;
         }
-   
+
 
     return resultado;
-    
+
 }
 
 
@@ -82,7 +82,7 @@ console.log(find([ { nome: 'a' }, { nome: 'b' }  ], funcao3));
 console.log(find([1,2,3,4,5], funcao4));
 
 //Exercicio 4;
-
+/*
 var armazenarNumeros = [];
 function subtrair(numero) {
     armazenarNumeros.push(numero);
@@ -93,11 +93,29 @@ function subtrair(numero) {
     }
     return '';
 }
+*/
+function subtrair2(num){
+  function subtrair3(num2) {
+    return subtracao = num - num2;
+  }
+  return subtrair3;
+}
 
-console.log(subtrair(5),subtrair(3));
+
+
+
 
 
 function iguais(obj, obj2){
     var igual = typeof obj === obj2;
+    var igual = false;
+    for(i in obj){
+      if(obj[i] === obj2[i]){
+        igual = true;
+      }else{
+        igual = false;
+        break;
+      }
+    }
     return igual;
 }

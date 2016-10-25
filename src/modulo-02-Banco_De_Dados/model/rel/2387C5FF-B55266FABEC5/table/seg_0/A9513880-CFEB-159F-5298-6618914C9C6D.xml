@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A9513880-CFEB-159F-5298-6618914C9C6D" name="Partido">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:33:25 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPartido" id="75A6F9FC-1DF0-B9D6-DB87-E6C6628B19EF">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:33:47 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="A44C74CD-BC8C-E073-1B16-84723350CB8F">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:34:02 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Sigla" id="F3550148-2D1D-013C-CF5D-7873ACA9E0FC">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:34:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A7AE3B14-DEDD-532A-6121-F58A6AAC147F" name="Partido_PK">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:33:47 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75A6F9FC-1DF0-B9D6-DB87-E6C6628B19EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

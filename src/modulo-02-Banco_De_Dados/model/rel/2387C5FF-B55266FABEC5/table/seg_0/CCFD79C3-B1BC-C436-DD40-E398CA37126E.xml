@@ -50,28 +50,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Cidade" id="EA64B909-7F90-E145-6D84-EFBE1E1412EA">
-<createdBy>santos.jonathan</createdBy>
-<createdTime>2016-10-18 18:44:59 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="UF" id="0E3157FA-098D-3A79-2451-D828A3AF6EF1">
-<createdBy>santos.jonathan</createdBy>
-<createdTime>2016-10-18 18:45:20 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="RegistroTRE" id="5B8CC125-F8D8-FEF9-1C06-B4BF01A7000C">
 <createdBy>santos.jonathan</createdBy>
 <createdTime>2016-10-18 18:46:16 UTC</createdTime>
@@ -81,17 +59,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Partido" id="83E69489-0B71-6531-AB57-C33822844B0A">
-<createdBy>santos.jonathan</createdBy>
-<createdTime>2016-10-18 18:46:58 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Foto" id="395A1C9B-02FB-32CC-EA1D-AA0DC2053D9A">
@@ -127,6 +94,48 @@
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Partido_IDPartido" id="1FE84DC5-A4BA-D1E0-21B5-A4799F9F04E2">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:34:36 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="249A26B5-B148-8058-493A-D66FE73D1EEE" referredColumn="75A6F9FC-1DF0-B9D6-DB87-E6C6628B19EF"/>
+</associations>
+</Column>
+<Column name="Cidade_IDCidade" id="69ADED37-AEB1-AAD5-BD92-1F2159EA69F2">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:36:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0C62EFA6-D68F-BC81-2F17-DFCA26543338" referredColumn="FC5BC424-9E05-2A6B-7716-F14BDC9AB7B1"/>
+</associations>
+</Column>
+<Column name="ESTADO_IDEstado" id="019555B3-1CB5-7937-8826-DBB2BD43469B">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:38:24 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B78666F4-83E9-FC05-941C-C2FDD8AF57C2" referredColumn="71F39D25-1CDE-4DA0-A117-8501BF14D210"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="DCA9495B-AD09-9FE6-E289-8AF8CCD61AA4" name="Candidato_PK">
@@ -149,6 +158,36 @@
 <indexColumnUsage>
 <colUsage columnID="5B8CC125-F8D8-FEF9-1C06-B4BF01A7000C"/>
 <colUsage columnID="85BB7244-31A9-C8A8-EEFD-4908C639B42D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3220D8A-56B3-F5D7-282B-D43A05F54AC5" name="FK_PARTIDO_CANDIDATO">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:34:36 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FE84DC5-A4BA-D1E0-21B5-A4799F9F04E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13FCFC17-E045-E09B-D749-9E4C9AD4DCFE" name="FK_CIDADE_CANDIDATO">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:36:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69ADED37-AEB1-AAD5-BD92-1F2159EA69F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90031EC1-3DE6-E3D0-CB03-D4AEC4B9022A" name="FK_ESTADO_CANDIDATO">
+<createdBy>santos.jonathan</createdBy>
+<createdTime>2016-10-18 19:38:24 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="019555B3-1CB5-7937-8826-DBB2BD43469B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
