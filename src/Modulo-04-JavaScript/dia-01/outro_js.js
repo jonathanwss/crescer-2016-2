@@ -143,8 +143,19 @@ function ctrlC(origem){
       if(typeof origem[or] === 'object'){
         ctrlC(origem[or]);
       }else{
-          var resultado = origem[or];
+          resultado = origem[or];
           }
     }
     return resultado;
+}
+
+
+function mesclar(obj, obj2, recursiva = false){
+  for(var prop in obj2 ){
+    if(recursiva && typeof obj2[prop] === 'object'){
+      mesclar(obj[prop], obj2[prop], recursiva);
+    }else{
+      obj[prop] = obj2[prop];
+    }
+  }
 }
