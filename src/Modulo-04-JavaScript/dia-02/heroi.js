@@ -74,7 +74,12 @@ class Herois{
     }
 
     seriesPorLongevidade(){
-
+      var todasSeries = [];
+      marvel.forEach( marvel => {
+        todasSeries = todasSeries.concat(marvel.series.items);
+      } );
+    var diff = serie => serie.endYear - serie.startYear;
+    return todasSeries.sort((series1,series2) => diff(series2) - diff(series1));
     }
 
     comicMaisCara(){
