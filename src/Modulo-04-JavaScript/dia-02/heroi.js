@@ -1,7 +1,17 @@
 class Herois{
-    constructor(){
-        
+    constructor(array){
+      this.heroi = array;
     }
+
+
+
+    foraDaGuerraCivil2(){
+  return marvel.filter( marvel =>
+      marvel.events.items.filter(e => e.name.includes('Civil War') !== -1).length === 0);
+    }
+
+
+
 
     foraDaGuerraCivil(){
         var arrayHerois = [];
@@ -12,7 +22,7 @@ class Herois{
                 count++;
             }
           }
-            
+
             if(count===0){
                 arrayHerois.push(marvel[m].name);
             }else{
@@ -35,6 +45,10 @@ class Herois{
         return personagemMaisPublicado;
     }
 
+    maisPublicadoRefactor(){
+        return  marvel.sort( (h1,h2) => h2.comics.available - h1.comics.available)[0]
+    }
+
     mediaPaginas(){
         var mediaPaginaRevista = [];
         var numPaginas = 0;
@@ -50,6 +64,13 @@ class Herois{
         }
 
         return mediaPaginaRevista;
+    }
+
+    mediaPaginasRefactor(){
+      var totalPaginas = marvel.map( marvel =>
+          marvel.comics.items.reduce( (acum, comic) => acum + comic.pageCount, 0 )
+      ).reduce( ( acum, paginas) => acum + paginas );
+      return totalPaginas / marvel.length;
     }
 
     seriesPorLongevidade(){
@@ -77,3 +98,14 @@ class Herois{
         return ComicMaisCara;
     }
 }
+
+
+
+
+
+
+// marvel.reduce( (ac, marvel) => ac + marvel.comics.available, 0 )
+
+// arr.filter( function (elem) { return elem === 'A'})
+
+// marvel.map( marvel => marvel.comics.available)
