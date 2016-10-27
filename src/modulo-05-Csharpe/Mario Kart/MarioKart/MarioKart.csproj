@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Corredor.cs" />
+    <Compile Include="Equipamento\IEquipamento.cs" />
+    <Compile Include="Equipamento\MotorABaseDeLava.cs" />
+    <Compile Include="Equipamento\PneusDeCouroDeDragao.cs" />
+    <Compile Include="Kart.cs" />
+    <Compile Include="Karts\Sonar.cs" />
     <Compile Include="NivelHabilidadeCorredor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,6 +12,8 @@ namespace MarioKart
         public Kart(Corredor piloto)
         {
             this.Piloto = piloto;
+            this.Equipamentos = new List<IEquipamento>();
+            this.Velocidade = 3;
         }
 
         protected Corredor Piloto { get; set; }
@@ -19,5 +21,10 @@ namespace MarioKart
         protected List<IEquipamento> Equipamentos { get; }
 
         protected int Velocidade { get; }
+
+        protected void Equipar(IEquipamento equipamento)
+        {
+            Equipamentos.Add(equipamento);
+        }
     }
 }
