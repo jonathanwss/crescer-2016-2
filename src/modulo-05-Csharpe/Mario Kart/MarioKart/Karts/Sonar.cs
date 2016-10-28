@@ -8,11 +8,15 @@ namespace MarioKart.Karts
 {
     public class Sonar : Kart
     {
-        public Sonar(Corredor piloto) : base(piloto)
-        {
-            this.Piloto = piloto;
-        }
+        public Sonar(Corredor piloto) : base(piloto) { }
 
-        
-    }
+        public override int VelocidadeFinal()
+        {
+            if (this.Equipamentos.Count >= 1)
+            {
+                return base.VelocidadeFinal() + 2;
+            }
+            return base.VelocidadeFinal();
+        }
+    }   
 }
