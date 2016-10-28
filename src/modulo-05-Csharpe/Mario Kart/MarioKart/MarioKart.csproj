@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Corredor.cs" />
+    <Compile Include="Equipamento\FogueteDePlutonio.cs" />
     <Compile Include="Equipamento\IEquipamento.cs" />
     <Compile Include="Equipamento\MotorABaseDeLava.cs" />
     <Compile Include="Equipamento\PneusDeCouroDeDragao.cs" />

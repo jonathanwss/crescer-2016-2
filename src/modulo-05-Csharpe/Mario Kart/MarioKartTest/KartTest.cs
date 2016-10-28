@@ -91,5 +91,16 @@ namespace MarioKartTest
             kart.Equipar(motor);
             Assert.AreEqual(14, kart.VelocidadeFinal());
         }
+
+        [TestMethod]
+        public void CriarKartDinamComFogueteDePlutonioComoEquipamento()
+        {
+            Corredor corredor = new Corredor("José", NivelHabilidadeCorredor.Noob);
+            Dinam kart = new Dinam(corredor);
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            kart.Equipar(foguete);
+
+            Assert.AreEqual(14, kart.VelocidadeFinal());
+        }
     }
 }
