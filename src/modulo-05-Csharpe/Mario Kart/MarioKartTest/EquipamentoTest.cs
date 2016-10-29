@@ -78,5 +78,16 @@ namespace MarioKartTest
 
             Assert.AreEqual(4, novoUltraPack.Bonus);
         }
+
+        [TestMethod]
+        public void criarEquipamentoUltraPackComUltrapackComUltraPackDentro()
+        {
+            PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
+            UltraPack ultraPack = new UltraPack(pneu);
+            UltraPack novoUltraPack = new UltraPack(ultraPack);
+            UltraPack ultraPackTeste = new UltraPack(novoUltraPack);
+
+            Assert.AreEqual(5, ultraPackTeste.Bonus);
+        }
     }
 }

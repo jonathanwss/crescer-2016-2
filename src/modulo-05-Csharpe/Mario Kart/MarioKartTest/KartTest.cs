@@ -127,6 +127,26 @@ namespace MarioKartTest
         }
 
         [TestMethod]
+        public void CriarKartSkyFusionCom5Equipamentos()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Noob);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            FogueteDePlutonio foguete2 = new FogueteDePlutonio(3);
+            FogueteDePlutonio foguete3 = new FogueteDePlutonio(4);
+            FogueteDePlutonio foguete4 = new FogueteDePlutonio();
+            UltraPack ultraPack = new UltraPack(foguete);
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(foguete2);
+            skyFusion.Equipar(foguete3);
+            skyFusion.Equipar(foguete4);
+            skyFusion.Equipar(ultraPack);
+
+            Assert.AreEqual(37, skyFusion.VelocidadeFinal());
+        }
+
+        [TestMethod]
         public void CriarKartSkyFusionCom3Equipamentos()
         {
             Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Profissional);
@@ -160,6 +180,22 @@ namespace MarioKartTest
             sonar.Equipar(skyFusion);
             
             Assert.AreEqual(49, sonar.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSkyFusionQueContemSkyFusionComSkyFusionQuePossuiOutroSkyFusionDentro()
+        {
+            Corredor corredor = new Corredor("David", NivelHabilidadeCorredor.Noob);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            SkyFusion skyFusion2 = new SkyFusion(corredor);
+            SkyFusion skyFusion3 = new SkyFusion(corredor);
+            SkyFusion skyFusion4 = new SkyFusion(corredor);
+
+            skyFusion3.Equipar(skyFusion4);
+            skyFusion2.Equipar(skyFusion3);
+            skyFusion.Equipar(skyFusion2);
+
+            Assert.AreEqual(46, skyFusion.VelocidadeFinal());
         }
 
         [TestMethod]
