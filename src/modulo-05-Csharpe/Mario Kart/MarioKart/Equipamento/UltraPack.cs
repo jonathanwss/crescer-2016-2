@@ -20,12 +20,13 @@ namespace MarioKart.Equipamento
             get
             {
                 double bonusParcial = this.Equipamento.Bonus * 1.20;
-                double bonusParcialSemCasasDecimais =  Math.Truncate(bonusParcial);
+                /*double bonusParcialSemCasasDecimais =  Math.Truncate(bonusParcial);
                 bool precisaAdicionar1AoBonus = bonusParcial > bonusParcialSemCasasDecimais;
                 if (precisaAdicionar1AoBonus)
                 {
                     return (int)bonusParcialSemCasasDecimais + 1;
-                }
+                }*/
+                double bonusParcialSemCasasDecimais = Math.Ceiling(bonusParcial); 
                 return (int)bonusParcialSemCasasDecimais;
             }
         }
