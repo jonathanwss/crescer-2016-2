@@ -16,7 +16,7 @@ namespace MarioKart.Karts
         {
             int bonusPorItems = base.BonusQuantidadeDeEquipamentos();
 
-            int velocidadeDefinitiva = bonusPorItems + bonusNivelPiloto() + base.VelocidadeFinal();
+            int velocidadeDefinitiva = bonusPorItems + BonusNivelPiloto() + base.VelocidadeFinal();
 
             bool maiorQueDoze = velocidadeDefinitiva > 12;
 
@@ -27,16 +27,14 @@ namespace MarioKart.Karts
             return velocidadeDefinitiva;
         }
 
-        private int bonusNivelPiloto()
+        private int BonusNivelPiloto()
         {
             NivelHabilidadeCorredor nivelCorredor = Piloto.NivelHabilidade;
-            bool ehNoob = nivelCorredor == NivelHabilidadeCorredor.Noob;
-            bool ehMediano = nivelCorredor == NivelHabilidadeCorredor.Mediano;
 
-            if (ehNoob)
+            if (nivelCorredor == NivelHabilidadeCorredor.Noob)
             {
                 return 1;
-            }else if (ehMediano)
+            }else if (nivelCorredor == NivelHabilidadeCorredor.Mediano)
             {
                 return 2;
             }else

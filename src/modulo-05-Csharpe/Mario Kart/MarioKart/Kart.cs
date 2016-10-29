@@ -42,16 +42,16 @@ namespace MarioKart
         public virtual int VelocidadeFinal()
         {
 
-            int VelocidadeFinal = 0;
+            int velocidadeFinal = 0;
 
-            VelocidadeFinal = this.Velocidade + GanharBonusPorEquipamento() + BonusPorNivelDeHabilidade();
+            velocidadeFinal = this.Velocidade + GanharBonusPorEquipamento() + BonusPorNivelDeHabilidade();
 
             if(BonusEquipamentoKartSendoKart() > 0)
             {
-                return VelocidadeFinal + BonusEquipamentoKartSendoKart();
+                return velocidadeFinal + BonusEquipamentoKartSendoKart();
             }
 
-            return VelocidadeFinal;
+            return velocidadeFinal;
         }
 
         protected virtual int BonusPorNivelDeHabilidade()
@@ -76,32 +76,31 @@ namespace MarioKart
 
         private int GanharBonusPorEquipamento()
         {
-            int BonusEquipamentos = 0;
+            int bonusEquipamentos = 0;
             foreach(var equipamento in this.Equipamentos)
             {
                 if (equipamento != null)
                 {
-                    BonusEquipamentos += equipamento.Bonus;
+                    bonusEquipamentos += equipamento.Bonus;
                 }
             }
 
-            return BonusEquipamentos;
+            return bonusEquipamentos;
         }
         // Retorna o bonus da velocidade do kart que esta sendo usado como equipamento de um outro kart;
         private int BonusEquipamentoKartSendoKart()
         {
             bool temKartComoEquipamento = this.EquipamentoKartSendoKart.Count > 0;
-            var BonusEquipamentoKartSendoKart = 0;
+            var bonusEquipamentoKartSendoKart = 0;
             if (temKartComoEquipamento)
             {
                 foreach(Kart kart in this.EquipamentoKartSendoKart)
                 {
-                    BonusEquipamentoKartSendoKart += kart.VelocidadeFinal();
+                    bonusEquipamentoKartSendoKart += kart.VelocidadeFinal();
                 }
             }
 
-
-            return BonusEquipamentoKartSendoKart;
+            return bonusEquipamentoKartSendoKart;
         }
 
         
