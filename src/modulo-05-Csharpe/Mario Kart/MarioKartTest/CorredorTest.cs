@@ -9,7 +9,7 @@ namespace MarioKartTest
     {
         [TestMethod]
         public void CorredorEhCriadoComNomeENivelDeHabilidadeNoob()
-        {
+       {
             Corredor corredor = new Corredor("José", NivelHabilidadeCorredor.Noob);
 
             Assert.AreEqual("José", corredor.Nome);

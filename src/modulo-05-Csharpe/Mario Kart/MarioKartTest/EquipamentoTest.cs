@@ -41,5 +41,42 @@ namespace MarioKartTest
             MotorABaseDeLava equipamento = new MotorABaseDeLava();
             Assert.AreEqual(3, equipamento.Bonus);
         }
+
+        [TestMethod]
+        public void criarEquipamentoUltraPackComFogueteDePlutonioNivel5()
+        {
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+
+            Assert.AreEqual(6, ultraPack.Bonus);
+        }
+
+        [TestMethod]
+        public void criarEquipamentoUltraPackComFogueteDePlutonioNivel4()
+        {
+            FogueteDePlutonio foguete = new FogueteDePlutonio(4);
+            UltraPack ultraPack = new UltraPack(foguete);
+
+            Assert.AreEqual(5, ultraPack.Bonus);
+        }
+
+        [TestMethod]
+        public void criarEquipamentoUltraPackComPneuDeCouroDeDragao()
+        {
+            PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
+            UltraPack ultraPack = new UltraPack(pneu);
+
+            Assert.AreEqual(3, ultraPack.Bonus);
+        }
+
+        [TestMethod]
+        public void criarEquipamentoUltraPackComUltrapackComPneuDeCouroDentro()
+        {
+            PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
+            UltraPack ultraPack = new UltraPack(pneu);
+            UltraPack novoUltraPack = new UltraPack(ultraPack);
+
+            Assert.AreEqual(4, novoUltraPack.Bonus);
+        }
     }
 }
