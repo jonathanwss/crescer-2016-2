@@ -43,7 +43,7 @@ namespace MarioKartTest
         }
 
         [TestMethod]
-        public void criarEquipamentoUltraPackComFogueteDePlutonioNivel5()
+        public void CriarEquipamentoUltraPackComFogueteDePlutonioNivel5()
         {
             FogueteDePlutonio foguete = new FogueteDePlutonio(5);
             UltraPack ultraPack = new UltraPack(foguete);
@@ -52,7 +52,7 @@ namespace MarioKartTest
         }
 
         [TestMethod]
-        public void criarEquipamentoUltraPackComFogueteDePlutonioNivel4()
+        public void CriarEquipamentoUltraPackComFogueteDePlutonioNivel4()
         {
             FogueteDePlutonio foguete = new FogueteDePlutonio(4);
             UltraPack ultraPack = new UltraPack(foguete);
@@ -61,7 +61,7 @@ namespace MarioKartTest
         }
 
         [TestMethod]
-        public void criarEquipamentoUltraPackComPneuDeCouroDeDragao()
+        public void CriarEquipamentoUltraPackComPneuDeCouroDeDragao()
         {
             PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
             UltraPack ultraPack = new UltraPack(pneu);
@@ -70,7 +70,7 @@ namespace MarioKartTest
         }
 
         [TestMethod]
-        public void criarEquipamentoUltraPackComUltrapackComPneuDeCouroDentro()
+        public void CriarEquipamentoUltraPackComUltrapackComPneuDeCouroDentro()
         {
             PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
             UltraPack ultraPack = new UltraPack(pneu);
@@ -80,7 +80,7 @@ namespace MarioKartTest
         }
 
         [TestMethod]
-        public void criarEquipamentoUltraPackComUltrapackComUltraPackDentro()
+        public void CriarEquipamentoUltraPackComUltrapackComUltraPackDentro()
         {
             PneusDeCouroDeDragao pneu = new PneusDeCouroDeDragao();
             UltraPack ultraPack = new UltraPack(pneu);
