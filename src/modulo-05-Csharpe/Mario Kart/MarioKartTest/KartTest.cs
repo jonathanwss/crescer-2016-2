@@ -102,5 +102,116 @@ namespace MarioKartTest
 
             Assert.AreEqual(14, kart.VelocidadeFinal());
         }
+
+        [TestMethod]
+        public void CriarKartSkyFusionSemEquipamento()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Noob);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+
+            Assert.AreEqual(7, skyFusion.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSkyFusionCom2Equipamentos()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Noob);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(ultraPack);
+
+            Assert.AreEqual(25, skyFusion.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSkyFusionCom3Equipamentos()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Profissional);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+            MotorABaseDeLava motor = new MotorABaseDeLava();
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(ultraPack);
+            skyFusion.Equipar(motor);
+
+
+            Assert.AreEqual(37, skyFusion.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSonarComSkyFusionEquipando()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Profissional);
+            Sonar sonar = new Sonar(corredor);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+            MotorABaseDeLava motor = new MotorABaseDeLava();
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(ultraPack);
+            skyFusion.Equipar(motor);
+
+            sonar.Equipar(skyFusion);
+            
+            Assert.AreEqual(49, sonar.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSkyFusionComSkyFusionEquipando()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Profissional);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            SkyFusion skyFusion2 = new SkyFusion(corredor);
+
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+            MotorABaseDeLava motor = new MotorABaseDeLava();
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(ultraPack);
+            skyFusion.Equipar(motor);
+
+            skyFusion2.Equipar(foguete);
+            skyFusion2.Equipar(ultraPack);
+            skyFusion2.Equipar(motor);
+            skyFusion2.Equipar(skyFusion);
+
+            Assert.AreEqual(76, skyFusion2.VelocidadeFinal());
+        }
+
+        [TestMethod]
+        public void CriarKartSkyFusionComSkyFusionEquipandoESendoEquipadoPorOutroSkyFusion()
+        {
+            Corredor corredor = new Corredor("Zé", NivelHabilidadeCorredor.Profissional);
+            SkyFusion skyFusion = new SkyFusion(corredor);
+            SkyFusion skyFusion2 = new SkyFusion(corredor);
+            SkyFusion skyFusion3 = new SkyFusion(corredor);
+
+            FogueteDePlutonio foguete = new FogueteDePlutonio(5);
+            UltraPack ultraPack = new UltraPack(foguete);
+            MotorABaseDeLava motor = new MotorABaseDeLava();
+
+            skyFusion.Equipar(foguete);
+            skyFusion.Equipar(ultraPack);
+            skyFusion.Equipar(motor);
+
+            skyFusion2.Equipar(foguete);
+            skyFusion2.Equipar(ultraPack);
+            skyFusion2.Equipar(motor);
+            skyFusion2.Equipar(skyFusion);
+
+            skyFusion3.Equipar(foguete);
+            skyFusion3.Equipar(ultraPack);
+            skyFusion3.Equipar(motor);
+            skyFusion3.Equipar(skyFusion2);
+
+            Assert.AreEqual(115, skyFusion3.VelocidadeFinal());
+        }
     }
 }

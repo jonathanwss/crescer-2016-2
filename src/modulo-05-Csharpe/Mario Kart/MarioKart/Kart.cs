@@ -1,4 +1,5 @@
 ﻿using MarioKart.Equipamento;
+using MarioKart.Karts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,10 @@ namespace MarioKart
             this.Piloto = piloto;
             this.Equipamentos = new List<IEquipamento>();
             this.Velocidade = 3;
+            this.EquipamentoKartSendoKart = new List<Kart>();
         }
+
+        private List<Kart> EquipamentoKartSendoKart { get; set; }
 
         protected Corredor Piloto { get; set; }
 
@@ -22,16 +26,30 @@ namespace MarioKart
 
         protected int Velocidade { get; }
 
-        public void Equipar(IEquipamento equipamento)
+        public void Equipar(dynamic equipamento)
         {
-            Equipamentos.Add(equipamento);
+            if (equipamento is IEquipamento)
+            {
+                Equipamentos.Add(equipamento);
+            }
+            if(equipamento is SkyFusion)
+            {
+                Equipamentos.Add(null);
+                EquipamentoKartSendoKart.Add(equipamento);
+            }
         }
 
         public virtual int VelocidadeFinal()
         {
+
             int VelocidadeFinal = 0;
-         
+
             VelocidadeFinal = this.Velocidade + GanharBonusPorEquipamento() + BonusPorNivelDeHabilidade();
+
+            if(BonusEquipamentoKartSendoKart() > 0)
+            {
+                return VelocidadeFinal + BonusEquipamentoKartSendoKart();
+            }
 
             return VelocidadeFinal;
         }
@@ -51,7 +69,7 @@ namespace MarioKart
             }
         }
 
-        private int BonusQuantidadeDeEquipamentos()
+        protected int BonusQuantidadeDeEquipamentos()
         {
             return this.Equipamentos.Count;
         }
@@ -61,10 +79,31 @@ namespace MarioKart
             int BonusEquipamentos = 0;
             foreach(var equipamento in this.Equipamentos)
             {
-                BonusEquipamentos += equipamento.Bonus;
+                if (equipamento != null)
+                {
+                    BonusEquipamentos += equipamento.Bonus;
+                }
             }
 
             return BonusEquipamentos;
         }
+        // Retorna o bonus da velocidade do kart que esta sendo usado como equipamento de um outro kart;
+        private int BonusEquipamentoKartSendoKart()
+        {
+            bool temKartComoEquipamento = this.EquipamentoKartSendoKart.Count > 0;
+            var BonusEquipamentoKartSendoKart = 0;
+            if (temKartComoEquipamento)
+            {
+                foreach(Kart kart in this.EquipamentoKartSendoKart)
+                {
+                    BonusEquipamentoKartSendoKart += kart.VelocidadeFinal();
+                }
+            }
+
+
+            return BonusEquipamentoKartSendoKart;
+        }
+
+        
     }
 }

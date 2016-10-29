@@ -47,6 +47,7 @@
     <Compile Include="Equipamento\PneusDeCouroDeDragao.cs" />
     <Compile Include="Equipamento\UltraPack.cs" />
     <Compile Include="Kart.cs" />
+    <Compile Include="Karts\SkyFusion.cs" />
     <Compile Include="Karts\Dinam.cs" />
     <Compile Include="Karts\Light.cs" />
     <Compile Include="Karts\Sonar.cs" />
