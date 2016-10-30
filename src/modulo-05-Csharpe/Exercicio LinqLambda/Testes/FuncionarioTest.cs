@@ -30,7 +30,7 @@ namespace Testes
         public void FuncionariosOrdenadosPorCargo()
         {
             var dbFuncionarios = new RepositorioFuncionarios();
-
+            
             IList<Funcionario> funcionariosOrdenadosPorCargo = dbFuncionarios.OrdenadosPorCargo();
 
             var resultado = JsonConvert.SerializeObject(funcionariosOrdenadosPorCargo);

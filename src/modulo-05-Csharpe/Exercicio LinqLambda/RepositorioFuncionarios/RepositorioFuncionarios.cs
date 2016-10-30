@@ -90,7 +90,7 @@ namespace Repositorio
 
         public IList<Funcionario> OrdenadosPorCargo()
         {
-
+            var ordenar = from func in this.Funcionarios orderby func.Nome, func.Cargo select func;
             throw new NotImplementedException();
         }
 
@@ -101,7 +101,19 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            throw new NotImplementedException();
+            int turno = turnos.Length;
+
+            if(turno <= 0)
+            {
+                return this.Funcionarios;
+            }else if(turno == 1)
+            {
+                return this.Funcionarios.Where(x => x.TurnoTrabalho.Equals(turnos.First())).ToList();
+            }else
+            {
+                var funcionarioSegundoTurno = this.Funcionarios.Where(x => x.TurnoTrabalho.Equals(turnos.Last()));
+                return this.Funcionarios.Where(x => x.TurnoTrabalho.Equals(turnos.First())).Union(funcionarioSegundoTurno).ToList() ;
+            }
         }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
