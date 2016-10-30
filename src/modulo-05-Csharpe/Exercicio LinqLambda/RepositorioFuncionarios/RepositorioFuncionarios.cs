@@ -118,6 +118,7 @@ namespace Repositorio
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
+
             throw new NotImplementedException();
         }        
 
@@ -128,7 +129,7 @@ namespace Repositorio
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios.Where(x => x.DataNascimento.Month.Equals(DateTime.Now.Month)).ToList();
         }
 
         public IList<dynamic> BuscaRapida()
