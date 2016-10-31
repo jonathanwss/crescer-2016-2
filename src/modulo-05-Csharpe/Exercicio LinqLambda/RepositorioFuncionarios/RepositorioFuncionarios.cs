@@ -90,8 +90,7 @@ namespace Repositorio
 
         public IList<Funcionario> OrdenadosPorCargo()
         {
-            var ordenar = from func in this.Funcionarios orderby func.Nome, func.Cargo select func;
-            throw new NotImplementedException();
+            return this.Funcionarios.OrderBy(x => x.Cargo.Titulo).ThenBy(x => x.Nome).ToList();
         }
 
         public IList<Funcionario> BuscarPorNome(string nome)
@@ -174,6 +173,8 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
+            
+            
             throw new NotImplementedException();
         }
     }
