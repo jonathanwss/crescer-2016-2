@@ -124,7 +124,22 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            throw new NotImplementedException();
+            double somaSalario;
+            double divisor;
+            if (turno == null)
+            {
+                somaSalario = this.Funcionarios.Sum(func => func.Cargo.Salario);
+                divisor  = this.Funcionarios.Where(func => func.TurnoTrabalho != null).Count();
+
+                return somaSalario / divisor;
+            }
+
+            somaSalario = this.Funcionarios.Where(func => func.TurnoTrabalho.Equals(turno)).Sum(fun => fun.Cargo.Salario);
+            divisor = this.Funcionarios.Where(func => func.TurnoTrabalho.Equals(turno)).Count();
+
+            return somaSalario / divisor;
+            
+            
         }
 
         public IList<Funcionario> AniversariantesDoMes()
