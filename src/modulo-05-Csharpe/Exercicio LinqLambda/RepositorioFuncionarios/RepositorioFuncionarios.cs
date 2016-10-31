@@ -135,7 +135,7 @@ namespace Repositorio
             if (turno == null)
             {
                 somaSalario = this.Funcionarios.Sum(func => func.Cargo.Salario);
-                divisor  = this.Funcionarios.Where(func => func.TurnoTrabalho != null).Count();
+                divisor  = this.Funcionarios.Count();
 
                 return somaSalario / divisor;
             }
