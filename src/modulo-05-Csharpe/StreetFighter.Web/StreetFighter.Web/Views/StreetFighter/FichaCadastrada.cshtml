@@ -1,0 +1,42 @@
+﻿@model StreetFighter.Web.Models.FichaTecnicaModel
+
+@{
+    ViewBag.Title = "FichaCadastrada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="descricao-conteudo">
+    <h1>@ViewBag.Title</h1>
+</div>
+<div class="conteudo-corpo">
+    <h1>@Model.Nome</h1>
+@{
+    if (Model.Oculto == true)
+    {
+        <h3>Você Não Viu Nada</h3>
+    }
+    else
+    {
+        <div class="coluna">
+            <img src="" alt="Blanka pulando ferozmente" class="img-artigo">
+        </div>
+        <div class="coluna">
+            <p>
+                <strong>Nascimento:</strong>@Model.DataNascimento
+                <br>
+                <strong>Altura:</strong> @Model.Altura cm.
+                <br>
+                <strong>Peso:</strong> @Model.Peso kg.
+                <br>
+                <strong>Origem:</strong> @Model.Origem .
+                <br>
+                <strong>Golpes especiais famosos:</strong> @Model.GolpesEspeciais .
+            </p>
+        </div>
+    }
+}
+    
+</div>
+
+
+

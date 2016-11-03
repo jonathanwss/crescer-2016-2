@@ -7,48 +7,22 @@
 
 
 <div class="descricao-conteudo">
-    <h1>Ficha Técnica</h1>
+    <h1>@ViewBag.Title</h1>
 </div>
 <div class="conteudo-corpo">
-    <h1>Blanka</h1>
+    <h1>@Model.Nome</h1>
     <div class="coluna">
         <img src="~/Content/Images/Blanka.png" alt="Blanka pulando ferozmente" class="img-artigo">
     </div>
     <div class="coluna">
         <p>
-            <strong>Primeira aparição:</strong>@Model.PrimeiraAparicao
-            <br>
             <strong>Nascimento:</strong>@Model.DataNascimento
             <br>
             <strong>Altura:</strong> @Model.Altura cm.
             <br>
             <strong>Peso:</strong> @Model.Peso kg.
-            <br>
-            <strong>Medidas:</strong> @Model.Medidas .
-            <br>
-            <strong>Tipo sanguíneo:</strong> @Model.TipoSanguineo .
-            <br>
-            <strong>Habilidades especiais:</strong> @Model.HabilidadesEspeciais .
-            <br>
-            <strong>Gosta:</strong> @Model.Gosta .
-            <br>
-            <strong>Desgosta:</strong> @Model.Desgosta .
-            <br>
-            <strong>Estilo de luta:</strong> @Model.EstiloDeLuta .
-            <br>
+            
             <strong>Origem:</strong> @Model.Origem .
-            <br>
-            <strong>Uma fala de vitória:</strong> @Model.FalaVitoria .
-            <br>
-            <strong>SSF2 nickname:</strong> @Model.ssf2NickName .
-            <br>
-            <strong>SFA3 nickname:</strong> @Model.sa3NickName .
-            <br>
-            <strong>SF4 nickname:</strong> @Model.sf4NickName .
-            <br>
-            <strong>SFA3 stage:</strong> @Model.sfa3Stage .
-            <br>
-            <strong>SF2 stage:</strong> @Model.sf2Stage .
             <br>
             <strong>Golpes especiais famosos:</strong> @Model.GolpesEspeciais .
         </p>
