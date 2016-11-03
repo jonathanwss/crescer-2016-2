@@ -6,11 +6,19 @@
 }
 
 <div class="descricao-conteudo">
-    <h1>@ViewBag.Title</h1>
+    <h1>@ViewBag.Titulo</h1>
 </div>
 <div class="conteudo-corpo">
-    <h1>@Model.Nome</h1>
 @{
+    if (Model.Oculto == true)
+    {
+        <h1>There's nothing here</h1>
+    }
+    else
+    {
+        <h1>@Model.Nome</h1>
+    }
+
     if (Model.Oculto == true)
     {
         <h3>Você Não Viu Nada</h3>

@@ -173,8 +173,6 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
-            
-            
             throw new NotImplementedException();
         }
     }

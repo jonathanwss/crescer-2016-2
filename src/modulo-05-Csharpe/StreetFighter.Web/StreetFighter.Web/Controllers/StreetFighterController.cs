@@ -1,4 +1,5 @@
-﻿using StreetFighter.Web.Models;
+﻿using StreetFighter.Aplicativo;
+using StreetFighter.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,7 @@ namespace StreetFighter.Web.Controllers
         public ActionResult FichaCadastrada(FichaTecnicaModel model)
         {
             ListaOrigem();
+            ViewBag.Titulo = "Hidden";
             if (ModelState.IsValid)
             {
                 return View("FichaCadastrada", model);
@@ -56,6 +58,12 @@ namespace StreetFighter.Web.Controllers
             {
                 return View("Cadastro");
             }
+        }
+
+        public ActionResult ListarPersonagens()
+        {
+            PersonagemAplicativo personagem = new PersonagemAplicativo();
+            return View(personagem);
         }
 
         private void ListaOrigem()

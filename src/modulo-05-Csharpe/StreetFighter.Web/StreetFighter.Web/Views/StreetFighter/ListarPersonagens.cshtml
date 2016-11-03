@@ -1,0 +1,22 @@
+﻿@model StreetFighter.Aplicativo.PersonagemAplicativo
+
+@{
+    ViewBag.Title = "ListarPersonagens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="descricao-conteudo">
+    <h1>@ViewBag.Title</h1>
+</div>
+<div class="conteudo-corpo">
+    @{
+        var m = Model.ListarPersonagens("as");
+        foreach (var personagem in m)
+        {
+            <div style="width:20px; height:30px; border:solid 1px; display:inline-block"">
+                @personagem.Nome;
+            </div>
+
+        }
+    }
+</div>
