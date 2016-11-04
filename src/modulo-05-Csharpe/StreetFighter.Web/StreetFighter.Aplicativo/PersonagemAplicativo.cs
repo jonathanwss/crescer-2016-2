@@ -25,14 +25,9 @@ namespace StreetFighter.Aplicativo
 
         public List<Personagem> ListarPersonagens(string filtro)
         {
-            Personagem p = new Personagem("Nunes", "Morro da Pedra");
-            Personagem p2 = new Personagem("Jose", "Vila dos Toco");
-
-            List<Personagem> a = new List<Personagem>();
-            a.Add(p);
-            a.Add(p2);
-            return a;
-
+            PersonagemRepositorio personagem = new PersonagemRepositorio();
+            var listarPersonagem = personagem.ListarPersonagens();
+            return listarPersonagem;
         }
 
         public void Salva(Personagem personagem)

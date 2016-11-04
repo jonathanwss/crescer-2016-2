@@ -24,6 +24,7 @@ namespace StreetFighter.Repositorio
 
         public void incluirPersonagem(Personagem personagem)
         {
+            /*
             File.AppendAllText(caminhoArquivo, Environment.NewLine + null);
             File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Id.ToString());
             File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Nome);
@@ -32,18 +33,32 @@ namespace StreetFighter.Repositorio
             File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.GolpesEspeciais);
             File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Altura.ToString());
             File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Peso.ToString());
+            */
 
+            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Id.ToString() + ";" +
+                                 personagem.Nome + ";" + personagem.Origem + ";" + personagem.DataNascimento.ToString("dd MMMM yyyy") + ";"+
+                                 personagem.GolpesEspeciais + ";" + personagem.Altura.ToString() + ";" + 
+                                 personagem.Peso.ToString()
+                               );
         }
 
         public List<Personagem> ListarPersonagens()
         {
-            IList<string> lista = new List<string>();
-            lista = File.ReadAllLines(caminhoArquivo);
-            foreach (var caracter in lista)
-            {
-                
-            }
-            throw new NotImplementedException();
+            var personagenListaArquivo = File.ReadAllLines(caminhoArquivo)
+                           .Select(line => line.Split(';'))
+                           .Select(
+                                values =>
+                                    new Personagem()
+                                    {
+                                        Id = int.Parse(values[0]),
+                                        Nome = values[1],
+                                        Origem = values[2],
+                                        DataNascimento = DateTime.Parse(values[3]),
+                                        GolpesEspeciais = values[4],
+                                        Altura = int.Parse(values[5]),
+                                        Peso = decimal.Parse(values[6])
+                                    }).ToList();
+            return personagenListaArquivo;
         }
     }
 }

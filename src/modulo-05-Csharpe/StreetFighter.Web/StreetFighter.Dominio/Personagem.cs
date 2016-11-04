@@ -16,6 +16,8 @@ namespace StreetFighter.Dominio
         public int Altura { get; set; }
         public decimal Peso { get; set; }
 
+        public Personagem(){}
+
         public Personagem(int id, string nome, string origem)
             : this(nome, origem)
         {

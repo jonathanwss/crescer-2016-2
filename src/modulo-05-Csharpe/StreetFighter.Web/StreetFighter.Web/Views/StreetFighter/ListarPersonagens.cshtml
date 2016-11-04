@@ -10,11 +10,15 @@
 </div>
 <div class="conteudo-corpo">
     @{
-        var m = Model.ListarPersonagens("as");
-        foreach (var personagem in m)
+        var personagnesListados = Model.ListarPersonagens("asdas");
+        foreach(var personagem in personagnesListados)
         {
-            <div style="width:20px; height:30px; border:solid 1px; display:inline-block"">
-                @personagem.Nome;
+            <div class="personagens">
+                <h1>@personagem.Id</h1>
+                <h1>@personagem.Nome</h1>
+                <form method="post" action="">
+                    <button type="submit">visualizar</button>
+                </form>
             </div>
 
         }

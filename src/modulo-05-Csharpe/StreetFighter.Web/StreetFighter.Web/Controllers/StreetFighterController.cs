@@ -73,6 +73,7 @@ namespace StreetFighter.Web.Controllers
         public ActionResult ListarPersonagens()
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();
+            var personagensListados = personagem.ListarPersonagens("aaa");
             return View(personagem);
         }
 
