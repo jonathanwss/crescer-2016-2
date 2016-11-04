@@ -1,4 +1,5 @@
 ﻿using StreetFighter.Aplicativo;
+using StreetFighter.Dominio;
 using StreetFighter.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,15 @@ namespace StreetFighter.Web.Controllers
             ViewBag.Titulo = "Hidden";
             if (ModelState.IsValid)
             {
+                PersonagemAplicativo persona = new PersonagemAplicativo();
+                var personagem = new Personagem(model.Nome, model.Origem)
+                {
+                    DataNascimento = model.DataNascimento,
+                    GolpesEspeciais = model.GolpesEspeciais,
+                    Altura = model.Altura,
+                    Peso = model.Peso
+                };
+                persona.Salva(personagem);
                 return View("FichaCadastrada", model);
             }else
             {

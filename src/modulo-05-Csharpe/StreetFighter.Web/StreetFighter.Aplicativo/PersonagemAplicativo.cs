@@ -35,10 +35,9 @@ namespace StreetFighter.Aplicativo
 
         }
 
-        public List<Personagem> Salva(Personagem personagem)
+        public void Salva(Personagem personagem)
         {
-            ChamouMetodo = true;
-            throw new NotImplementedException();
+            repositorio.incluirPersonagem(personagem);
         }
     }
 }

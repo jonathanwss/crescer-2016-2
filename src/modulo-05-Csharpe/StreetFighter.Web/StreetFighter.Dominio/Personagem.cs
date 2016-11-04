@@ -14,7 +14,7 @@ namespace StreetFighter.Dominio
         public DateTime DataNascimento { get; set; }
         public string GolpesEspeciais { get; set; }
         public int Altura { get; set; }
-        public double Peso { get; set; }
+        public decimal Peso { get; set; }
 
         public Personagem(int id, string nome, string origem)
             : this(nome, origem)
