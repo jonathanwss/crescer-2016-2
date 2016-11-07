@@ -60,9 +60,23 @@ namespace StreetFighter.Repositorio
                 {
                     connection.Open();
 
-                    string sql = $"INSERT INTO PERSONAGEM VALUES(@param_Nome, @param_Data, @param_Altura, @param_Peso, @param_Origem, @param_GolpesEspeciais)";
-                    var command = new SqlCommand(sql, connection);
+                    string sql = "";
 
+                    List<SqlParameter> parametros = new List<SqlParameter>();
+
+                    if(personagem.Id > 0)
+                    {
+                        sql = $"UPDATE PERSONAGEM SET Nome = @param_Nome, DataNascimento = @param_Data, Altura = @param_Altura, Peso = @param_Peso, Origem = @param_Origem, GolpesEspeciais = @param_GolpesEspeciais WHERE Id = @param_id";
+                    }
+                    else
+                    {
+                        sql = $"INSERT INTO PERSONAGEM VALUES(@param_Nome, @param_Data, @param_Altura, @param_Peso, @param_Origem, @param_GolpesEspeciais)";
+                    }
+
+                    
+                    
+                    var command = new SqlCommand(sql, connection);
+                    command.Parameters.Add(new SqlParameter("param_id", personagem.Id));
                     command.Parameters.Add(new SqlParameter("param_Nome", personagem.Nome));
                     command.Parameters.Add(new SqlParameter("param_Data", personagem.DataNascimento));
                     command.Parameters.Add(new SqlParameter("param_Altura", personagem.Altura));

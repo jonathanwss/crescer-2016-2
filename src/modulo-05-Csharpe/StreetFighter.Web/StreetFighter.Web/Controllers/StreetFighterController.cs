@@ -124,7 +124,7 @@ namespace StreetFighter.Web.Controllers
                 Peso = model.Peso
             };
 
-            personagem.EditarPersonagem(personagemEditado);
+            personagem.Salva(personagemEditado);
             return RedirectToAction("VisualizarFicha", new { id = model.Id });
         }
         [CwiAutorizador]
