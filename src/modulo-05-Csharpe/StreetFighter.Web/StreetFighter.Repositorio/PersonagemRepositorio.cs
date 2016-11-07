@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace StreetFighter.Repositorio
 {
@@ -40,7 +41,7 @@ namespace StreetFighter.Repositorio
 
         public void incluirPersonagem(Personagem personagem)
         {
-            
+            /*
             var arquivoTamanho = new FileInfo(caminhoArquivo).Length;
             var novaLinha = arquivoTamanho != 0 ? Environment.NewLine : "";
             var id = IdNovoPersonagem();
@@ -49,9 +50,41 @@ namespace StreetFighter.Repositorio
                                  personagem.GolpesEspeciais + ";" + personagem.Altura.ToString() + ";" + 
                                  personagem.Peso.ToString() + ";"
                                );
-            
-
+            */
+            string connectionString = ConfigurationManager.ConnectionStrings["PersonagemConexao"].ConnectionString;
            
+            using (var scope = new TransactionScope(TransactionScopeOption.Required)) 
+                using (var connection = new SqlConnection(connectionString))
+                {
+                try
+                {
+                    connection.Open();
+
+                    string sql = $"INSERT INTO PERSONAGEM VALUES(@param_Nome, @param_Data, @param_Altura, @param_Peso, @param_Origem, @param_GolpesEspeciais)";
+                    var command = new SqlCommand(sql, connection);
+
+                    command.Parameters.Add(new SqlParameter("param_Nome", personagem.Nome));
+                    command.Parameters.Add(new SqlParameter("param_Data", personagem.DataNascimento));
+                    command.Parameters.Add(new SqlParameter("param_Altura", personagem.Altura));
+                    command.Parameters.Add(new SqlParameter("param_Peso", personagem.Peso));
+                    command.Parameters.Add(new SqlParameter("param_Origem", personagem.Origem));
+                    command.Parameters.Add(new SqlParameter("param_GolpesEspeciais", personagem.GolpesEspeciais));
+
+                    command.ExecuteNonQuery();
+
+                    scope.Complete();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                }
+            
         }
 
         public List<Personagem> ListarPersonagens()
@@ -84,6 +117,10 @@ namespace StreetFighter.Repositorio
                 string sql = "SELECT * FROM PERSONAGEM";
 
                 var command = new SqlCommand(sql, connection);
+
+               
+
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 
