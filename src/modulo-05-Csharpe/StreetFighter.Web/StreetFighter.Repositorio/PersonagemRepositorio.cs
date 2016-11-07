@@ -12,6 +12,7 @@ namespace StreetFighter.Repositorio
     {
         //const string caminhoArquivo = @"C:\Users\santos.jonathan\personagens.csv";
         const string caminhoArquivo = @"E:\Nova pasta (2)\teste.csv";
+        const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
         public void editarPersonagem(Personagem personagem)
         {
             var personagensListaAtualizado = ListarPersonagens().Where(p => p.Id != personagem.Id);
@@ -68,6 +69,21 @@ namespace StreetFighter.Repositorio
         {
             var idNovoPersonagem = new FileInfo(caminhoArquivo).Length;
             return (int)idNovoPersonagem;
+        }
+
+        public List<Usuario> buscarUsuarios()
+        {
+            var usuariosCadastrados = File.ReadAllLines(caminhoArquivoUsuariosCadastrados)
+                           .Select(line => line.Split(';'))
+                           .Select(
+                                values =>
+                                    new Usuario()
+                                    {
+                                        Nome = values[0],
+                                        Senha = values[1],
+                                    }).ToList();
+            return usuariosCadastrados;
+
         }
     }
 }

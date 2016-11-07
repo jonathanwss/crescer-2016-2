@@ -1,5 +1,6 @@
 ﻿using StreetFighter.Dominio;
 using StreetFighter.Infra;
+using StreetFighter.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,10 @@ namespace StreetFighter.Aplicativo
 {
     public class ServicoDeUsuario
     {
-
-        private static Usuario[] _usuarios =
-        {
-            new Usuario()
-            {
-                Nome = "jonathan",
-                Senha = "2f4aa1afa850a1eb4e28864f3acce489",
-            }
-        };
-
         public static Usuario BuscarUsuarioAutenticado(string nome, string senha)
         {
+            PersonagemRepositorio usuarioRepositorio = new PersonagemRepositorio();
+            var _usuarios = usuarioRepositorio.buscarUsuarios();
             Usuario usuarioEncontrado = _usuarios.FirstOrDefault(
                 usuario => usuario.Nome.Equals(nome));
 
