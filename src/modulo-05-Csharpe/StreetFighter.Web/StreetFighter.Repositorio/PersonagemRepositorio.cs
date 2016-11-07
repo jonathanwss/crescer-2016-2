@@ -1,6 +1,8 @@
 ﻿using StreetFighter.Dominio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,9 +12,11 @@ namespace StreetFighter.Repositorio
 {
     public class PersonagemRepositorio : IPersonagemRepositorio
     {
-        //const string caminhoArquivo = @"C:\Users\santos.jonathan\personagens.csv";
-        const string caminhoArquivo = @"E:\Nova pasta (2)\teste.csv";
-        const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
+        const string caminhoArquivo = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\teste.csv";
+        //const string caminhoArquivo = @"E:\Nova pasta (2)\teste.csv";
+        const string caminhoArquivoUsuariosCadastrados = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\cadastro.csv";
+
+        //const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
         public void editarPersonagem(Personagem personagem)
         {
             var personagensListaAtualizado = ListarPersonagens().Where(p => p.Id != personagem.Id);
@@ -36,6 +40,7 @@ namespace StreetFighter.Repositorio
 
         public void incluirPersonagem(Personagem personagem)
         {
+            
             var arquivoTamanho = new FileInfo(caminhoArquivo).Length;
             var novaLinha = arquivoTamanho != 0 ? Environment.NewLine : "";
             var id = IdNovoPersonagem();
@@ -44,10 +49,14 @@ namespace StreetFighter.Repositorio
                                  personagem.GolpesEspeciais + ";" + personagem.Altura.ToString() + ";" + 
                                  personagem.Peso.ToString() + ";"
                                );
+            
+
+           
         }
 
         public List<Personagem> ListarPersonagens()
         {
+            /*
             var personagenListaArquivo = File.ReadAllLines(caminhoArquivo)
                            .Select(line => line.Split(';'))
                            .Select(
@@ -63,6 +72,41 @@ namespace StreetFighter.Repositorio
                                         Peso = decimal.Parse(values[6])
                                     }).ToList();
             return personagenListaArquivo;
+            */
+            string connectionString = ConfigurationManager.ConnectionStrings["PersonagemConexao"].ConnectionString;
+            List<Personagem> listaPersonagens = new List<Personagem>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                string sql = "SELECT * FROM PERSONAGEM";
+
+                var command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                
+
+                while (reader.Read())
+                {
+                    var personagem = new Personagem()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Nome = reader["Nome"].ToString(),
+                        DataNascimento = Convert.ToDateTime(reader["DataNascimento"]),
+                        Altura = Convert.ToInt32(reader["Altura"]),
+                        Peso = Convert.ToDecimal(reader["Peso"]),
+                        Origem = reader["Origem"].ToString(),
+                        GolpesEspeciais = reader["GolpesEspeciais"].ToString()
+                    };
+
+                    listaPersonagens.Add(personagem);
+                }
+                connection.Close();
+                
+            }
+            return listaPersonagens;
         }
 
         private int IdNovoPersonagem()
@@ -85,5 +129,7 @@ namespace StreetFighter.Repositorio
             return usuariosCadastrados;
 
         }
+
+
     }
 }
