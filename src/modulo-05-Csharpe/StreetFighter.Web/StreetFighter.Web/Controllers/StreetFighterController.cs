@@ -45,7 +45,61 @@ namespace StreetFighter.Web.Controllers
         public ActionResult Cadastro()
         {
             ListaOrigem();
+            ViewBag.Editar = false;
             return View();
+        }
+
+        public ActionResult VisualizarFicha(int id)
+        {
+            PersonagemAplicativo personagem = new PersonagemAplicativo();
+            var personagensLista = personagem.ListarPersonagens();
+            var personagemSelecionado = personagensLista.Where(p => p.Id == id);
+
+            var model = new FichaTecnicaModel();
+            model.Nome = personagemSelecionado.First().Nome;
+            model.Origem = personagemSelecionado.First().Origem;
+            model.GolpesEspeciais = personagemSelecionado.First().GolpesEspeciais;
+            model.DataNascimento = personagemSelecionado.First().DataNascimento;
+            model.Altura = personagemSelecionado.First().Altura;
+            model.Peso = personagemSelecionado.First().Peso;
+
+            return View("FichaCadastrada",model);
+        }
+
+        public ActionResult EditarPersonagem(int id)
+        {
+            ListaOrigem();
+
+            PersonagemAplicativo personagem = new PersonagemAplicativo();
+            var personagemEdicao = personagem.ListarPersonagens().Where(persona => persona.Id == id);
+
+            var model = new FichaTecnicaModel();
+            model.Id = personagemEdicao.First().Id;
+            model.Nome = personagemEdicao.First().Nome;
+            model.Origem = personagemEdicao.First().Origem;
+            model.GolpesEspeciais = personagemEdicao.First().GolpesEspeciais;
+            model.DataNascimento = personagemEdicao.First().DataNascimento;
+            model.Altura = personagemEdicao.First().Altura;
+            model.Peso = personagemEdicao.First().Peso;
+
+            ViewBag.Editar = true;
+
+            return View("Cadastro", model);
+
+        }
+        public ActionResult SalvarPersonagemEditado(FichaTecnicaModel model)
+        {
+            PersonagemAplicativo personagem = new PersonagemAplicativo();
+            var personagemEditado = new Personagem(model.Id, model.Nome, model.Origem)
+            {
+                DataNascimento = model.DataNascimento,
+                GolpesEspeciais = model.GolpesEspeciais,
+                Altura = model.Altura,
+                Peso = model.Peso
+            };
+
+            personagem.EditarPersonagem(personagemEditado);
+            return RedirectToAction("VisualizarFicha", new { id = model.Id });
         }
 
         public ActionResult FichaCadastrada(FichaTecnicaModel model)
@@ -59,8 +113,8 @@ namespace StreetFighter.Web.Controllers
                 {
                     DataNascimento = model.DataNascimento,
                     GolpesEspeciais = model.GolpesEspeciais,
-                    Altura = model.Altura,
-                    Peso = model.Peso
+                    Altura = (int)model.Altura,
+                    Peso = (int)model.Peso
                 };
                 persona.Salva(personagem);
                 return View("FichaCadastrada", model);
@@ -73,8 +127,17 @@ namespace StreetFighter.Web.Controllers
         public ActionResult ListarPersonagens()
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();
-            var personagensListados = personagem.ListarPersonagens("aaa");
+            var personagensListados = personagem.ListarPersonagens();
             return View(personagem);
+        }
+
+        public ActionResult ListarPersonagensAtualizado(int id)
+        {
+            PersonagemAplicativo personagem = new PersonagemAplicativo();
+            var personagensListados = personagem.ListarPersonagens();
+            var personagemSerExcluido = personagensListados.Where(p => p.Id == id);
+            personagem.ExcluirPersonagem(personagemSerExcluido.First());
+            return RedirectToAction("ListarPersonagens");
         }
 
         private void ListaOrigem()

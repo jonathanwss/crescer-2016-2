@@ -3,18 +3,46 @@
 @{
     ViewBag.Title = "Cadastro";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var destino = "";
+    var editar = ViewBag.Editar != null ? ViewBag.Editar : false;
+    var nome = "";
+    var dataNascimento = DateTime.Now;
+    var altura = 0;
+    decimal peso = 0;
+    var golpesEspeciais = "";
+    var id = 0;
+    if (editar)
+    {
+        destino = "SalvarPersonagemEditado";
+        id = Model.Id;
+        nome = Model.Nome;
+        dataNascimento = Model.DataNascimento;
+        altura = Model.Altura;
+        peso = Model.Peso;
+        golpesEspeciais = Model.GolpesEspeciais;
+
+    }
+    else
+    {
+        destino = "FichaCadastrada";
+    }
+}
+
+
+@{ 
+
 }
 
 <div class="descricao-conteudo">
     <h1>Street Fighter</h1>
 </div>
 <div class="conteudo-corpo">
-    @using (Html.BeginForm("FichaCadastrada", "StreetFighter", FormMethod.Post))
+    @using (Html.BeginForm(destino, "StreetFighter", FormMethod.Post))
     {
         <div class="dados">
             @Html.LabelFor(model => model.Nome, new { @class = "labelCampo" })
             <div>
-                @Html.TextBoxFor(model => model.Nome, new { @class = "campo", placeholder = "Digite o nome aqui" })
+                @Html.TextBoxFor(model => model.Nome, new { @class = "campo", placeholder = "Digite o nome aqui", value = nome })
                 @Html.ValidationMessageFor(model => model.Nome)
             </div>
         </div>
@@ -22,15 +50,15 @@
         <div class="dados">
             @Html.LabelFor(model => model.DataNascimento, new { @class = "labelCampo" })
             <div>
-                @Html.TextBoxFor(model => model.DataNascimento, new { @class = "campo", placeholder = "Digite a data de nascimento em fomato BR" })
+                @Html.TextBoxFor(model => model.DataNascimento, new { @class = "campo", placeholder = "Digite a data de nascimento em fomato BR", value = dataNascimento })
                 @Html.ValidationMessageFor(model => model.DataNascimento)
             </div>
         </div>
 
         <div class="dados">
-            @Html.LabelFor(model => model.Altura, new { @class = "labelCampo" })
+            @Html.LabelFor(model => model.Altura, new { @class = "labelCampo"})
             <div>
-                @Html.TextBoxFor(model => model.Altura, new { @class = "campo", placeholder = "Digite a altura em cm" })
+                @Html.TextBoxFor(model => model.Altura, new { @class = "campo", placeholder = "Digite a altura em cm", value = altura })
                 @Html.ValidationMessageFor(model => model.Altura)
             </div>
         </div>
@@ -38,7 +66,7 @@
         <div class="dados">
             @Html.LabelFor(model => model.Peso, new { @class = "labelCampo" })
             <div>
-                @Html.TextBoxFor(model => model.Peso, new { @class = "campo", placeholder = "Digite o peso em formato BR" })
+                @Html.TextBoxFor(model => model.Peso, new { @class = "campo", placeholder = "Digite o peso em formato BR", value = peso })
                 @Html.ValidationMessageFor(model => model.Peso)
             </div>
         </div>
@@ -54,7 +82,7 @@
         <div class="dados">
             @Html.LabelFor(model => model.GolpesEspeciais, new { @class = "labelCampo" })
             <div>
-                @Html.TextBoxFor(model => model.GolpesEspeciais, new { @class = "campo", placeholder = "Quais os golpes especiais" })
+                @Html.TextBoxFor(model => model.GolpesEspeciais, new { @class = "campo", placeholder = "Quais os golpes especiais", value = golpesEspeciais })
                 @Html.ValidationMessageFor(model => model.GolpesEspeciais)
             </div>
         </div>
@@ -64,7 +92,8 @@
 
             @Html.CheckBoxFor(model => model.Oculto)
         </div>
-
+        <input type="text" hidden value=@id name="Id" />
+        
         <button type="submit" class="btnEnviar">Enviar</button>
     }
 </div>

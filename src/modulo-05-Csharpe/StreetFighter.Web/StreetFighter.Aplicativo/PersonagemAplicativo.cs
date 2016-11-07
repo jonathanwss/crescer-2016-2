@@ -23,16 +23,26 @@ namespace StreetFighter.Aplicativo
             this.repositorio = repositorio;
         }
 
-        public List<Personagem> ListarPersonagens(string filtro)
+        public List<Personagem> ListarPersonagens()
         {
-            PersonagemRepositorio personagem = new PersonagemRepositorio();
-            var listarPersonagem = personagem.ListarPersonagens();
+            //PersonagemRepositorio personagem = new PersonagemRepositorio();
+            var listarPersonagem = repositorio.ListarPersonagens();
             return listarPersonagem;
         }
 
         public void Salva(Personagem personagem)
         {
             repositorio.incluirPersonagem(personagem);
+        }
+
+        public void ExcluirPersonagem(Personagem personagem)
+        {
+            repositorio.excluirPersonagem(personagem);
+        }
+
+        public void EditarPersonagem(Personagem personagem)
+        {
+            repositorio.editarPersonagem(personagem);
         }
     }
 }

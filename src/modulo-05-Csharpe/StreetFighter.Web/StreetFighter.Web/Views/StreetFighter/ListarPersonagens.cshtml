@@ -10,17 +10,24 @@
 </div>
 <div class="conteudo-corpo">
     @{
-        var personagnesListados = Model.ListarPersonagens("asdas");
+        var personagnesListados = Model.ListarPersonagens();
         foreach(var personagem in personagnesListados)
         {
             <div class="personagens">
                 <h1>@personagem.Id</h1>
                 <h1>@personagem.Nome</h1>
-                <form method="post" action="">
+                <form method="post" action="http://localhost:50445/StreetFighter/VisualizarFicha?id=@personagem.Id">
                     <button type="submit">visualizar</button>
+                </form>
+                <form method="post" action="http://localhost:50445/StreetFighter/ListarPersonagensAtualizado?id=@personagem.Id">
+                    <button type="submit">Excluir</button>
+                </form>
+                <form method="post" action="http://localhost:50445/StreetFighter/EditarPersonagem?id=@personagem.Id">
+                    <button type="submit">Editar</button>
                 </form>
             </div>
 
         }
     }
+    <a href="http://localhost:50445/StreetFighter/Cadastro">Cadastrar Novo Personagem</a>
 </div>

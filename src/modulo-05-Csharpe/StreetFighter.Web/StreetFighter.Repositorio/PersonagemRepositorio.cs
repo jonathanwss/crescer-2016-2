@@ -14,31 +14,34 @@ namespace StreetFighter.Repositorio
         const string caminhoArquivo = @"E:\Nova pasta (2)\teste.csv";
         public void editarPersonagem(Personagem personagem)
         {
-            throw new NotImplementedException();
+            var personagensListaAtualizado = ListarPersonagens().Where(p => p.Id != personagem.Id);
+            excluirPersonagem(personagem);
+            incluirPersonagem(personagem);
         }
 
         public void excluirPersonagem(Personagem personagem)
         {
-            throw new NotImplementedException();
+            
+            var personagensLista = ListarPersonagens();
+
+            var personagensSeraoSalvos = personagensLista.Where(p => p.Id != personagem.Id);
+            File.Delete(caminhoArquivo);
+            File.Create(caminhoArquivo).Close();
+            foreach(var persona in personagensSeraoSalvos)
+            {
+                incluirPersonagem(persona);
+            }     
         }
 
         public void incluirPersonagem(Personagem personagem)
         {
-            /*
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + null);
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Id.ToString());
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Nome);
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Origem);
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.DataNascimento.ToString("dd MMMM yyyy"));
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.GolpesEspeciais);
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Altura.ToString());
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Peso.ToString());
-            */
-
-            File.AppendAllText(caminhoArquivo, Environment.NewLine + personagem.Id.ToString() + ";" +
+            var arquivoTamanho = new FileInfo(caminhoArquivo).Length;
+            var novaLinha = arquivoTamanho != 0 ? Environment.NewLine : "";
+            var id = IdNovoPersonagem();
+            File.AppendAllText(caminhoArquivo, novaLinha + id + ";" +
                                  personagem.Nome + ";" + personagem.Origem + ";" + personagem.DataNascimento.ToString("dd MMMM yyyy") + ";"+
                                  personagem.GolpesEspeciais + ";" + personagem.Altura.ToString() + ";" + 
-                                 personagem.Peso.ToString()
+                                 personagem.Peso.ToString() + ";"
                                );
         }
 
@@ -59,6 +62,12 @@ namespace StreetFighter.Repositorio
                                         Peso = decimal.Parse(values[6])
                                     }).ToList();
             return personagenListaArquivo;
+        }
+
+        private int IdNovoPersonagem()
+        {
+            var idNovoPersonagem = new FileInfo(caminhoArquivo).Length;
+            return (int)idNovoPersonagem;
         }
     }
 }
