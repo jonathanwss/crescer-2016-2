@@ -39,6 +39,7 @@
 <div class="conteudo-corpo">
     @using (Html.BeginForm(destino, "StreetFighter", FormMethod.Post))
     {
+        @Html.AntiForgeryToken()
         <div class="dados">
             @Html.LabelFor(model => model.Nome, new { @class = "labelCampo" })
             <div>

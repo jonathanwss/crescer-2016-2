@@ -1,6 +1,8 @@
 ﻿using StreetFighter.Aplicativo;
 using StreetFighter.Dominio;
+using StreetFighter.Web.Filter;
 using StreetFighter.Web.Models;
+using StreetFighter.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,33 @@ namespace StreetFighter.Web.Controllers
 {
     public class StreetFighterController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult FazerLogin(string usuario, string senha)
+        {
+            Usuario usuarioAutenticado = ServicoDeUsuario.BuscarUsuarioAutenticado(
+                    usuario, senha);
+
+            if (usuarioAutenticado != null)
+            {
+                ServicoDeAutenticacao.Autenticar(new UsuarioLogadoModel(
+                    usuarioAutenticado.Nome));
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Login");
+        }
+        [CwiAutorizador]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [CwiAutorizador]
         public ActionResult FichaTecnica()
         {
             var modelFichaTecnica = new FichaTecnicaModel();
@@ -28,7 +52,7 @@ namespace StreetFighter.Web.Controllers
             modelFichaTecnica.GolpesEspeciais = "Electric Thunder, Rolling Attack.";
             return View(modelFichaTecnica);
         }
-
+        [CwiAutorizador]
         public ActionResult Sobre()
         {
             var modelFichaTecnica = new FichaTecnicaModel();
@@ -41,14 +65,14 @@ namespace StreetFighter.Web.Controllers
             modelFichaTecnica.GolpesEspeciais = "unknown(até por ele mesmo)";
             return View(modelFichaTecnica);
         }
-
+        [CwiAutorizador]
         public ActionResult Cadastro()
         {
             ListaOrigem();
             ViewBag.Editar = false;
             return View();
         }
-
+        [CwiAutorizador]
         public ActionResult VisualizarFicha(int id)
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();
@@ -65,7 +89,7 @@ namespace StreetFighter.Web.Controllers
 
             return View("FichaCadastrada",model);
         }
-
+        [CwiAutorizador]
         public ActionResult EditarPersonagem(int id)
         {
             ListaOrigem();
@@ -87,6 +111,8 @@ namespace StreetFighter.Web.Controllers
             return View("Cadastro", model);
 
         }
+        [CwiAutorizador]
+        [ValidateAntiForgeryToken]
         public ActionResult SalvarPersonagemEditado(FichaTecnicaModel model)
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();
@@ -101,7 +127,8 @@ namespace StreetFighter.Web.Controllers
             personagem.EditarPersonagem(personagemEditado);
             return RedirectToAction("VisualizarFicha", new { id = model.Id });
         }
-
+        [CwiAutorizador]
+        [ValidateAntiForgeryToken]
         public ActionResult FichaCadastrada(FichaTecnicaModel model)
         {
             ListaOrigem();
@@ -123,14 +150,14 @@ namespace StreetFighter.Web.Controllers
                 return View("Cadastro");
             }
         }
-
+        [CwiAutorizador]
         public ActionResult ListarPersonagens()
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();
             var personagensListados = personagem.ListarPersonagens();
             return View(personagem);
         }
-
+        [CwiAutorizador]
         public ActionResult ListarPersonagensAtualizado(int id)
         {
             PersonagemAplicativo personagem = new PersonagemAplicativo();

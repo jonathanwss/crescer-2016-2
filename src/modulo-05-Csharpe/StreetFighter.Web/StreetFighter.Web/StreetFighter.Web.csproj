@@ -134,11 +134,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\StreetFighterController.cs" />
+    <Compile Include="Filter\CWIAutorizador.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FichaTecnicaModel.cs" />
+    <Compile Include="Models\UsuarioLogadoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServicoDeAutenticacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -154,6 +157,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\StreetFighter\FichaCadastrada.cshtml" />
     <Content Include="Views\StreetFighter\ListarPersonagens.cshtml" />
+    <Content Include="Views\StreetFighter\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

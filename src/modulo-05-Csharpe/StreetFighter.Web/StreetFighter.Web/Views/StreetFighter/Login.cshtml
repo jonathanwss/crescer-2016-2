@@ -1,0 +1,29 @@
+﻿@model StreetFighter.Web.Models.UsuarioLogadoModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="descricao-conteudo">
+    <h1>Street Fighter</h1>
+</div>
+<div class="conteudo-corpo">
+    @using (@Html.BeginForm("FazerLogin", "StreetFighter", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="dados">
+            Login:
+            <div>
+                @Html.TextBox("usuario", "", new { placeholder = "usuario" });
+            </div>
+        </div>
+
+        <div class="dados">
+            Senha:
+            <div>
+                @Html.Password("senha", "", new { placeholder = "senha" });
+            </div>
+        </div>
+        <button type="submit">Entrar</button>
+    }
+</div>
