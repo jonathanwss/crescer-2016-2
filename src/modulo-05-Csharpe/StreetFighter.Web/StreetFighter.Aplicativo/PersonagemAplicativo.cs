@@ -10,12 +10,11 @@ namespace StreetFighter.Aplicativo
 {
     public class PersonagemAplicativo
     {
-        private bool ChamouMetodo;
         private readonly IPersonagemRepositorio repositorio;
 
         public PersonagemAplicativo()
         {
-            this.repositorio = new PersonagemRepositorio();
+            this.repositorio = new PersonagemRepositorioEntityF.PersonagemRepositorioEntityF();
         }
 
         public PersonagemAplicativo(IPersonagemRepositorio repositorio)

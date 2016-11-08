@@ -13,7 +13,7 @@ namespace StreetFighter.Aplicativo
     {
         public static Usuario BuscarUsuarioAutenticado(string nome, string senha)
         {
-            PersonagemRepositorio usuarioRepositorio = new PersonagemRepositorio();
+            var usuarioRepositorio = new PersonagemRepositorioEntityF.PersonagemRepositorioEntityF();
             var _usuarios = usuarioRepositorio.buscarUsuarios();
             Usuario usuarioEncontrado = _usuarios.FirstOrDefault(
                 usuario => usuario.Nome.Equals(nome));

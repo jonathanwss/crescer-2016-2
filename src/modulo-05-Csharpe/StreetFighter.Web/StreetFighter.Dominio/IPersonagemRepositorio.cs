@@ -11,6 +11,7 @@ namespace StreetFighter.Dominio
         List<Personagem> ListarPersonagens();
         void SalvarPersonagem(Personagem personagem);
         void ExcluirPersonagem(Personagem personagem);
+        List<Usuario> buscarUsuarios();
 
     }
 }
