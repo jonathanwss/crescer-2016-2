@@ -18,28 +18,36 @@ namespace StreetFighter.Repositorio
         //const string caminhoArquivoUsuariosCadastrados = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\cadastro.csv";
 
         const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
-        public void editarPersonagem(Personagem personagem)
+
+        public void ExcluirPersonagem(Personagem personagem)
         {
-            var personagensListaAtualizado = ListarPersonagens().Where(p => p.Id != personagem.Id);
-            excluirPersonagem(personagem);
-            incluirPersonagem(personagem);
-        }
+            string connectionString = ConfigurationManager.ConnectionStrings["PersonagemConexao"].ConnectionString;
 
-        public void excluirPersonagem(Personagem personagem)
-        {
-
-            var personagensLista = ListarPersonagens();
-
-            var personagensSeraoSalvos = personagensLista.Where(p => p.Id != personagem.Id);
-            File.Delete(caminhoArquivo);
-            File.Create(caminhoArquivo).Close();
-            foreach (var persona in personagensSeraoSalvos)
+            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            using (var connection = new SqlConnection(connectionString))
             {
-                incluirPersonagem(persona);
+                try
+                {
+                    connection.Open();
+
+                    string sql = $"DELETE FROM PERSONAGEM WHERE Id = @param_id";
+
+                    var command = new SqlCommand(sql, connection);
+
+                    command.Parameters.Add(new SqlParameter("param_Id", personagem.Id));
+
+                    command.ExecuteNonQuery();
+                    
+                    scope.Complete();
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
 
-        public void incluirPersonagem(Personagem personagem)
+        public void SalvarPersonagem(Personagem personagem)
         {
             /*
             var arquivoTamanho = new FileInfo(caminhoArquivo).Length;

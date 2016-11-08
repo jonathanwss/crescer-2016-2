@@ -32,17 +32,12 @@ namespace StreetFighter.Aplicativo
 
         public void Salva(Personagem personagem)
         {
-            repositorio.incluirPersonagem(personagem);
+            repositorio.SalvarPersonagem(personagem);
         }
 
         public void ExcluirPersonagem(Personagem personagem)
         {
-            repositorio.excluirPersonagem(personagem);
-        }
-
-        public void EditarPersonagem(Personagem personagem)
-        {
-            repositorio.editarPersonagem(personagem);
+            repositorio.ExcluirPersonagem(personagem);
         }
     }
 }
