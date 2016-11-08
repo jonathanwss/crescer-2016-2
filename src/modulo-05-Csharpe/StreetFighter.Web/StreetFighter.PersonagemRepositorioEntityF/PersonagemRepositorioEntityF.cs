@@ -1,6 +1,7 @@
 ﻿using StreetFighter.Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,20 @@ namespace StreetFighter.PersonagemRepositorioEntityF
 
         public void SalvarPersonagem(Personagem personagem)
         {
-            throw new NotImplementedException();
+            if(personagem.Id == 0)
+            {
+                SalvarNovoPersonagem(personagem);
+            }
+            
+        }
+
+        private void SalvarNovoPersonagem(Personagem personagem)
+        {
+            using (var context = new StreetFighterContextBase())
+            {
+                context.Entry<Personagem>(personagem).State = EntityState.Added;
+                context.SaveChanges();
+            }
         }
     }
 }
