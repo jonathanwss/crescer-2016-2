@@ -15,9 +15,9 @@ namespace StreetFighter.Repositorio
     {
         const string caminhoArquivo = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\teste.csv";
         //const string caminhoArquivo = @"E:\Nova pasta (2)\teste.csv";
-        const string caminhoArquivoUsuariosCadastrados = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\cadastro.csv";
+        //const string caminhoArquivoUsuariosCadastrados = @"C:\Users\santos.jonathan\crescer-2016-2\src\modulo-05-Csharpe\cadastro.csv";
 
-        //const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
+        const string caminhoArquivoUsuariosCadastrados = @"E:\Nova pasta (2)\cadastro.csv";
         public void editarPersonagem(Personagem personagem)
         {
             var personagensListaAtualizado = ListarPersonagens().Where(p => p.Id != personagem.Id);
@@ -27,16 +27,16 @@ namespace StreetFighter.Repositorio
 
         public void excluirPersonagem(Personagem personagem)
         {
-            
+
             var personagensLista = ListarPersonagens();
 
             var personagensSeraoSalvos = personagensLista.Where(p => p.Id != personagem.Id);
             File.Delete(caminhoArquivo);
             File.Create(caminhoArquivo).Close();
-            foreach(var persona in personagensSeraoSalvos)
+            foreach (var persona in personagensSeraoSalvos)
             {
                 incluirPersonagem(persona);
-            }     
+            }
         }
 
         public void incluirPersonagem(Personagem personagem)
@@ -52,10 +52,10 @@ namespace StreetFighter.Repositorio
                                );
             */
             string connectionString = ConfigurationManager.ConnectionStrings["PersonagemConexao"].ConnectionString;
-           
-            using (var scope = new TransactionScope(TransactionScopeOption.Required)) 
-                using (var connection = new SqlConnection(connectionString))
-                {
+
+            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            using (var connection = new SqlConnection(connectionString))
+            {
                 try
                 {
                     connection.Open();
@@ -64,7 +64,7 @@ namespace StreetFighter.Repositorio
 
                     List<SqlParameter> parametros = new List<SqlParameter>();
 
-                    if(personagem.Id > 0)
+                    if (personagem.Id > 0)
                     {
                         sql = $"UPDATE PERSONAGEM SET Nome = @param_Nome, DataNascimento = @param_Data, Altura = @param_Altura, Peso = @param_Peso, Origem = @param_Origem, GolpesEspeciais = @param_GolpesEspeciais WHERE Id = @param_id";
                     }
@@ -73,8 +73,8 @@ namespace StreetFighter.Repositorio
                         sql = $"INSERT INTO PERSONAGEM VALUES(@param_Nome, @param_Data, @param_Altura, @param_Peso, @param_Origem, @param_GolpesEspeciais)";
                     }
 
-                    
-                    
+
+
                     var command = new SqlCommand(sql, connection);
                     command.Parameters.Add(new SqlParameter("param_id", personagem.Id));
                     command.Parameters.Add(new SqlParameter("param_Nome", personagem.Nome));
@@ -97,8 +97,8 @@ namespace StreetFighter.Repositorio
                 {
                     connection.Close();
                 }
-                }
-            
+            }
+
         }
 
         public List<Personagem> ListarPersonagens()
@@ -132,12 +132,12 @@ namespace StreetFighter.Repositorio
 
                 var command = new SqlCommand(sql, connection);
 
-               
 
-                
+
+
                 SqlDataReader reader = command.ExecuteReader();
 
-                
+
 
                 while (reader.Read())
                 {
@@ -155,7 +155,7 @@ namespace StreetFighter.Repositorio
                     listaPersonagens.Add(personagem);
                 }
                 connection.Close();
-                
+
             }
             return listaPersonagens;
         }
@@ -168,6 +168,7 @@ namespace StreetFighter.Repositorio
 
         public List<Usuario> buscarUsuarios()
         {
+            /*
             var usuariosCadastrados = File.ReadAllLines(caminhoArquivoUsuariosCadastrados)
                            .Select(line => line.Split(';'))
                            .Select(
@@ -177,10 +178,37 @@ namespace StreetFighter.Repositorio
                                         Nome = values[0],
                                         Senha = values[1],
                                     }).ToList();
-            return usuariosCadastrados;
+                                    */
+
+            string connectionString = ConfigurationManager.ConnectionStrings["PersonagemConexao"].ConnectionString;
+            List<Usuario> listaUsuarios = new List<Usuario>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                string sql = "SELECT * FROM USUARIO";
+
+                var command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var usuario = new Usuario()
+                    {
+                        Nome = reader["Usuario"].ToString(),
+                        Senha = reader["Senha"].ToString()
+
+                    };
+                    listaUsuarios.Add(usuario);
+                }
+                return listaUsuarios;
+
+            }
+
 
         }
-
-
     }
 }
