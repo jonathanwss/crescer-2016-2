@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Loja.Dominio.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@{ 
+    foreach (var x in Model)
+    {
+        <h1>@x.Nome</h1>
+        <h2>@x.Valor</h2>
+        <form  method="post" action="http://localhost:2464/Produto/EditarProduto?id=@x.Id">
+            <button type="submit" >Editar</button>
+        </form>
+        <br />
+    }
+}
+
+<a href="http://localhost:2464/Produto/CadastrarProduto">Cadastrar Novo Produto</a>

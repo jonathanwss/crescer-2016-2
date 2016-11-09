@@ -41,6 +41,9 @@ namespace StreetFighter.PersonagemRepositorioEntityF
             if(personagem.Id == 0)
             {
                 SalvarNovoPersonagem(personagem);
+            }else
+            {
+                SalvarPersonagemEditado(personagem);
             }
             
         }
@@ -50,6 +53,15 @@ namespace StreetFighter.PersonagemRepositorioEntityF
             using (var context = new StreetFighterContextBase())
             {
                 context.Entry<Personagem>(personagem).State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
+
+        private void SalvarPersonagemEditado(Personagem personagem)
+        {
+            using (var context = new StreetFighterContextBase())
+            {
+                context.Entry(personagem).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

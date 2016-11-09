@@ -1,0 +1,21 @@
+﻿using Loja.Dominio;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja.Repositorio
+{
+    public class UsuarioRepositorio : IUsuarioRepositorio
+    {
+        public Usuario BuscarPorEmail(string email)
+        {
+            using (var context = new ContextoDeDados())
+            {
+                var usuarioEncontrado = context.Usuario.FirstOrDefault(u => u.Email.Equals(email));
+                return usuarioEncontrado;
+            }
+        }
+    }
+}
