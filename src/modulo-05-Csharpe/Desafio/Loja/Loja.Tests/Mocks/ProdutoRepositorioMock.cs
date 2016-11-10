@@ -9,12 +9,12 @@ namespace Loja.Tests.Mocks
 {
     public class ProdutoRepositorioMock : IProdutoRepositorio
     {
-        public void CadastrarProduto()
+        public void CadastrarProduto(Produto produto)
         {
             throw new NotImplementedException();
         }
 
-        public void EditarProduto()
+        public void EditarProduto(Produto produto)
         {
             throw new NotImplementedException();
         }
@@ -27,6 +27,11 @@ namespace Loja.Tests.Mocks
             };
 
             return listaProdutos;
+        }
+
+        public Produto BuscarProdutoPorId(int id)
+        {
+            return null;
         }
     }
 }

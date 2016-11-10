@@ -13,5 +13,7 @@ namespace Loja.Dominio
         void EditarProduto(Produto produto);
 
         void CadastrarProduto(Produto produto);
+
+        Produto BuscarProdutoPorId(int id);
     }
 }

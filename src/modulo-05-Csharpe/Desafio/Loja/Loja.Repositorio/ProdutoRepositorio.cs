@@ -21,7 +21,11 @@ namespace Loja.Repositorio
 
         public void EditarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            using (var context = new ContextoDeDados())
+            {
+                context.Entry(produto).State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
 
         public List<Produto> ListaDeProdutos()
@@ -30,6 +34,15 @@ namespace Loja.Repositorio
             {
                 var listaDeProdutos = contexto.Produto;
                 return listaDeProdutos.ToList();
+            }
+        }
+
+        public Produto BuscarProdutoPorId(int id)
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                var produto = contexto.Produto.Find(id);
+                return produto;
             }
         }
     }

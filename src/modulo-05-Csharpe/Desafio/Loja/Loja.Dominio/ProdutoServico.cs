@@ -21,9 +21,21 @@ namespace Loja.Dominio
             return listaDeProdutos;
         }
 
-        public void CadastrarProduto(Produto produto)
+        public void SalvarProduto(Produto produto)
         {
-            this.produtoRepositorio.CadastrarProduto(produto);
+            if (produto.Id == 0)
+            {
+                this.produtoRepositorio.CadastrarProduto(produto);
+            }else
+            {
+                this.produtoRepositorio.EditarProduto(produto);
+            }
+            
+        }
+
+        public Produto BuscarProdutoPorId(int id)
+        {
+           return this.produtoRepositorio.BuscarProdutoPorId(id);
         }
     }
 }
