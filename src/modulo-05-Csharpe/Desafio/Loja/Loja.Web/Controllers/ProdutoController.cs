@@ -35,7 +35,18 @@ namespace Loja.Web.Controllers
         {
             var produtoServico = ServicoDeDependencias.MontarProdutoServicos();
 
-            produtoServico.SalvarProduto(produto);
+            try
+            {
+                produtoServico.SalvarProduto(produto);
+            }
+            catch(RegraDeNegocioException regra)
+            {
+                ModelState.AddModelError("", regra.Message);
+                ViewBag.Editar = true;
+                return View("CadastrarProduto", produto);
+            }
+
+            
 
             return View("Index", produtoServico.ListarProdutos());
         }

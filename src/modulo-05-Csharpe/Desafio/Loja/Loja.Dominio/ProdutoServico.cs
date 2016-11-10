@@ -23,15 +23,21 @@ namespace Loja.Dominio
 
         public void SalvarProduto(Produto produto)
         {
-            if (produto.Id == 0)
+            if (produto.Nome.Length > 1)
             {
-                this.produtoRepositorio.CadastrarProduto(produto);
+                if (produto.Id == 0)
+                {
+                    this.produtoRepositorio.CadastrarProduto(produto);
+                }
+                else
+                {
+                    this.produtoRepositorio.EditarProduto(produto);
+                }
             }else
             {
-                this.produtoRepositorio.EditarProduto(produto);
+                throw new RegraDeNegocioException("Nome deve possuir ao menos 2 caracteres");
             }
-            
-        }
+         }
 
         public Produto BuscarProdutoPorId(int id)
         {
