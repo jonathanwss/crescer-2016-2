@@ -11,7 +11,11 @@ package br.com.cwi.crescer.aula01;
  */
 public class Exercicio01 {
     public static void main(String args[]){
-        System.out.println(VerificarSeEhpalindromo("ovo"));
+        System.out.println("Recursos disponiveis nesta classe");
+        System.out.println("1-Verificar string vazia");
+        System.out.println("2-Verificar número de vogais");
+        System.out.println("3-Innverter palavra");
+        System.out.println("Verificar se palavra é palindromo");
     }
     
     public static boolean ValidarStringVazia(String frase){
@@ -20,13 +24,14 @@ public class Exercicio01 {
     
     public static int ContarNumeroDeVogais(String frase){
         int tamanho = frase.length();
+        String fraseLower = frase.toLowerCase();
          int numVogais = 0;
          for(int x = 0; x < tamanho;x++){
-             if(frase.substring(x,x+1).contains("a")||
-                     frase.substring(x,x+1).contains("e")||
-                     frase.substring(x,x+1).contains("i")||
-                     frase.substring(x,x+1).contains("o")||
-                     frase.substring(x,x+1).contains("u")){
+             if(fraseLower.substring(x,x+1).contains("a")||
+                     fraseLower.substring(x,x+1).contains("e")||
+                     fraseLower.substring(x,x+1).contains("i")||
+                     fraseLower.substring(x,x+1).contains("o")||
+                     fraseLower.substring(x,x+1).contains("u")){
                  numVogais++;
              }
          }
@@ -38,8 +43,8 @@ public class Exercicio01 {
     }
     
     public static boolean VerificarSeEhpalindromo(String frase){
-        StringBuilder string = new StringBuilder(frase);
-        StringBuilder igual = InverterString(frase);
-        return igual == string;
+        String fraseUpper = frase.toUpperCase();
+        String fraseInvertida = (String)InverterString(fraseUpper).toString();
+        return fraseInvertida.equals(fraseUpper);
     }
 }
