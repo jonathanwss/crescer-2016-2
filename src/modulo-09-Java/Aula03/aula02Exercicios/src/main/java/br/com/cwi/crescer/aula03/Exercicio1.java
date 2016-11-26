@@ -55,6 +55,8 @@ public class Exercicio1 {
                 
                 if(contem){
                     arquivo.RenomearArquivo(path);
+                }else{
+                    System.out.println("Arquivo ou caminho inválido");
                 }
             break;
             case "sair" :
