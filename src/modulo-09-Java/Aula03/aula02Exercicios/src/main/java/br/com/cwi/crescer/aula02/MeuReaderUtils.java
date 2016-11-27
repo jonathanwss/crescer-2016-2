@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.cwi.crescer.aula03;
+package br.com.cwi.crescer.aula02;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
