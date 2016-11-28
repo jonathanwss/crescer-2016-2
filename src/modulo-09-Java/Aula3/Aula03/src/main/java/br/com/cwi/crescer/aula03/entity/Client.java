@@ -56,4 +56,70 @@ public class Client implements Serializable {
     @Basic(optional = false)
     @Column(name = "TP_PERMISSION")
     private String tpPermission;
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPreferedCoin() {
+        return preferedCoin;
+    }
+
+    public void setPreferedCoin(String preferedCoin) {
+        this.preferedCoin = preferedCoin;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getNmClient() {
+        return nmClient;
+    }
+
+    public void setNmClient(String nmClient) {
+        this.nmClient = nmClient;
+    }
+
+    public String getTpPermission() {
+        return tpPermission;
+    }
+
+    public void setTpPermission(String tpPermission) {
+        this.tpPermission = tpPermission;
+    }
+    
+    
 }
