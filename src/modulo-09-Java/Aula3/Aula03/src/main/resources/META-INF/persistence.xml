@@ -3,6 +3,7 @@
   <persistence-unit name="CRESCER" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>br.com.cwi.crescer.aula03.entity.Pessoa</class>
+    <class>br.com.cwi.crescer.aula03.entity.Client</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="crescer"/>
