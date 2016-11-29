@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
@@ -46,7 +47,7 @@ public class Contract_Value implements Serializable {
     @Column(name = "VL_MONTHLY_USD")
     private Long monthlyUsd;
     
-    @OneToMany(cascade = ALL)
+    @OneToOne
     private Contract contract;
 
     public Long getIdContractValue() {

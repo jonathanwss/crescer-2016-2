@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
@@ -46,7 +47,7 @@ public class Contract implements Serializable {
     @Column(name = "NM_CONTRATO")
     private String nmContract;
     
-    @OneToMany(cascade = ALL)
+    @OneToOne
     private Client client;
 
     public Long getIdContract() {
