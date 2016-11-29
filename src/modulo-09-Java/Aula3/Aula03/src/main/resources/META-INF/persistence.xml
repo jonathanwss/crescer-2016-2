@@ -8,6 +8,8 @@
     <class>br.com.cwi.crescer.aula03.entity.Contract_Value</class>
     <class>br.com.cwi.crescer.aula03.entity.Cotacao</class>
     <class>br.com.cwi.crescer.aula03.entity.CurrencyExchange</class>
+    <class>br.com.cwi.crescer.aula03.entity.Servico</class>
+    <class>br.com.cwi.crescer.aula03.entity.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="crescer"/>
