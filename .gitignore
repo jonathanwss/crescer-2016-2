@@ -51,3 +51,6 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+/src/modulo-09-Java/Aula05/FilmeExe/target/
+/src/modulo-09-Java/Aula05/plsWorkDude/target/
+/src/modulo-09-Java/Exercicio aula 5/aula5/target/
