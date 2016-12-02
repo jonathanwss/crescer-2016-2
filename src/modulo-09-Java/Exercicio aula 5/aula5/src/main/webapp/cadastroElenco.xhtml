@@ -14,8 +14,8 @@
             <h:inputText id="descricao" value="#{cadastroElenco.elenco.nome}" styleClass="form-control"/>
         </div>
         <div class="form-group">
-            <h:selectManyListbox styleClass="selectpicker" value="#{cadastroElenco.elenco.atores}">
-                <f:selectItems value="#{cadastroAtor.pessoas}" var="ator" itemValue="#{ator.idAtor}" >
+            <h:selectManyListbox styleClass="form-control" value="#{cadastroElenco.ids}">
+                <f:selectItems value="#{cadastroElenco.elenco.atores}" var="ator" itemValue="#{ator.idAtor}" >
                 </f:selectItems>
             </h:selectManyListbox>
         </div>
@@ -38,8 +38,8 @@
             </h:column>
             
             <h:column>
-                <ui:repeat  value="#{elenco.atores}" var="ator">
-                    #{ator}
+                <ui:repeat  value="#{cadastroElenco.elenco.atores}" var="ator">
+                    #{ator.nome}
                 </ui:repeat>
             </h:column>
 

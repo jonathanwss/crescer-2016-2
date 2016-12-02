@@ -5,6 +5,7 @@
  */
 package br.com.cwi.crescer.aula4;
 
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,8 +33,4 @@ public class AtorBean extends AbstractDao<Ator, Long>{
     public List<Ator> findAll() {
         return this.getEntityManager().createQuery("select a from Ator a").getResultList();
     }
-
-    
-    
-    
 }

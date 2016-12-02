@@ -41,7 +41,7 @@ public class Ator implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "NOME")
     private String nome;
-
+    
     public BigDecimal getIdAtor() {
         return idAtor;
     }
@@ -61,5 +61,5 @@ public class Ator implements Serializable {
     @Override
     public String toString() {
         return this.getNome();
-    }   
+    }
 }

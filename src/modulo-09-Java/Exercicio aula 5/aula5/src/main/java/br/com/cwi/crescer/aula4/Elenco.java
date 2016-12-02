@@ -9,11 +9,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -38,9 +40,7 @@ public class Elenco implements Serializable{
     @Column(name = "NOME")
     private String nome;
     
-    @OneToMany
-    @Column(name = "ATORES")
-    @Basic(optional = false)
+    @OneToMany(cascade = ALL)
     private List<Ator> atores;
 
     public BigDecimal getIdElenco() {
