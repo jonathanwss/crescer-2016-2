@@ -68,20 +68,19 @@ public class CadastroElenco {
     public void adicionar() {
         //TO DO
         List<Ator> a = atorbean.findAll();
+        List<Ator> b = new ArrayList<>();
         List<BigDecimal> listaIds = new ArrayList<>();
         Ids.forEach( v -> {
             listaIds.add(BigDecimal.valueOf(Long.parseLong(v)));
         });
-        List<Ator> atorez = new ArrayList<>();
         for(BigDecimal id : listaIds){
-            elenco.getAtores().clear();
-            for(Ator b : a){
-                if(b.getIdAtor() == id){
-                    atorez.add(b);
-                }
+            a.removeIf( ac -> ac.getIdAtor().intValue() != id.intValue());
+            if(a.size()>0){
+                b.add(a.get(0));
             }
+            a = atorbean.findAll();
         }
-        elenco.setAtores(atorez);
+        elenco.setAtores(b);
         elencoBean.insert(elenco);
         this.init();
        // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Teste", "teste"));
