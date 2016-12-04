@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+        <h1>Cadastro de Filme</h1>
+        <div class="form-group"> 
+            <h:inputText id="titulo" value="#{filmeCadastro.filme.titulo}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group"> 
+            <h:inputText id="diretor" value="#{filmeCadastro.filme.diretor}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group">
+            <h:selectOneListbox styleClass="form-control" value="#{filmeCadastro.idGenero}">
+                <f:selectItems value="#{cadastroGenero.generos}" var="genero" itemValue="#{genero.idGenero}" >
+                </f:selectItems>
+            </h:selectOneListbox>
+        </div>
+        <div class="form-group">
+            <h:selectOneListbox styleClass="form-control" value="#{filmeCadastro.idClassificacao}">
+                <f:selectItems value="#{cadastroClassificacao.classificacoes}" var="classificacao" itemValue="#{classificacao.idClassificacao}" >
+                </f:selectItems>
+            </h:selectOneListbox>
+        </div>
+        
+        <div class="form-group">
+            <h:selectOneListbox styleClass="form-control" value="#{filmeCadastro.idElenco}">
+                <f:selectItems value="#{cadastroElenco.elencos}" var="elencos" itemValue="#{elencos.idElenco}" >
+                </f:selectItems>
+            </h:selectOneListbox>
+        </div>
+        
+        <div class="form-group">
+            <h:selectOneListbox styleClass="form-control" value="#{filmeCadastro.idIdioma}">
+                <f:selectItems value="#{cadastroIdioma.idiomas}" var="idioma" itemValue="#{idioma.idIdioma}" >
+                </f:selectItems>
+            </h:selectOneListbox>
+        </div>
+        
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{filmeCadastro.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="pessoas" value="#{filmeCadastro.filmes}" var="filme" styleClass="table table-hover">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.pessoa_id}"/>
+                </f:facet>
+                <h:outputText value="#{filme.idFilme}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.pessoa_nome}"/>
+                </f:facet>
+                <h:outputText value="#{filme.titulo}"/>
+            </h:column>
+        </h:dataTable>
+
+        <h:messages id="messages">
+
+        </h:messages>
+
+
+    </ui:define>
+
+</ui:composition>
