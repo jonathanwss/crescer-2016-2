@@ -33,7 +33,7 @@ public class Elenco implements Serializable{
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_ELENCO")
     @SequenceGenerator(name = "SEQ_ELENCO", sequenceName = "SEQ_ELENCO", allocationSize = 1)
     @Column(name = "ID_ELENCO")
-    private BigDecimal idElenco;
+    private Long idElenco;
     
     @Basic(optional = false)
     @Size(min = 1, max = 50)
@@ -43,11 +43,11 @@ public class Elenco implements Serializable{
     @OneToMany(cascade = ALL)
     private List<Ator> atores;
 
-    public BigDecimal getIdElenco() {
+    public Long getIdElenco() {
         return idElenco;
     }
 
-    public void setIdElenco(BigDecimal idElenco) {
+    public void setIdElenco(Long idElenco) {
         this.idElenco = idElenco;
     }
 
@@ -65,5 +65,10 @@ public class Elenco implements Serializable{
 
     public void setAtores(List<Ator> atores) {
         this.atores = atores;
+    }
+    
+    @Override
+    public String toString(){
+        return nome;
     }
 }

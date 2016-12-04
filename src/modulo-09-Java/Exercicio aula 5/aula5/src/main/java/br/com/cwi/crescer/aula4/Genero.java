@@ -29,18 +29,18 @@ public class Genero implements Serializable{
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_GENERO")
     @SequenceGenerator(name = "SEQ_GENERO", sequenceName = "SEQ_GENERO", allocationSize = 1)
     @Column(name = "ID_GENERO")
-    private BigDecimal idGenero;
+    private Long idGenero;
     
     @Basic(optional = false)
     @Size(min = 1, max = 50)
     @Column(name = "DESCRICAO")
     private String descricao;
 
-    public BigDecimal getIdGenero() {
+    public Long getIdGenero() {
         return idGenero;
     }
 
-    public void setIdGenero(BigDecimal idGenero) {
+    public void setIdGenero(Long idGenero) {
         this.idGenero = idGenero;
     }
 
@@ -52,5 +52,8 @@ public class Genero implements Serializable{
         this.descricao = descricao;
     }
     
-    
+    @Override
+    public String toString(){
+        return descricao;
+    }
 }

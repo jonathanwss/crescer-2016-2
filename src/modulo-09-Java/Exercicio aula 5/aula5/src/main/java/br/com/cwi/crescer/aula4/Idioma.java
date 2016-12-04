@@ -29,18 +29,18 @@ public class Idioma implements Serializable{
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_IDIOMA")
     @SequenceGenerator(name = "SEQ_IDIOMA", sequenceName = "SEQ_IDIOMA", allocationSize = 1)
     @Column(name = "ID_IDIOMA")
-    private BigDecimal idIdioma;
+    private Long idIdioma;
     
     @Basic(optional = false)
     @Size(min = 1, max = 50)
     @Column(name = "NOME")
     private String nome;
 
-    public BigDecimal getIdIdioma() {
+    public Long getIdIdioma() {
         return idIdioma;
     }
 
-    public void setIdIdioma(BigDecimal idIdioma) {
+    public void setIdIdioma(Long idIdioma) {
         this.idIdioma = idIdioma;
     }
 
@@ -52,5 +52,8 @@ public class Idioma implements Serializable{
         this.nome = nome;
     }
     
-    
+    @Override
+    public String toString(){
+        return nome;
+    }
 }

@@ -27,6 +27,7 @@
         <h:dataTable id="pessoas" value="#{cadastroElenco.elencos}" var="elenco" styleClass="table table-hover">
             <h:column>
                 <f:facet name="header">
+                    <h:outputText value="#{bundle.pessoa_id}"/>
                 </f:facet>
                 <h:outputText value="#{elenco.idElenco}"/>
             </h:column>
@@ -36,13 +37,6 @@
                 </f:facet>
                 <h:outputText value="#{elenco.nome}"/>
             </h:column>
-            
-            <h:column>
-                <ui:repeat  value="#{cadastroElenco.elenco.atores}" var="ator">
-                    #{ator.nome}
-                </ui:repeat>
-            </h:column>
-
         </h:dataTable>
 
         <h:messages id="messages">

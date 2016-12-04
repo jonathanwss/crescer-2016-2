@@ -5,6 +5,7 @@
  */
 package br.com.cwi.crescer.aula4;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,13 +23,13 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "Classificacao")
-public class Classificacao {
+public class Classificacao implements Serializable {
     @Id
     @Basic(optional = false)
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CLASSIFICACAO")
     @SequenceGenerator(name = "SEQ_CLASSIFICACAO", sequenceName = "SEQ_CLASSIFICACAO", allocationSize = 1)
     @Column(name = "ID_CLASSIFICACAO")
-    private BigDecimal idClassificacao;
+    private Long idClassificacao;
     
     @Basic(optional = false)
     @Size(min = 1, max = 50)
@@ -39,11 +40,11 @@ public class Classificacao {
     @Column(name = "IDADE")
     private int idade;
 
-    public BigDecimal getIdClassificacao() {
+    public Long getIdClassificacao() {
         return idClassificacao;
     }
 
-    public void setIdClassificacao(BigDecimal idClassificacao) {
+    public void setIdClassificacao(Long idClassificacao) {
         this.idClassificacao = idClassificacao;
     }
 
@@ -61,5 +62,10 @@ public class Classificacao {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+    
+    @Override
+    public String toString(){
+        return descricao;
     }
 }
