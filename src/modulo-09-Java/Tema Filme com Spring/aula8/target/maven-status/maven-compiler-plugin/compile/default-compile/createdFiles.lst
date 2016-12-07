@@ -1,0 +1,17 @@
+br\com\cwi\crescer\aula8\repository\AtorRepository.class
+br\com\cwi\crescer\aula8\service\AtorService.class
+br\com\cwi\crescer\aula8\dto\PessoaDto.class
+br\com\cwi\crescer\aula8\controller\PessoaController.class
+br\com\cwi\crescer\aula8\repository\PessoaRepository.class
+br\com\cwi\crescer\aula8\controller\Example.class
+br\com\cwi\crescer\aula8\service\PessoaService.class
+br\com\cwi\crescer\aula8\AppRun.class
+br\com\cwi\crescer\aula8\controller\DataController.class
+br\com\cwi\crescer\aula8\controller\PessoaRest.class
+br\com\cwi\crescer\aula8\security\CrescerUserDetailsService.class
+br\com\cwi\crescer\aula8\security\CrescerWebSecurityConfig.class
+br\com\cwi\crescer\aula8\security\Roles.class
+br\com\cwi\crescer\aula8\controller\LoginController.class
+br\com\cwi\crescer\aula8\entity\Pessoa.class
+br\com\cwi\crescer\aula8\entity\Ator.class
+br\com\cwi\crescer\aula8\controller\AtorController.class
